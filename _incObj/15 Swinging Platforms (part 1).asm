@@ -50,6 +50,7 @@ Swing_Main:	/* Routine 0 */
 
 2:
 		move.b	0(a0),d4
+		nop /* padding for bindiff */
 		moveq	#0,d1
 		lea	obSubtype(a0),a2 /* move chain length to a2 */
 		move.b	(a2),d1		/* move a2 to d1 */
@@ -77,6 +78,7 @@ Swing_Main:	/* Routine 0 */
 		move.b	d5,(a2)+
 		move.b	#0xA,obRoutine(a1) /* goto Swing_Display next */
 		move.b	d4,0(a1)	/* load swinging	object */
+		nop /* padding for bindiff */
 		move.l	obMap(a0),obMap(a1)
 		move.w	obGfx(a0),obGfx(a1)
 		bclr	#6,obGfx(a1)

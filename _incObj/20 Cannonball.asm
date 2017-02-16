@@ -59,7 +59,9 @@ Cbal_ChkExplode:
 
 	Cbal_Explode:
 		move.b	#id_MissileDissolve,0(a0)
+		nop /* padding for bindiff */
 		move.b	#id_ExplosionBomb,0(a0)	/* change object	to an explosion	($3F) */
+		nop /* padding for bindiff */
 		move.b	#0,obRoutine(a0) /* reset routine counter */
 		bra.w	ExplosionBomb	/* jump to explosion code */
 # ===========================================================================

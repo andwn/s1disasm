@@ -176,6 +176,7 @@ loc_B01C:
 		bsr.w	FindNextFreeObj
 		bne.s	loc_B07A
 		move.b	#id_GrassFire,0(a1) /* load sitting flame object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	lgrass_origY(a0),lgrass_origY(a1)
 		addq.w	#8,lgrass_origY(a1)

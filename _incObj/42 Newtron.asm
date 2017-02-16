@@ -142,6 +142,7 @@ newtState:		dc.w 6f-newtState
 		bsr.w	FindFreeObj
 		bne.s	17f
 		move.b	#id_Missile,0(a1) /* load missile object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		subq.w	#8,obY(a1)

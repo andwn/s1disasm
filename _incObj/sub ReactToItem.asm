@@ -207,6 +207,7 @@ React_Enemy:
 	6:
 		bsr.w	AddPoints
 		move.b	#id_ExplosionItem,0(a1) /* change object to explosion */
+		nop /* padding for bindiff */
 		move.b	#0,obRoutine(a1)
 		tst.w	obVelY(a0)
 		bmi.s	7f
@@ -266,6 +267,7 @@ HurtSonic:
 		jsr	(FindFreeObj).l
 		bne.s	1f
 		move.b	#id_RingLoss,0(a1) /* load bouncing multi rings object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 

@@ -144,6 +144,7 @@ Mon_BreakOpen:	/* Routine 4 */
 		bsr.w	FindFreeObj
 		bne.s	Mon_Explode
 		move.b	#id_PowerUp,0(a1) /* load monitor contents object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.b	obAnim(a0),obAnim(a1)
@@ -152,6 +153,7 @@ Mon_Explode:
 		bsr.w	FindFreeObj
 		bne.s	1f
 		move.b	#id_ExplosionItem,0(a1) /* load explosion object */
+		nop /* padding for bindiff */
 		addq.b	#2,obRoutine(a1) /* don't create an animal */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)

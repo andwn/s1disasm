@@ -90,6 +90,7 @@ crabData:		dc.w 1-1
 		bsr.w	FindFreeObj
 		bne.s	8f
 		move.b	#id_Crabmeat,0(a1) /* load left fireball */
+		nop /* padding for bindiff */
 		move.b	#id_Crab_BallMain,obRoutine(a1)
 		move.w	obX(a0),obX(a1)
 		subi.w	#0x10,obX(a1)
@@ -100,6 +101,7 @@ crabData:		dc.w 1-1
 		bsr.w	FindFreeObj
 		bne.s	9f
 		move.b	#id_Crabmeat,0(a1) /* load right fireball */
+		nop /* padding for bindiff */
 		move.b	#id_Crab_BallMain,obRoutine(a1)
 		move.w	obX(a0),obX(a1)
 		addi.w	#0x10,obX(a1)

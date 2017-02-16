@@ -29,6 +29,7 @@ Jun_Main:	/* Routine 0 */
 		bsr.w	FindFreeObj
 		bne.s	3f
 		move.b	#id_Junction,0(a1)
+		nop /* padding for bindiff */
 		addq.b	#4,obRoutine(a1) /* goto Jun_Display next */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)

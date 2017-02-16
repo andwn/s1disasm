@@ -83,6 +83,7 @@ Lamp_Blue:	/* Routine 2 */
 		jsr	(FindFreeObj).l
 		bne.s	3f
 		move.b	#id_Lamppost,0(a1)	/* load twirling	lamp object */
+		nop /* padding for bindiff */
 		move.b	#6,obRoutine(a1) /* goto Lamp_Twirl next */
 		move.w	obX(a0),lamp_origX(a1)
 		move.w	obY(a0),lamp_origY(a1)

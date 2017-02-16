@@ -37,6 +37,7 @@ Obj7A_Loop:
 		jsr	(FindNextFreeObj).l
 		bne.s	loc_1895C
 		move.b	#id_BossStarLight,0(a1)
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 

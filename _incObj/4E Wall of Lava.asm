@@ -30,6 +30,7 @@ LWall_Main:	/* Routine 0 */
 
 1:
 		move.b	#id_LavaWall,0(a1)	/* load object */
+		nop /* padding for bindiff */
 		move.l	#Map_LWall,obMap(a1)
 		move.w	#0x63A8,obGfx(a1)
 		move.b	#4,obRender(a1)

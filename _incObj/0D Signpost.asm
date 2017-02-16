@@ -68,6 +68,7 @@ Sign_Spin:	/* Routine 4 */
 		bsr.w	FindFreeObj
 		bne.s	2f
 		move.b	#id_Rings,0(a1)	/* load rings object */
+		nop /* padding for bindiff */
 		move.b	#id_Ring_Sparkle,obRoutine(a1) /* jump to ring sparkle subroutine */
 		move.b	(a2)+,d0
 		ext.w	d0

@@ -34,6 +34,7 @@ GBall_MakeLinks:
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.b	#id_BossBall,0(a1) /* load chain link object */
+		nop /* padding for bindiff */
 		move.b	#6,obRoutine(a1)
 		move.l	#Map_Swing_GHZ,obMap(a1)
 		move.w	#0x380,obGfx(a1)
@@ -128,6 +129,7 @@ loc_17C3C:
 		tst.b	obStatus(a1)
 		bpl.s	locret_17C66
 		move.b	#id_ExplosionBomb,0(a0)
+		nop /* padding for bindiff */
 		move.b	#0,obRoutine(a0)
 
 locret_17C66:
@@ -141,6 +143,7 @@ loc_17C68:	/* Routine 6 */
 		tst.b	obStatus(a1)
 		bpl.s	GBall_Display3
 		move.b	#id_ExplosionBomb,0(a0)
+		nop /* padding for bindiff */
 		move.b	#0,obRoutine(a0)
 
 GBall_Display3:

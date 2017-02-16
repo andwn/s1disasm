@@ -529,6 +529,7 @@ loc_1C4D2:
 		move.l	0xC(a1),d0
 		rol.l	#8,d0
 		move.b	0(a1),d0
+		nop /* padding for bindiff */
 		move.l	d0,(a6)
 		lea	0x10(a1),a1
 		dbf	d1,loc_1C4D2
@@ -538,6 +539,7 @@ loc_1C4D2:
 loc_1C4E8:
 		move.w	0xE(a1),(a6)
 		move.w	0(a1),(a6)
+		nop /* padding for bindiff */
 		lea	0x10(a1),a1
 		dbf	d1,loc_1C4E8
 		rts	
@@ -545,6 +547,7 @@ loc_1C4E8:
 
 loc_1C4FA:
 		move.l	0(a1),d0
+		nop /* padding for bindiff */
 		move.b	0xF(a1),d0
 		ror.l	#8,d0
 		move.l	d0,(a6)

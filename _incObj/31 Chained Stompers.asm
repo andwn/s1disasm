@@ -63,6 +63,7 @@ CStom_Loop:
 CStom_MakeStomper:
 		move.b	(a2)+,obRoutine(a1)
 		move.b	#id_ChainStomp,0(a1)
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.b	(a2)+,d0
 		ext.w	d0

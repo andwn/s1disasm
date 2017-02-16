@@ -82,6 +82,7 @@ Ring_MakeRings:
 
 loc_9BBA:
 		move.b	#id_Rings,0(a1)	/* load ring object */
+		nop /* padding for bindiff */
 		addq.b	#2,obRoutine(a1)
 		move.w	d2,obX(a1)	/* set x-axis position based on d2 */
 		move.w	obX(a0),0x32(a1)
@@ -197,6 +198,7 @@ RLoss_Count:	/* Routine 0 */
 
 2:
 		move.b	#id_RingLoss,0(a1) /* load bouncing ring object */
+		nop /* padding for bindiff */
 		addq.b	#2,obRoutine(a1)
 		move.b	#8,obHeight(a1)
 		move.b	#8,obWidth(a1)

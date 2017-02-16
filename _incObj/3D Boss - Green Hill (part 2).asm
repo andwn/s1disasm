@@ -11,6 +11,7 @@ BGHZ_MakeBall:
 		jsr	(FindNextFreeObj).l
 		bne.s	loc_17910
 		move.b	#id_BossBall,0(a1) /* load swinging ball object */
+		nop /* padding for bindiff */
 		move.w	0x30(a0),obX(a1)
 		move.w	0x38(a0),obY(a1)
 		move.l	a0,0x34(a1)

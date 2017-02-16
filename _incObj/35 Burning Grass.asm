@@ -57,6 +57,7 @@ loc_B238:	/* Routine 2 */
 		bsr.w	FindNextFreeObj
 		bne.s	loc_B2B0
 		move.b	#id_GrassFire,0(a1)
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	d2,0x2C(a1)
 		move.w	0x3C(a0),0x3C(a1)

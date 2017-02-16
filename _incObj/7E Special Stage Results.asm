@@ -39,6 +39,7 @@ SSR_Main:
 
 	SSR_Loop:
 		move.b	#id_SSResult,0(a1)
+		nop /* padding for bindiff */
 		move.w	(a2)+,obX(a1)	/* load start x-position */
 		move.w	(a2)+,ssr_mainX(a1) /* load main x-position */
 		move.w	(a2)+,obScreenY(a1) /* load y-position */

@@ -61,6 +61,7 @@ buzzIndex:		dc.w 3f-buzzIndex
 		bsr.w	FindFreeObj
 		bne.s	6f
 		move.b	#id_Missile,0(a1) /* load missile object */
+		nop /* for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		addi.w	#0x1C,obY(a1)

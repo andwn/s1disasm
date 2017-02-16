@@ -151,6 +151,7 @@ loc_6EB0:
 		bsr.w	FindFreeObj
 		bne.s	loc_6ED0
 		move.b	#id_BossGreenHill,0(a1) /* load GHZ boss	object */
+		nop /* padding for bindiff */
 		move.w	#0x2A60,obX(a1)
 		move.w	#0x280,obY(a1)
 
@@ -210,6 +211,7 @@ loc_6F28:
 		bsr.w	FindFreeObj
 		bne.s	loc_6F4A
 		move.b	#id_BossLabyrinth,0(a1) /* load LZ boss object */
+		nop /* padding for bindiff */
 
 loc_6F4A:
 		music	bgm_Boss,0,1,0	/* play boss music */
@@ -390,6 +392,7 @@ DLE_MZ3boss:
 		bsr.w	FindFreeObj
 		bne.s	loc_70D0
 		move.b	#id_BossMarble,0(a1) /* load MZ boss object */
+		nop /* padding for bindiff */
 		move.w	#0x19F0,obX(a1)
 		move.w	#0x22C,obY(a1)
 

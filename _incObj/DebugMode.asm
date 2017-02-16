@@ -165,6 +165,7 @@ Debug_ChgItem:
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.b	4(a0),0(a1)	/* create object */
+		nop /* padding for bindiff */
 		move.b	obRender(a0),obRender(a1)
 		move.b	obRender(a0),obStatus(a1)
 		andi.b	#0x7F,obStatus(a1)

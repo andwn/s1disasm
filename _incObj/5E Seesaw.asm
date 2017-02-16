@@ -46,6 +46,7 @@ See_Main:	/* Routine 0 */
 		bsr.w	FindNextFreeObj
 		bne.s	1f
 		move.b	#id_Seesaw,0(a1) /* load spikeball object */
+		nop /* padding for bindiff */
 		addq.b	#6,obRoutine(a1) /* use See_Spikeball routine */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)

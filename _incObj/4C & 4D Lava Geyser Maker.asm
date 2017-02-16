@@ -53,6 +53,7 @@ GMake_MakeLava:	/* Routine 6 */
 		bsr.w	FindNextFreeObj
 		bne.s	1f
 		move.b	#id_LavaGeyser,0(a1) /* load lavafall object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.b	obSubtype(a0),obSubtype(a1)
@@ -138,6 +139,7 @@ Geyser_Main:	/* Routine 0 */
 
 2:
 		move.b	#id_LavaGeyser,0(a1)
+		nop /* padding for bindiff */
 		move.l	#Map_Geyser,obMap(a1)
 		move.w	#0x63A8,obGfx(a1)
 		move.b	#4,obRender(a1)

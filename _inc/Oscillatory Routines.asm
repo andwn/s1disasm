@@ -43,48 +43,53 @@ oscDir:	dc.w 0b0000000001111100	/* oscillation direction bitfield */
 
 OscillateNumDo:
 		cmpi.b	#6,(v_player+obRoutine).w /* has Sonic just died? */
-		bcc.s	1f		/* if yes, branch */
+		bcc.s	oscEnd		/* if yes, branch */
 		lea	(v_oscillate).w,a1
-		lea	(oscData).l,a2
+		lea	(oscSettings).l,a2
 		move.w	(a1)+,d3	/* get oscillation direction bitfield */
 		moveq	#0xF,d1
 
-3:
+oscLoop:
 		move.w	(a2)+,d2	/* get frequency */
 		move.w	(a2)+,d4	/* get amplitude */
 		btst	d1,d3		/* check oscillation direction */
-		bne.s	4f		/* branch if 1 */
+		bne.s	oscDown		/* branch if 1 */
 
-	5:
+oscUp:
 		move.w	2(a1),d0	/* get current rate */
 		add.w	d2,d0		/* add frequency */
 		move.w	d0,2(a1)
 		add.w	d0,0(a1)	/* add rate to value */
+		nop /* filling space for bindiff */
 		cmp.b	0(a1),d4
-		bhi.s	6f
+		nop /* filling space for bindiff */
+		bhi.s	oscNext
 		bset	d1,d3
-		bra.s	6f
+		bra.s	oscNext
 
-	4:
+oscDown:
 		move.w	2(a1),d0
 		sub.w	d2,d0
 		move.w	d0,2(a1)
 		add.w	d0,0(a1)
+		nop /* filling space for bindiff */
 		cmp.b	0(a1),d4
-		bls.s	6f
+		nop /* filling space for bindiff */
+		bls.s	oscNext
 		bclr	d1,d3
 
-	6:
+oscNext:
 		addq.w	#4,a1
-		dbf d1,3b
+		dbf d1,oscLoop
 		move.w	d3,(v_oscillate).w
 
-1:
+oscEnd:
 		rts	
 # End of function OscillateNumDo
 
 # ===========================================================================
-oscData:	dc.w 2,	0x10	/* frequency, amplitude */
+oscSettings:
+		dc.w 2,	0x10	/* frequency, amplitude */
 		dc.w 2,	0x18
 		dc.w 2,	0x20
 		dc.w 2,	0x30

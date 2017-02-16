@@ -220,11 +220,11 @@ SetupValues:	dc.w 0x8000		/* VDP register start number */
 
 GameProgram:
 		tst.w	(vdp_control_port).l
-#		btst	#6,(0xA1000D).l
-#		beq.s	CheckSumCheck
-#		cmpi.l	#0x696e6974,(v_init).w /* has checksum routine already run? */
-#		beq.w	GameInit	/* if yes, branch */
-		bra.w	GameInit
+		btst	#6,(0xA1000D).l
+		beq.s	CheckSumCheck
+		cmpi.l	#0x696e6974,(v_init).w /* has checksum routine already run? */
+		beq.w	GameInit	/* if yes, branch */
+#		bra.w	GameInit
 
 CheckSumCheck:
 		movea.l	#ErrorTrap,a0	/* start	checking bytes after the header	($200) */
@@ -414,23 +414,23 @@ ShowErrorMessage:
 # End of function ShowErrorMessage
 
 # ===========================================================================
-ErrorText:	dc.w 3f-ErrorText, 3f-ErrorText
-		dc.w 4f-ErrorText, 4f-ErrorText
-		dc.w 5f-ErrorText, 5f-ErrorText
-		dc.w 6f-ErrorText, 6f-ErrorText
-		dc.w 7f-ErrorText, 7f-ErrorText
-		dc.w 8f-ErrorText
-3:	.ascii "ERROR EXCEPTION    "
-9:		.ascii "BUS ERROR          "
-4:	.ascii "ADDRESS ERROR      "
-10:	.ascii "ILLEGAL INSTRUCTION"
-5:	.ascii "5 DIVIDE        "
-11:	.ascii "CHK INSTRUCTION    "
-6:		.ascii "TRAPV INSTRUCTION  "
-12:	.ascii "PRIVILEGE VIOLATION"
-7:		.ascii "TRACE              "
-13:	.ascii "LINE 1010 EMULATOR "
-8:	.ascii "LINE 1111 EMULATOR "
+ErrorText:	dc.w errException-ErrorText, errBus-ErrorText
+		dc.w errAddress-ErrorText, errIllegal-ErrorText
+		dc.w errDivide-ErrorText, errChk-ErrorText
+		dc.w errTrapv-ErrorText, errViolation-ErrorText
+		dc.w errTrace-ErrorText, err1010-ErrorText
+		dc.w err1111-ErrorText
+errException:	.ascii "ERROR EXCEPTION    "
+errBus:			.ascii "BUS ERROR          "
+errAddress:		.ascii "ADDRESS ERROR      "
+errIllegal:		.ascii "ILLEGAL INSTRUCTION"
+errDivide:		.ascii "@ERO DIVIDE        "
+errChk:			.ascii "CHK INSTRUCTION    "
+errTrapv:		.ascii "TRAPV INSTRUCTION  "
+errViolation:	.ascii "PRIVILEGE VIOLATION"
+errTrace:		.ascii "TRACE              "
+err1010:		.ascii "LINE 1010 EMULATOR "
+err1111:		.ascii "LINE 1111 EMULATOR "
 		.align 2
 
 # ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
@@ -5441,6 +5441,7 @@ loc_8486:
 		addq.w	#1,a3
 		bset	#5,obRender(a0)
 		move.b	0(a0),d4
+		nop /* padding for bindiff */
 		move.b	obRender(a0),d5
 		movea.l	a0,a1
 		bra.s	loc_84B2
@@ -5454,6 +5455,7 @@ loc_84AA:
 loc_84B2:
 		move.b	#6,obRoutine(a1)
 		move.b	d4,0(a1)
+		nop /* padding for bindiff */
 		move.l	a3,obMap(a1)
 		move.b	d5,obRender(a1)
 		move.w	obX(a0),obX(a1)
@@ -6604,6 +6606,7 @@ OPL_MakeItem:
 
 loc_DA80:
 		move.b	d0,0(a1)
+		nop /* padding for bindiff */
 		move.b	(a0)+,obSubtype(a1)
 		moveq	#0,d0
 
@@ -7567,6 +7570,7 @@ BossDefeated:
 		jsr	(FindFreeObj).l
 		bne.s	locret_178A2
 		move.b	#id_ExplosionBomb,0(a1)	/* load explosion object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		jsr	(RandomNumber).l
@@ -9094,13 +9098,7 @@ ObjPos_Null:	dc.b 0xFF, 0xFF, 0, 0, 0,	0
 		.else
 		.fill 0x63C,1,0xFF
 		.endc
-#		.align ($10000-(*%$10000))-(EndOfRom-SoundDriver),$FF
 
 SoundDriver:	.include "s1.sounddriver.asm"
 
-# end of 'ROM'
-		.align 2
 EndOfRom:
-
-
-#		END

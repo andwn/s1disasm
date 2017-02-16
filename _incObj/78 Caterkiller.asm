@@ -67,6 +67,7 @@ Cat_Loop:
 			bne.w	Cat_ChkGone
 		.endc
 		move.b	#id_Caterkiller,0(a1) /* load body segment object */
+		nop /* padding for bindiff */
 		move.b	d6,obRoutine(a1) /* goto Cat_BodySeg1 or Cat_BodySeg2 next */
 		addq.b	#2,d6		/* alternate between the two */
 		move.l	obMap(a0),obMap(a1)
@@ -133,7 +134,7 @@ Cat_Head:	/* Routine 2 */
 Cat_Delete:	/* Routine $A */
 		jmp	(DeleteObject).l
 # ===========================================================================
-Cat_Index2:	dc.w 1-Cat_Index2
+Cat_Index2:	dc.w 1f-Cat_Index2
 		dc.w loc_16B02-Cat_Index2
 # ===========================================================================
 
@@ -341,6 +342,7 @@ loc_16C64:
 		cmpi.b	#0xC,obRoutine(a1)
 		beq.s	loc_16C90
 		cmpi.b	#id_ExplosionItem,0(a1)
+		nop /* padding for bindiff */
 		beq.s	loc_16C7C
 		cmpi.b	#0xA,obRoutine(a1)
 		bne.s	loc_16C82

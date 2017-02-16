@@ -57,6 +57,7 @@ Hog_Action:	/* Routine 2 */
 		bsr.w	FindFreeObj
 		bne.s	4f
 		move.b	#id_Cannonball,0(a1) /* load cannonball object ($20) */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.w	#-0x100,obVelX(a1) /* cannonball bounces to the left */

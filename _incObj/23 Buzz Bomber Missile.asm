@@ -52,6 +52,7 @@ Msl_Animate:	/* Routine 2 */
 Msl_ChkCancel:
 		movea.l	msl_parent(a0),a1
 		cmpi.b	#id_ExplosionItem,0(a1) /* has Buzz Bomber been destroyed? */
+		nop /* padding for bindiff */
 		beq.s	Msl_Delete	/* if yes, branch */
 		rts	
 # End of function Msl_ChkCancel
@@ -76,6 +77,7 @@ Msl_FromBuzz:	/* Routine 4 */
 
 	1:
 		move.b	#id_MissileDissolve,0(a0) /* change object to an explosion (Obj24) */
+		nop /* padding for bindiff */
 		move.b	#0,obRoutine(a0)
 		bra.w	MissileDissolve
 # ===========================================================================

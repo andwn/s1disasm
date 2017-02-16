@@ -56,6 +56,7 @@ ExItem_Animal:	/* Routine 0 */
 		bsr.w	FindFreeObj
 		bne.s	ExItem_Main
 		move.b	#id_Animals,0(a1) /* load animal object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.w	0x3E(a0),0x3E(a1)

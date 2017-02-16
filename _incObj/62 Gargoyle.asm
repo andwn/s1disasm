@@ -40,6 +40,7 @@ Gar_MakeFire:	/* Routine 2 */
 		bsr.w	FindFreeObj
 		bne.s	1f
 		move.b	#id_Gargoyle,0(a1) /* load fireball object */
+		nop /* padding for bindiff */
 		addq.b	#4,obRoutine(a1) /* use Gar_FireBall routine */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)

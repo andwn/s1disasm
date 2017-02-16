@@ -46,7 +46,7 @@ NemDec2:
 		subq.w	#8,d7
 		move.w	d5,d1
 		lsr.w	d7,d1
-		cmpi.b	#-4,d1
+		cmpi.b	#-4,d1 /* asm68k: 0C 01 00 FC / GAS: 0C 01 FF FC why? */
 		bcc.s	loc_14D6
 		andi.w	#0xFF,d1
 		add.w	d1,d1

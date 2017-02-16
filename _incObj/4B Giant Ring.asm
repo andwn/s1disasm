@@ -46,6 +46,7 @@ GRing_Collect:	/* Routine 4 */
 		bsr.w	FindFreeObj
 		bne.w	GRing_PlaySnd
 		move.b	#id_RingFlash,0(a1) /* load giant ring flash object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.l	a0,0x3C(a1)

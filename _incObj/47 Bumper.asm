@@ -58,6 +58,7 @@ Bump_Hit:	/* Routine 2 */
 		bsr.w	FindFreeObj
 		bne.s	1f
 		move.b	#id_Points,0(a1) /* load points object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.b	#4,obFrame(a1)

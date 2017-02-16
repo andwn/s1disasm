@@ -2,13 +2,13 @@
 # Debug	mode item lists
 # ---------------------------------------------------------------------------
 DebugList:
-	dc.w 1-DebugList
-	dc.w 2-DebugList
-	dc.w 3-DebugList
-	dc.w 4-DebugList
-	dc.w 5-DebugList
-	dc.w 6-DebugList
-	dc.w 7-DebugList
+	dc.w dbgGHZ-DebugList
+	dc.w dbgLZ-DebugList
+	dc.w dbgMZ-DebugList
+	dc.w dbgSLZ-DebugList
+	dc.w dbgSYZ-DebugList
+	dc.w dbgSBZ-DebugList
+	dc.w dbgFZ-DebugList
 #	zonewarning DebugList,2
 
 .macro dbug map,object,subtype,frame,vram
@@ -17,8 +17,8 @@ DebugList:
 	dc.w \vram
 .endm
 
-1:
-	dc.w (2-2-2)/8
+dbgGHZ:
+	dc.w (dbgGHZ-dbgGHZend-2)/8
 
 #		mappings	object		subtype	frame	VRAM setting
 	dbug 	Map_Ring,	id_Rings,	0,	0,	0x27B2
@@ -37,10 +37,10 @@ DebugList:
 	dbug	Map_Lamp,	id_Lamppost,	1,	0,	0x7A0
 	dbug	Map_GRing,	id_GiantRing,	0,	0,	0x2400
 	dbug	Map_Bonus,	id_HiddenBonus,	1,	1,	0x84B6
-	2:
+dbgGHZend:
 
-3:
-	dc.w (4-4-2)/8
+dbgLZ:
+	dc.w (dbgLZ-dbgLZend-2)/8
 
 #		mappings	object		subtype	frame	VRAM setting
 	dbug	Map_Ring,	id_Rings,	0,	0,	0x27B2
@@ -68,10 +68,10 @@ DebugList:
 	dbug	Map_Pole,	id_Pole,	0,	0,	0x43DE
 	dbug	Map_Flap,	id_FlapDoor,	2,	0,	0x4328
 	dbug	Map_Lamp,	id_Lamppost,	1,	0,	0x7A0
-	4:
+dbgLZend:
 
-5:
-	dc.w (6-6-2)/8
+dbgMZ:
+	dc.w (dbgMZ-dbgMZend-2)/8
 
 #		mappings	object		subtype	frame	VRAM setting
 	dbug	Map_Ring,	id_Rings,	0,	0,	0x27B2
@@ -92,10 +92,10 @@ DebugList:
 	dbug	Map_Bas,	id_Basaran,	0,	0,	0x4B8
 	dbug	Map_Cat,	id_Caterkiller,	0,	0,	0x24FF
 	dbug	Map_Lamp,	id_Lamppost,	1,	0,	0x7A0
-	6:
+dbgMZend:
 
-7:
-	dc.w (8-8-2)/8
+dbgSLZ:
+	dc.w (dbgSLZ-dbgSLZend-2)/8
 
 #		mappings	object		subtype	frame	VRAM setting
 	dbug	Map_Ring,	id_Rings,	0,	0,	0x27B2
@@ -113,10 +113,10 @@ DebugList:
 	dbug	Map_Bomb,	id_Bomb,	0,	0,	0x400
 	dbug	Map_Orb,	id_Orbinaut,	0,	0,	0x2429
 	dbug	Map_Lamp,	id_Lamppost,	1,	0,	0x7A0
-	8:
+dbgSLZend:
 
-9:
-	dc.w (10-10-2)/8
+dbgSYZ:
+	dc.w (dbgSYZ-dbgSYZend-2)/8
 
 #		mappings	object		subtype	frame	VRAM setting
 	dbug	Map_Ring,	id_Rings,	0,	0,	0x27B2
@@ -134,10 +134,10 @@ DebugList:
 	dbug	Map_But,	id_Button,	0,	0,	0x513
 	dbug	Map_Cat,	id_Caterkiller,	0,	0,	0x24FF
 	dbug	Map_Lamp,	id_Lamppost,	1,	0,	0x7A0
-	10:
+dbgSYZend:
 
-11:
-	dc.w (12-12-2)/8
+dbgSBZ:
+	dc.w (dbgSBZ-dbgSBZend-2)/8
 
 #		mappings	object		subtype	frame	VRAM setting
 	dbug	Map_Ring,	id_Rings,	0,	0,	0x27B2
@@ -169,10 +169,10 @@ DebugList:
 	dbug	Map_Invis,	id_Invisibarrier, 0x11,	0,	0x8680
 	dbug	Map_Hog,	id_BallHog,	4,	0,	0x2302
 	dbug	Map_Lamp,	id_Lamppost,	1,	0,	0x7A0
-	12:
+dbgSBZend:
 
-13:
-	dc.w (14-14-2)/8
+dbgFZ:
+	dc.w (dbgFZ-dbgFZend-2)/8
 
 #		mappings	object		subtype	frame	VRAM setting
 	dbug	Map_Ring,	id_Rings,	0,	0,	0x27B2
@@ -192,7 +192,7 @@ DebugList:
 	.else
 	dbug	Map_Ring,	id_Rings,	0,	8,	0x27B2
 	.endc
-	14:
+dbgFZend:
 
 	.align 2
 

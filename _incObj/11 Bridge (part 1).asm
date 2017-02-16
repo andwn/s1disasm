@@ -23,6 +23,7 @@ Bri_Main:	/* Routine 0 */
 		move.w	obY(a0),d2
 		move.w	obX(a0),d3
 		move.b	0(a0),d4	/* copy object number ($11) to d4 */
+		nop /* padding for bindiff */
 		lea	obSubtype(a0),a2
 		moveq	#0,d1
 		move.b	(a2),d1		/* copy bridge length to d1 */
@@ -59,6 +60,7 @@ Bri_Main:	/* Routine 0 */
 		move.b	d5,(a2)+
 		move.b	#0xA,obRoutine(a1)
 		move.b	d4,0(a1)	/* load bridge object (d4 = $11) */
+		nop /* padding for bindiff */
 		move.w	d2,obY(a1)
 		move.w	d2,0x3C(a1)
 		move.w	d3,obX(a1)

@@ -85,6 +85,7 @@ bomData:		dc.w 4f-bomData
 		subq.w	#1,bom_time(a0)	/* subtract 1 from time delay */
 		bpl.s	8f	/* if time remains, branch */
 		move.b	#id_ExplosionBomb,0(a0) /* change bomb into an explosion */
+		nop /* padding for bindiff */
 		move.b	#0,obRoutine(a0)
 
 	8:
@@ -118,6 +119,7 @@ bomData:		dc.w 4f-bomData
 		bsr.w	FindNextFreeObj
 		bne.s	10f
 		move.b	#id_Bomb,0(a1)	/* load fuse object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.w	obY(a0),bom_origY(a1)
@@ -167,6 +169,7 @@ loc_11B7C:
 
 1:
 		move.b	#id_Bomb,0(a1)	/* load shrapnel	object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.b	#6,obSubtype(a1)

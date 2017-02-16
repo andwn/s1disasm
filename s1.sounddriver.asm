@@ -599,6 +599,7 @@ CycleSoundQueue:
 		movea.l	(Go_SoundPriorities).l,a0
 		lea	v_playsnd1(a6),a1	/* load music track number */
 		move.b	v_sndprio(a6),d3	/* Get priority of currently playing SFX */
+		nop /* doing this again for bindiff */
 		moveq	#2,d4			/* Number of queues-1 (v_playsnd1, v_playsnd2, v_playnull) */
 # loc_71F12:
 1:
@@ -626,6 +627,7 @@ CycleSoundQueue:
 
 		tst.b	d3			/* We don't want to change sound priority if it is negative */
 		bmi.s	4f
+		nop /* doing this again for bindiff */
 		move.b	d3,v_sndprio(a6)	/* Set new sound priority */
 # locret_71F4A:
 4:
@@ -727,6 +729,7 @@ Sound_PlayBGM:
 		adda.w	#zTrackSz,a5
 		dbf	d0,4b
 
+		nop /* doing this again for bindiff */
 		clr.b	v_sndprio(a6)		/* Clear priority */
 		movea.l	a6,a0
 		lea	v_1up_ram_copy(a6),a1
@@ -737,6 +740,7 @@ Sound_PlayBGM:
 		dbf	d0,5b
 
 		move.b	#0x80,f_1up_playing(a6)
+		nop /* doing this again for bindiff */
 		clr.b	v_sndprio(a6)		/* Clear priority again (?) */
 		bra.s	6f
 # ===========================================================================
@@ -1019,6 +1023,7 @@ Sound_PlaySFX:
 # ===========================================================================
 # loc_722C6:
 1:
+		nop /* doing this again for bindiff */
 		clr.b	v_sndprio(a6)	/* Clear priority */
 		rts	
 # ===========================================================================
@@ -1157,6 +1162,7 @@ Sound_PlaySpecial:
 
 # Snd_FadeOut1: Snd_FadeOutSFX: FadeOutSFX:
 StopSFX:
+		nop /* doing this again for bindiff */
 		clr.b	v_sndprio(a6)		/* Clear priority */
 		lea	v_sfx_track_ram(a6),a5
 		moveq	#((v_sfx_track_ram_end-v_sfx_track_ram)/zTrackSz)-1,d7	/* 3 FM + 3 PSG tracks (SFX) */
@@ -1400,6 +1406,7 @@ StopAllSound:
 InitMusicPlayback:
 		movea.l	a6,a0
 #		 Save several values
+		nop /* doing this again for bindiff */
 		move.b	v_sndprio(a6),d1
 		move.b	f_1up_playing(a6),d2
 		move.b	f_speedup(a6),d3
@@ -1412,6 +1419,7 @@ InitMusicPlayback:
 		dbf	d0,1b
 
 #		 Restore the values saved above
+		nop /* doing this again for bindiff */
 		move.b	d1,v_sndprio(a6)
 		move.b	d2,f_1up_playing(a6)
 		move.b	d3,f_speedup(a6)
@@ -2343,6 +2351,7 @@ cfStopTrack:
 3:
 		tst.b	f_voice_selector(a6)	/* Are we updating SFX? */
 		bpl.w	2f		/* Exit if not */
+		nop /* doing this again for bindiff */
 		clr.b	v_sndprio(a6)		/* Clear priority */
 		moveq	#0,d0
 		move.b	zTrackVoiceControl(a5),d0 /* Get voice control bits */
@@ -2685,16 +2694,7 @@ SoundCF:	.incbin	"sound/sfx/SndCF - Signpost.bin"
 SoundD0:	.incbin	"sound/sfx/SndD0 - Waterfall.bin"
 		.align 2
 
-#		cnop (0x8000-Size_of_SegaPCM),0x8000
-		.align 0x8000
 SegaPCM:	
 		.incbin	"sound/dac/segapcm.bin"
 SegaPCM_End:
-		.align 2
-
-#		.if SegaPCM_End-SegaPCM>0x8000
-#			inform 3,"Sega sound must fit within 0x8000 bytes, but you have a 0x0bh byte Sega sound.",SegaPCM_End-SegaPCM
-#		.endc
-#		.if SegaPCM_End-SegaPCM>Size_of_SegaPCM
-#			inform 3,"Size_of_SegaPCM = 0x0bh, but you have a 0x0bh byte Sega sound.",Size_of_SegaPCM,SegaPCM_End-SegaPCM
-#		.endc
+		.align 0x8000

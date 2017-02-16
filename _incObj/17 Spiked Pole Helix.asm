@@ -30,6 +30,7 @@ Hel_Main:	/* Routine 0 */
 		move.w	obY(a0),d2
 		move.w	obX(a0),d3
 		move.b	0(a0),d4
+		nop /* padding for bindiff */
 		lea	obSubtype(a0),a2 /* move helix length to a2 */
 		moveq	#0,d1
 		move.b	(a2),d1		/* move helix length to d1 */
@@ -53,6 +54,7 @@ Hel_Build:
 		move.b	d5,(a2)+	/* copy child address to parent RAM */
 		move.b	#8,obRoutine(a1)
 		move.b	d4,0(a1)
+		nop /* padding for bindiff */
 		move.w	d2,obY(a1)
 		move.w	d3,obX(a1)
 		move.l	obMap(a0),obMap(a1)

@@ -168,6 +168,7 @@ Bub_BblMaker:	/* Routine $A */
 		bsr.w	FindFreeObj
 		bne.s	7f
 		move.b	#id_Bubble,0(a1) /* load bubble object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		jsr	(RandomNumber).l
 		andi.w	#0xF,d0

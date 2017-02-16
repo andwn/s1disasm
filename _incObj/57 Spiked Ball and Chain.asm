@@ -72,6 +72,8 @@ SBall_Main:	/* Routine 0 */
 		move.b	d5,(a2)+	/* copy child RAM number */
 		move.b	#4,obRoutine(a1)
 		move.b	0(a0),0(a1)
+		nop /* padding for bindiff */
+		nop /* padding for bindiff */
 		move.l	obMap(a0),obMap(a1)
 		move.w	obGfx(a0),obGfx(a1)
 		move.b	obRender(a0),obRender(a1)

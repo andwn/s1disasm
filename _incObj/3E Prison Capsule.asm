@@ -109,6 +109,7 @@ Pri_Explosion:	/* Routine 6, 8, $A */
 		jsr	(FindFreeObj).l
 		bne.s	1f
 		move.b	#id_ExplosionBomb,0(a1) /* load explosion object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		jsr	(RandomNumber).l
@@ -141,6 +142,7 @@ Pri_Explosion:	/* Routine 6, 8, $A */
 		jsr	(FindFreeObj).l
 		bne.s	4f
 		move.b	#id_Animals,0(a1) /* load animal object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		add.w	d4,obX(a1)
@@ -160,6 +162,7 @@ Pri_Animals:	/* Routine $C */
 		jsr	(FindFreeObj).l
 		bne.s	1f
 		move.b	#id_Animals,0(a1) /* load animal object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		jsr	(RandomNumber).l

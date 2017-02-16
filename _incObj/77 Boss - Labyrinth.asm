@@ -36,6 +36,7 @@ Obj77_Loop:
 		jsr	(FindNextFreeObj).l
 		bne.s	Obj77_ShipMain
 		move.b	#id_BossLabyrinth,0(a1)
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 

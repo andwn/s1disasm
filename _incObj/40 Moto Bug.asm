@@ -89,6 +89,7 @@ Moto_ActIndex_findFloor:
 		bsr.w	FindFreeObj
 		bne.s	7f
 		move.b	#id_MotoBug,0(a1) /* load exhaust smoke object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.b	obStatus(a0),obStatus(a1)

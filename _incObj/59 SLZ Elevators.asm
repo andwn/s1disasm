@@ -89,6 +89,7 @@ Elev_Action:	/* Routine 4 */
 		bsr.w	Elev_Types
 		move.w	(sp)+,d2
 		tst.b	0(a0)
+		nop /* padding for bindiff */
 		beq.s	1f
 		jmp	(MvSonicOnPtfm2).l
 
@@ -237,6 +238,7 @@ Elev_MakeMulti:	/* Routine 6 */
 		bsr.w	FindFreeObj
 		bne.s	1f
 		move.b	#id_Elevator,0(a1) /* duplicate the object */
+		nop /* padding for bindiff */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.b	#0xE,obSubtype(a1)

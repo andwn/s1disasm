@@ -118,6 +118,7 @@ SpinC_Loop:
 
 SpinC_LoadPform:
 		move.b	#id_SpinConvey,0(a1)
+		nop /* padding for bindiff */
 		move.w	(a2)+,obX(a1)
 		move.w	(a2)+,obY(a1)
 		move.w	(a2)+,d0

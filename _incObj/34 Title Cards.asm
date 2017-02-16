@@ -41,6 +41,7 @@ Card_CheckSBZ3:	/* Routine 0 */
 
 Card_Loop:
 		move.b	#id_TitleCard,0(a1)
+		nop /* padding for bindiff */
 		move.w	(a3),obX(a1)	/* load start x-position */
 		move.w	(a3)+,card_finalX(a1) /* load finish x-position (same as start) */
 		move.w	(a3)+,card_mainX(a1) /* load main x-position */

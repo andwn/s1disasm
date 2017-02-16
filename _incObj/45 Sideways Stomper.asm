@@ -44,6 +44,7 @@ SStom_Main:	/* Routine 0 */
 	1:
 		move.b	(a2)+,obRoutine(a1)
 		move.b	#id_SideStomp,0(a1)
+		nop /* padding for bindiff */
 		move.w	obY(a0),obY(a1)
 		move.b	(a2)+,d0
 		ext.w	d0

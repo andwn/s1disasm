@@ -50,6 +50,8 @@ Orb_Main:	/* Routine 0 */
 		andi.w	#0x7F,d5
 		move.b	d5,(a2)+
 		move.b	0(a0),0(a1)	/* load spiked orb object */
+		nop /* padding for bindiff */
+		nop /* padding for bindiff */
 		move.b	#6,obRoutine(a1) /* use Orb_MoveOrb routine */
 		move.l	obMap(a0),obMap(a1)
 		move.w	obGfx(a0),obGfx(a1)
@@ -146,6 +148,7 @@ Orb_Delete:
 Orb_MoveOrb:	/* Routine 6 */
 		movea.l	orb_parent(a0),a1
 		cmpi.b	#id_Orbinaut,0(a1) /* does parent object still exist? */
+		nop /* padding for bindiff */
 		bne.w	DeleteObject	/* if not, delete */
 		cmpi.b	#2,obFrame(a1)	/* is orbinaut angry? */
 		bne.s	1f		/* if not, branch */

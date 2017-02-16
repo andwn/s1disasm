@@ -278,6 +278,7 @@ Drown_Countdown:/* Routine $A */
 		jsr	(FindFreeObj).l
 		bne.w	2f
 		move.b	#id_DrownCount,0(a1) /* load object */
+		nop /* padding for bindiff */
 		move.w	(v_player+obX).w,obX(a1) /* match X position to Sonic */
 		moveq	#6,d0
 		btst	#0,(v_player+obStatus).w

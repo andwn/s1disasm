@@ -56,6 +56,7 @@ CSI_MakeMiniSonic:
 
 CSI_MiniSonicLoop:
 		move.b	#id_ContScrItem,0(a1) /* load mini-Sonic object */
+		nop /* padding for bindiff */
 		move.w	(a2)+,obX(a1)	/* use above data for x-axis position */
 		tst.b	d2		/* do you have an even number of continues? */
 		beq.s	CSI_Even	/* if yes, branch */

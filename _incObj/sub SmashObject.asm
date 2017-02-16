@@ -14,6 +14,7 @@ SmashObject:
 		addq.w	#1,a3
 		bset	#5,obRender(a0)
 		move.b	0(a0),d4
+		nop /* padding for bindiff */
 		move.b	obRender(a0),d5
 		movea.l	a0,a1
 		bra.s	1f
@@ -27,6 +28,7 @@ SmashObject:
 1:
 		move.b	#4,obRoutine(a1)
 		move.b	d4,0(a1)
+		nop /* padding for bindiff */
 		move.l	a3,obMap(a1)
 		move.b	d5,obRender(a1)
 		move.w	obX(a0),obX(a1)

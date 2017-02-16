@@ -43,6 +43,7 @@ Stair_Main:	/* Routine 0 */
 
 2:
 		move.b	#id_Staircase,0(a1) /* load another block object */
+		nop /* padding for bindiff */
 		move.l	#Map_Stair,obMap(a1)
 		move.w	#0x4000,obGfx(a1)
 		move.b	#4,obRender(a1)

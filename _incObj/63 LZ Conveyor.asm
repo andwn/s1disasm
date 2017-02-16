@@ -114,6 +114,7 @@ LCon_Loop:
 
 LCon_MakePtfms:
 		move.b	#id_LabyrinthConvey,0(a1)
+		nop /* padding for bindiff */
 		move.w	(a2)+,obX(a1)
 		move.w	(a2)+,obY(a1)
 		move.w	(a2)+,d0
