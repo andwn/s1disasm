@@ -56,8 +56,8 @@ Crab_Action:	/* Routine 2 */
 		bsr.w	AnimateSprite
 		bra.w	RememberState
 # ===========================================================================
-crabData:		dc.w 1-1
-		dc.w 2-2
+crabData:		dc.w 3f-crabData
+		dc.w 6f-crabData
 # ===========================================================================
 
 3:
