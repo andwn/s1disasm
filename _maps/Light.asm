@@ -1,25 +1,27 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - lamp (SYZ)
-; ---------------------------------------------------------------------------
-Map_Light:	dc.w @0-Map_Light, @1-Map_Light
-		dc.w @2-Map_Light, @3-Map_Light
-		dc.w @4-Map_Light, @5-Map_Light
-@0:		dc.b 2
-		dc.b $F8, $C, 0, $31, $F0
-		dc.b 0,	$C, $10, $31, $F0
-@1:		dc.b 2
-		dc.b $F8, $C, 0, $35, $F0
-		dc.b 0,	$C, $10, $35, $F0
-@2:		dc.b 2
-		dc.b $F8, $C, 0, $39, $F0
-		dc.b 0,	$C, $10, $39, $F0
-@3:		dc.b 2
-		dc.b $F8, $C, 0, $3D, $F0
-		dc.b 0,	$C, $10, $3D, $F0
-@4:		dc.b 2
-		dc.b $F8, $C, 0, $41, $F0
-		dc.b 0,	$C, $10, $41, $F0
-@5:		dc.b 2
-		dc.b $F8, $C, 0, $45, $F0
-		dc.b 0,	$C, $10, $45, $F0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - lamp (SYZ)
+# ---------------------------------------------------------------------------
+Map_Light:	dc.w AT_113_0-Map_Light, AT_113_1-Map_Light
+		dc.w AT_113_2-Map_Light, AT_113_3-Map_Light
+		dc.w AT_113_4-Map_Light, AT_113_5-Map_Light
+AT_113_0:		dc.b 2
+		dc.b 0xF8, 0xC, 0, 0x31, 0xF0
+		dc.b 0,	0xC, 0x10, 0x31, 0xF0
+AT_113_1:		dc.b 2
+		dc.b 0xF8, 0xC, 0, 0x35, 0xF0
+		dc.b 0,	0xC, 0x10, 0x35, 0xF0
+AT_113_2:		dc.b 2
+		dc.b 0xF8, 0xC, 0, 0x39, 0xF0
+		dc.b 0,	0xC, 0x10, 0x39, 0xF0
+AT_113_3:		dc.b 2
+		dc.b 0xF8, 0xC, 0, 0x3D, 0xF0
+		dc.b 0,	0xC, 0x10, 0x3D, 0xF0
+AT_113_4:		dc.b 2
+		dc.b 0xF8, 0xC, 0, 0x41, 0xF0
+		dc.b 0,	0xC, 0x10, 0x41, 0xF0
+AT_113_5:		dc.b 2
+		dc.b 0xF8, 0xC, 0, 0x45, 0xF0
+		dc.b 0,	0xC, 0x10, 0x45, 0xF0
+		.align 2
+
+

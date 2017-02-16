@@ -1,48 +1,48 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - walking bomb enemy (SLZ, SBZ)
-; ---------------------------------------------------------------------------
-Map_Bomb:	dc.w @stand1-Map_Bomb, @stand2-Map_Bomb
-		dc.w @walk1-Map_Bomb, @walk2-Map_Bomb
-		dc.w @walk3-Map_Bomb, @walk4-Map_Bomb
-		dc.w @activate1-Map_Bomb, @activate2-Map_Bomb
-		dc.w @fuse1-Map_Bomb, @fuse2-Map_Bomb
-		dc.w @shrapnel1-Map_Bomb, @shrapnel2-Map_Bomb
-@stand1:	dc.b 3
-		dc.b $F1, $A, 0, 0, $F4	; bomb standing still
-		dc.b 9,	8, 0, $12, $F4
-		dc.b $E7, 1, 0,	$21, $FC
-@stand2:	dc.b 3
-		dc.b $F1, $A, 0, 9, $F4
-		dc.b 9,	8, 0, $12, $F4
-		dc.b $E7, 1, 0,	$21, $FC
-@walk1:		dc.b 3
-		dc.b $F0, $A, 0, 0, $F4	; bomb walking
-		dc.b 8,	8, 0, $15, $F4
-		dc.b $E6, 1, 0,	$21, $FC
-@walk2:		dc.b 3
-		dc.b $F1, $A, 0, 9, $F4
-		dc.b 9,	8, 0, $18, $F4
-		dc.b $E7, 1, 0,	$21, $FC
-@walk3:		dc.b 3
-		dc.b $F0, $A, 0, 0, $F4
-		dc.b 8,	8, 0, $1B, $F4
-		dc.b $E6, 1, 0,	$21, $FC
-@walk4:		dc.b 3
-		dc.b $F1, $A, 0, 9, $F4
-		dc.b 9,	8, 0, $1E, $F4
-		dc.b $E7, 1, 0,	$21, $FC
-@activate1:	dc.b 2
-		dc.b $F1, $A, 0, 0, $F4	; bomb during detonation countdown
-		dc.b 9,	8, 0, $12, $F4
-@activate2:	dc.b 2
-		dc.b $F1, $A, 0, 9, $F4
-		dc.b 9,	8, 0, $12, $F4
-@fuse1:		dc.b 1
-		dc.b $E7, 1, 0,	$23, $FC ; fuse	(just before it	explodes)
-@fuse2:		dc.b 1
-		dc.b $E7, 1, 0,	$25, $FC
-@shrapnel1:	dc.b 1
-		dc.b $FC, 0, 0,	$27, $FC ; shrapnel (after it exploded)
-@shrapnel2:	dc.b 1
-		dc.b $FC, 0, 0,	$28, $FC
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - walking bomb enemy (SLZ, SBZ)
+# ---------------------------------------------------------------------------
+Map_Bomb:	dc.w AT_106_stand1-Map_Bomb, AT_106_stand2-Map_Bomb
+		dc.w AT_106_walk1-Map_Bomb, AT_106_walk2-Map_Bomb
+		dc.w AT_106_walk3-Map_Bomb, AT_106_walk4-Map_Bomb
+		dc.w AT_106_activate1-Map_Bomb, AT_106_activate2-Map_Bomb
+		dc.w AT_106_fuse1-Map_Bomb, AT_106_fuse2-Map_Bomb
+		dc.w AT_106_shrapnel1-Map_Bomb, AT_106_shrapnel2-Map_Bomb
+AT_106_stand1:	dc.b 3
+		dc.b 0xF1, 0xA, 0, 0, 0xF4	/* bomb standing still */
+		dc.b 9,	8, 0, 0x12, 0xF4
+		dc.b 0xE7, 1, 0,	0x21, 0xFC
+AT_106_stand2:	dc.b 3
+		dc.b 0xF1, 0xA, 0, 9, 0xF4
+		dc.b 9,	8, 0, 0x12, 0xF4
+		dc.b 0xE7, 1, 0,	0x21, 0xFC
+AT_106_walk1:		dc.b 3
+		dc.b 0xF0, 0xA, 0, 0, 0xF4	/* bomb walking */
+		dc.b 8,	8, 0, 0x15, 0xF4
+		dc.b 0xE6, 1, 0,	0x21, 0xFC
+AT_106_walk2:		dc.b 3
+		dc.b 0xF1, 0xA, 0, 9, 0xF4
+		dc.b 9,	8, 0, 0x18, 0xF4
+		dc.b 0xE7, 1, 0,	0x21, 0xFC
+AT_106_walk3:		dc.b 3
+		dc.b 0xF0, 0xA, 0, 0, 0xF4
+		dc.b 8,	8, 0, 0x1B, 0xF4
+		dc.b 0xE6, 1, 0,	0x21, 0xFC
+AT_106_walk4:		dc.b 3
+		dc.b 0xF1, 0xA, 0, 9, 0xF4
+		dc.b 9,	8, 0, 0x1E, 0xF4
+		dc.b 0xE7, 1, 0,	0x21, 0xFC
+AT_106_activate1:	dc.b 2
+		dc.b 0xF1, 0xA, 0, 0, 0xF4	/* bomb during detonation countdown */
+		dc.b 9,	8, 0, 0x12, 0xF4
+AT_106_activate2:	dc.b 2
+		dc.b 0xF1, 0xA, 0, 9, 0xF4
+		dc.b 9,	8, 0, 0x12, 0xF4
+AT_106_fuse1:		dc.b 1
+		dc.b 0xE7, 1, 0,	0x23, 0xFC /* fuse	(just before it	explodes) */
+AT_106_fuse2:		dc.b 1
+		dc.b 0xE7, 1, 0,	0x25, 0xFC
+AT_106_shrapnel1:	dc.b 1
+		dc.b 0xFC, 0, 0,	0x27, 0xFC /* shrapnel (after it exploded) */
+AT_106_shrapnel2:	dc.b 1
+		dc.b 0xFC, 0, 0,	0x28, 0xFC
+		.align 2

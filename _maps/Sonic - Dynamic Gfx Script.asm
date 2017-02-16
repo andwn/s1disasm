@@ -1,6 +1,6 @@
-; ---------------------------------------------------------------------------
-; Uncompressed graphics	loading	array for Sonic
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Uncompressed graphics	loading	array for Sonic
+# ---------------------------------------------------------------------------
 SonicDynPLC:	dc.w SonPLC_Null-SonicDynPLC
 		dc.w SonPLC_Stand-SonicDynPLC
 		dc.w SonPLC_Wait1-SonicDynPLC
@@ -90,89 +90,89 @@ SonicDynPLC:	dc.w SonPLC_Null-SonicDynPLC
 		dc.w SonPLC_GetAir-SonicDynPLC
 		dc.w SonPLC_WaterSlide-SonicDynPLC
 SonPLC_Null:	dc.b 0
-SonPLC_Stand:	dc.b 4,	$20, 0,	$70, 3,	$20, $B, $20, $E
-SonPLC_Wait1:	dc.b 3,	$50, $11, $50, $17, $20, $1D
-SonPLC_Wait2:	dc.b 3,	$50, $20, $50, $17, $20, $1D
-SonPLC_Wait3:	dc.b 3,	$50, $20, $50, $17, $20, $26
-SonPLC_LookUp:	dc.b 3,	$80, $29, $20, $B, $20,	$E
-SonPLC_Walk11:	dc.b 4,	$70, $32, $50, $3A, $50, $40, $10, $46
-SonPLC_Walk12:	dc.b 2,	$70, $32, $B0, $48
-SonPLC_Walk13:	dc.b 2,	$50, $54, $80, $5A
-SonPLC_Walk14:	dc.b 4,	$50, $54, $50, $63, $50, $69, $10, $6F
-SonPLC_Walk15:	dc.b 2,	$50, $54, $B0, $71
-SonPLC_Walk16:	dc.b 3,	$70, $32, $30, $7D, $50, $81
-SonPLC_Walk21:	dc.b 5,	$50, $87, $50, $8D, $20, $93, $50, $96,	0, $9C
-SonPLC_Walk22:	dc.b 6,	$50, $87, $10, $9D, $30, $9F, $50, $A3,	$30, $A9, 0, $AD
-SonPLC_Walk23:	dc.b 4,	$50, $AE, $10, $B4, $70, $B6, $20, $BE
-SonPLC_Walk24:	dc.b 5,	$50, $C1, $30, $C7, $70, $CB, $20, $D3,	$10, $D6
-SonPLC_Walk25:	dc.b 4,	$50, $C1, $10, $D8, $70, $DA, $20, $E2
-SonPLC_Walk26:	dc.b 5,	$50, $87, $10, $9D, 0, $93, $70, $E5, $20, $ED
-SonPLC_Walk31:	dc.b 4,	$70, $F0, $50, $F8, $10, $FE, $51, 0
-SonPLC_Walk32:	dc.b 2,	$70, $F0, $B1, 6
-SonPLC_Walk33:	dc.b 2,	$51, $12, $81, $18
-SonPLC_Walk34:	dc.b 4,	$51, $12, $51, $21, $11, $27, $51, $29
-SonPLC_Walk35:	dc.b 2,	$51, $12, $B1, $2F
-SonPLC_Walk36:	dc.b 3,	$70, $F0, 1, 6,	$81, $3B
-SonPLC_Walk41:	dc.b 6,	$51, $44, $11, $4A, $11, $4C, $81, $4E,	1, $57,	1, $58
-SonPLC_Walk42:	dc.b 6,	$51, $44, $21, $59, $11, $5C, $11, $5E,	$81, $60, 1, $57
-SonPLC_Walk43:	dc.b 4,	$51, $69, $11, $6F, $81, $71, $11, $7A
-SonPLC_Walk44:	dc.b 5,	$51, $7C, $21, $82, $11, $85, $71, $87,	$21, $8F
-SonPLC_Walk45:	dc.b 4,	$51, $7C, $11, $92, $81, $94, $11, $9D
-SonPLC_Walk46:	dc.b 5,	$51, $44, $81, $9F, $11, $5E, $11, $A8,	1, $57
-SonPLC_Run11:	dc.b 2,	$51, $AA, $B1, $B0
-SonPLC_Run12:	dc.b 2,	$50, $54, $B1, $BC
-SonPLC_Run13:	dc.b 2,	$51, $AA, $B1, $C8
-SonPLC_Run14:	dc.b 2,	$50, $54, $B1, $D4
-SonPLC_Run21:	dc.b 4,	$51, $E0, $11, $E6, $B1, $E8, 1, $F4
-SonPLC_Run22:	dc.b 3,	$51, $F5, $11, $FB, $B1, $FD
-SonPLC_Run23:	dc.b 4,	$51, $E0, $12, 9, $B2, $B, 1, $F4
-SonPLC_Run24:	dc.b 3,	$51, $F5, $11, $FB, $B2, $17
-SonPLC_Run31:	dc.b 2,	$52, $23, $B2, $29
-SonPLC_Run32:	dc.b 2,	$51, $12, $B2, $35
-SonPLC_Run33:	dc.b 2,	$52, $23, $B2, $41
-SonPLC_Run34:	dc.b 2,	$51, $12, $B2, $4D
-SonPLC_Run41:	dc.b 4,	$52, $59, $12, $5F, $B2, $61, 2, $6D
-SonPLC_Run42:	dc.b 2,	$72, $6E, $B2, $76
-SonPLC_Run43:	dc.b 4,	$52, $59, $12, $82, $B2, $84, 2, $6D
-SonPLC_Run44:	dc.b 2,	$72, $6E, $B2, $90
-SonPLC_Roll1:	dc.b 1,	$F2, $9C
-SonPLC_Roll2:	dc.b 1,	$F2, $AC
-SonPLC_Roll3:	dc.b 1,	$F2, $BC
-SonPLC_Roll4:	dc.b 1,	$F2, $CC
-SonPLC_Roll5:	dc.b 1,	$F2, $DC
-SonPLC_Warp1:	dc.b 2,	$B2, $EC, $22, $F8
-SonPLC_Warp2:	dc.b 1,	$F2, $FB
-SonPLC_Warp3:	dc.b 2,	$B3, $B, $23, $17
-SonPLC_Warp4:	dc.b 1,	$F3, $1A
-SonPLC_Stop1:	dc.b 2,	$53, $2A, $B3, $30
-SonPLC_Stop2:	dc.b 4,	$53, $3C, $73, $42, $13, $4A, 3, $4C
-SonPLC_Duck:	dc.b 4,	$13, $4D, $73, $4F, $23, $57, 3, $5A
-SonPLC_Balance1:dc.b 3,	$23, $5B, $23, $5E, $F3, $61
-SonPLC_Balance2:dc.b 3,	$B3, $71, $73, $7D, 0, $71
-SonPLC_Float1:	dc.b 3,	$73, $85, $33, $8D, $23, $91
-SonPLC_Float2:	dc.b 1,	$83, $94
-SonPLC_Float3:	dc.b 3,	$73, $9D, 3, $A5, $33, $A6
-SonPLC_Float4:	dc.b 3,	$73, $AA, $33, $B2, $23, $B6
-SonPLC_Spring:	dc.b 3,	$B3, $B9, $13, $C5, 3, $C7
-SonPLC_Hang1:	dc.b 4,	$B3, $C8, $33, $D4, 3, $D8, 3, $D9
-SonPLC_Hang2:	dc.b 4,	$B3, $DA, $33, $E6, 3, $EA, 3, $EB
-SonPLC_Leap1:	dc.b 5,	$83, $EC, $13, $F5, $53, $F7, $13, $FD,	3, $FF
-SonPLC_Leap2:	dc.b 5,	$84, 0,	$14, 9,	$53, $F7, $13, $FD, 3, $FF
-SonPLC_Push1:	dc.b 2,	$84, $B, $74, $14
-SonPLC_Push2:	dc.b 3,	$84, $1C, $24, $25, $14, $28
-SonPLC_Push3:	dc.b 2,	$84, $2A, $74, $33
-SonPLC_Push4:	dc.b 3,	$84, $1C, $24, $3B, $14, $3E
-SonPLC_Surf:	dc.b 2,	$54, $40, $B4, $46
-SonPLC_BubStand:dc.b 3,	$84, $52, $34, $5B, 4, $5F
-SonPLC_Death:	dc.b 3,	$74, $60, $14, $68, $B4, $6A
-SonPLC_Drown:	dc.b 5,	$74, $76, $14, $7E, $54, $80, $34, $86,	4, $8A
-SonPLC_Burnt:	dc.b 5,	$74, $8B, $14, $7E, $54, $93, $34, $86,	4, $8A
-SonPLC_Shrink1:	dc.b 2,	$24, $99, $F4, $9C
-SonPLC_Shrink2:	dc.b 3,	$24, $AC, $B4, $AF, $24, $BB
-SonPLC_Shrink3:	dc.b 1,	$B4, $BE
-SonPLC_Shrink4:	dc.b 1,	$54, $CA
-SonPLC_Shrink5:	dc.b 1,	$14, $D0
-SonPLC_Injury:	dc.b 3,	$B4, $D2, $14, $DE, $34, $E0
-SonPLC_GetAir:	dc.b 3,	$54, $E4, $B4, $EA, $10, $6D
-SonPLC_WaterSlide:dc.b 2, $F4, $F6, $25, 6
-		even
+SonPLC_Stand:	dc.b 4,	0x20, 0,	0x70, 3,	0x20, 0xB, 0x20, 0xE
+SonPLC_Wait1:	dc.b 3,	0x50, 0x11, 0x50, 0x17, 0x20, 0x1D
+SonPLC_Wait2:	dc.b 3,	0x50, 0x20, 0x50, 0x17, 0x20, 0x1D
+SonPLC_Wait3:	dc.b 3,	0x50, 0x20, 0x50, 0x17, 0x20, 0x26
+SonPLC_LookUp:	dc.b 3,	0x80, 0x29, 0x20, 0xB, 0x20,	0xE
+SonPLC_Walk11:	dc.b 4,	0x70, 0x32, 0x50, 0x3A, 0x50, 0x40, 0x10, 0x46
+SonPLC_Walk12:	dc.b 2,	0x70, 0x32, 0xB0, 0x48
+SonPLC_Walk13:	dc.b 2,	0x50, 0x54, 0x80, 0x5A
+SonPLC_Walk14:	dc.b 4,	0x50, 0x54, 0x50, 0x63, 0x50, 0x69, 0x10, 0x6F
+SonPLC_Walk15:	dc.b 2,	0x50, 0x54, 0xB0, 0x71
+SonPLC_Walk16:	dc.b 3,	0x70, 0x32, 0x30, 0x7D, 0x50, 0x81
+SonPLC_Walk21:	dc.b 5,	0x50, 0x87, 0x50, 0x8D, 0x20, 0x93, 0x50, 0x96,	0, 0x9C
+SonPLC_Walk22:	dc.b 6,	0x50, 0x87, 0x10, 0x9D, 0x30, 0x9F, 0x50, 0xA3,	0x30, 0xA9, 0, 0xAD
+SonPLC_Walk23:	dc.b 4,	0x50, 0xAE, 0x10, 0xB4, 0x70, 0xB6, 0x20, 0xBE
+SonPLC_Walk24:	dc.b 5,	0x50, 0xC1, 0x30, 0xC7, 0x70, 0xCB, 0x20, 0xD3,	0x10, 0xD6
+SonPLC_Walk25:	dc.b 4,	0x50, 0xC1, 0x10, 0xD8, 0x70, 0xDA, 0x20, 0xE2
+SonPLC_Walk26:	dc.b 5,	0x50, 0x87, 0x10, 0x9D, 0, 0x93, 0x70, 0xE5, 0x20, 0xED
+SonPLC_Walk31:	dc.b 4,	0x70, 0xF0, 0x50, 0xF8, 0x10, 0xFE, 0x51, 0
+SonPLC_Walk32:	dc.b 2,	0x70, 0xF0, 0xB1, 6
+SonPLC_Walk33:	dc.b 2,	0x51, 0x12, 0x81, 0x18
+SonPLC_Walk34:	dc.b 4,	0x51, 0x12, 0x51, 0x21, 0x11, 0x27, 0x51, 0x29
+SonPLC_Walk35:	dc.b 2,	0x51, 0x12, 0xB1, 0x2F
+SonPLC_Walk36:	dc.b 3,	0x70, 0xF0, 1, 6,	0x81, 0x3B
+SonPLC_Walk41:	dc.b 6,	0x51, 0x44, 0x11, 0x4A, 0x11, 0x4C, 0x81, 0x4E,	1, 0x57,	1, 0x58
+SonPLC_Walk42:	dc.b 6,	0x51, 0x44, 0x21, 0x59, 0x11, 0x5C, 0x11, 0x5E,	0x81, 0x60, 1, 0x57
+SonPLC_Walk43:	dc.b 4,	0x51, 0x69, 0x11, 0x6F, 0x81, 0x71, 0x11, 0x7A
+SonPLC_Walk44:	dc.b 5,	0x51, 0x7C, 0x21, 0x82, 0x11, 0x85, 0x71, 0x87,	0x21, 0x8F
+SonPLC_Walk45:	dc.b 4,	0x51, 0x7C, 0x11, 0x92, 0x81, 0x94, 0x11, 0x9D
+SonPLC_Walk46:	dc.b 5,	0x51, 0x44, 0x81, 0x9F, 0x11, 0x5E, 0x11, 0xA8,	1, 0x57
+SonPLC_Run11:	dc.b 2,	0x51, 0xAA, 0xB1, 0xB0
+SonPLC_Run12:	dc.b 2,	0x50, 0x54, 0xB1, 0xBC
+SonPLC_Run13:	dc.b 2,	0x51, 0xAA, 0xB1, 0xC8
+SonPLC_Run14:	dc.b 2,	0x50, 0x54, 0xB1, 0xD4
+SonPLC_Run21:	dc.b 4,	0x51, 0xE0, 0x11, 0xE6, 0xB1, 0xE8, 1, 0xF4
+SonPLC_Run22:	dc.b 3,	0x51, 0xF5, 0x11, 0xFB, 0xB1, 0xFD
+SonPLC_Run23:	dc.b 4,	0x51, 0xE0, 0x12, 9, 0xB2, 0xB, 1, 0xF4
+SonPLC_Run24:	dc.b 3,	0x51, 0xF5, 0x11, 0xFB, 0xB2, 0x17
+SonPLC_Run31:	dc.b 2,	0x52, 0x23, 0xB2, 0x29
+SonPLC_Run32:	dc.b 2,	0x51, 0x12, 0xB2, 0x35
+SonPLC_Run33:	dc.b 2,	0x52, 0x23, 0xB2, 0x41
+SonPLC_Run34:	dc.b 2,	0x51, 0x12, 0xB2, 0x4D
+SonPLC_Run41:	dc.b 4,	0x52, 0x59, 0x12, 0x5F, 0xB2, 0x61, 2, 0x6D
+SonPLC_Run42:	dc.b 2,	0x72, 0x6E, 0xB2, 0x76
+SonPLC_Run43:	dc.b 4,	0x52, 0x59, 0x12, 0x82, 0xB2, 0x84, 2, 0x6D
+SonPLC_Run44:	dc.b 2,	0x72, 0x6E, 0xB2, 0x90
+SonPLC_Roll1:	dc.b 1,	0xF2, 0x9C
+SonPLC_Roll2:	dc.b 1,	0xF2, 0xAC
+SonPLC_Roll3:	dc.b 1,	0xF2, 0xBC
+SonPLC_Roll4:	dc.b 1,	0xF2, 0xCC
+SonPLC_Roll5:	dc.b 1,	0xF2, 0xDC
+SonPLC_Warp1:	dc.b 2,	0xB2, 0xEC, 0x22, 0xF8
+SonPLC_Warp2:	dc.b 1,	0xF2, 0xFB
+SonPLC_Warp3:	dc.b 2,	0xB3, 0xB, 0x23, 0x17
+SonPLC_Warp4:	dc.b 1,	0xF3, 0x1A
+SonPLC_Stop1:	dc.b 2,	0x53, 0x2A, 0xB3, 0x30
+SonPLC_Stop2:	dc.b 4,	0x53, 0x3C, 0x73, 0x42, 0x13, 0x4A, 3, 0x4C
+SonPLC_Duck:	dc.b 4,	0x13, 0x4D, 0x73, 0x4F, 0x23, 0x57, 3, 0x5A
+SonPLC_Balance1:dc.b 3,	0x23, 0x5B, 0x23, 0x5E, 0xF3, 0x61
+SonPLC_Balance2:dc.b 3,	0xB3, 0x71, 0x73, 0x7D, 0, 0x71
+SonPLC_Float1:	dc.b 3,	0x73, 0x85, 0x33, 0x8D, 0x23, 0x91
+SonPLC_Float2:	dc.b 1,	0x83, 0x94
+SonPLC_Float3:	dc.b 3,	0x73, 0x9D, 3, 0xA5, 0x33, 0xA6
+SonPLC_Float4:	dc.b 3,	0x73, 0xAA, 0x33, 0xB2, 0x23, 0xB6
+SonPLC_Spring:	dc.b 3,	0xB3, 0xB9, 0x13, 0xC5, 3, 0xC7
+SonPLC_Hang1:	dc.b 4,	0xB3, 0xC8, 0x33, 0xD4, 3, 0xD8, 3, 0xD9
+SonPLC_Hang2:	dc.b 4,	0xB3, 0xDA, 0x33, 0xE6, 3, 0xEA, 3, 0xEB
+SonPLC_Leap1:	dc.b 5,	0x83, 0xEC, 0x13, 0xF5, 0x53, 0xF7, 0x13, 0xFD,	3, 0xFF
+SonPLC_Leap2:	dc.b 5,	0x84, 0,	0x14, 9,	0x53, 0xF7, 0x13, 0xFD, 3, 0xFF
+SonPLC_Push1:	dc.b 2,	0x84, 0xB, 0x74, 0x14
+SonPLC_Push2:	dc.b 3,	0x84, 0x1C, 0x24, 0x25, 0x14, 0x28
+SonPLC_Push3:	dc.b 2,	0x84, 0x2A, 0x74, 0x33
+SonPLC_Push4:	dc.b 3,	0x84, 0x1C, 0x24, 0x3B, 0x14, 0x3E
+SonPLC_Surf:	dc.b 2,	0x54, 0x40, 0xB4, 0x46
+SonPLC_BubStand:dc.b 3,	0x84, 0x52, 0x34, 0x5B, 4, 0x5F
+SonPLC_Death:	dc.b 3,	0x74, 0x60, 0x14, 0x68, 0xB4, 0x6A
+SonPLC_Drown:	dc.b 5,	0x74, 0x76, 0x14, 0x7E, 0x54, 0x80, 0x34, 0x86,	4, 0x8A
+SonPLC_Burnt:	dc.b 5,	0x74, 0x8B, 0x14, 0x7E, 0x54, 0x93, 0x34, 0x86,	4, 0x8A
+SonPLC_Shrink1:	dc.b 2,	0x24, 0x99, 0xF4, 0x9C
+SonPLC_Shrink2:	dc.b 3,	0x24, 0xAC, 0xB4, 0xAF, 0x24, 0xBB
+SonPLC_Shrink3:	dc.b 1,	0xB4, 0xBE
+SonPLC_Shrink4:	dc.b 1,	0x54, 0xCA
+SonPLC_Shrink5:	dc.b 1,	0x14, 0xD0
+SonPLC_Injury:	dc.b 3,	0xB4, 0xD2, 0x14, 0xDE, 0x34, 0xE0
+SonPLC_GetAir:	dc.b 3,	0x54, 0xE4, 0xB4, 0xEA, 0x10, 0x6D
+SonPLC_WaterSlide:dc.b 2, 0xF4, 0xF6, 0x25, 6
+		.align 2

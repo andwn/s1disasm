@@ -1,16 +1,18 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - Orbinaut enemy (LZ,	SLZ, SBZ)
-; ---------------------------------------------------------------------------
-Map_Orb:	dc.w @normal-Map_Orb
-		dc.w @medium-Map_Orb
-		dc.w @angry-Map_Orb
-		dc.w @spikeball-Map_Orb
-@normal:	dc.b 1
-		dc.b $F4, $A, 0, 0, $F4
-@medium:	dc.b 1
-		dc.b $F4, $A, $20, 9, $F4
-@angry:		dc.b 1
-		dc.b $F4, $A, 0, $12, $F4
-@spikeball:	dc.b 1
-		dc.b $F8, 5, 0,	$1B, $F8
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - Orbinaut enemy (LZ,	SLZ, SBZ)
+# ---------------------------------------------------------------------------
+Map_Orb:	dc.w AT_10_normal-Map_Orb
+		dc.w AT_10_medium-Map_Orb
+		dc.w AT_10_angry-Map_Orb
+		dc.w AT_10_spikeball-Map_Orb
+AT_10_normal:	dc.b 1
+		dc.b 0xF4, 0xA, 0, 0, 0xF4
+AT_10_medium:	dc.b 1
+		dc.b 0xF4, 0xA, 0x20, 9, 0xF4
+AT_10_angry:		dc.b 1
+		dc.b 0xF4, 0xA, 0, 0x12, 0xF4
+AT_10_spikeball:	dc.b 1
+		dc.b 0xF8, 5, 0,	0x1B, 0xF8
+		.align 2
+
+

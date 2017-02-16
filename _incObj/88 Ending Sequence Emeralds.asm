@@ -1,6 +1,6 @@
-; ---------------------------------------------------------------------------
-; Object 88 - chaos emeralds on	the ending sequence
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Object 88 - chaos emeralds on	the ending sequence
+# ---------------------------------------------------------------------------
 
 EndChaos:
 		moveq	#0,d0
@@ -8,36 +8,36 @@ EndChaos:
 		move.w	ECha_Index(pc,d0.w),d1
 		jsr	ECha_Index(pc,d1.w)
 		jmp	(DisplaySprite).l
-; ===========================================================================
+# ===========================================================================
 ECha_Index:	dc.w ECha_Main-ECha_Index
 		dc.w ECha_Move-ECha_Index
 
-echa_origX:	equ $38	; x-axis centre of emerald circle (2 bytes)
-echa_origY:	equ $3A	; y-axis centre of emerald circle (2 bytes)
-echa_radius:	equ $3C	; radius (2 bytes)
-echa_angle:	equ $3E	; angle for rotation (2 bytes)
-; ===========================================================================
+.equ echa_origX, 0x38	/* x-axis centre of emerald circle (2 bytes) */
+.equ echa_origY, 0x3A	/* y-axis centre of emerald circle (2 bytes) */
+.equ echa_radius, 0x3C	/* radius (2 bytes) */
+.equ echa_angle, 0x3E	/* angle for rotation (2 bytes) */
+# ===========================================================================
 
-ECha_Main:	; Routine 0
+ECha_Main:	/* Routine 0 */
 		cmpi.b	#2,(v_player+obFrame).w
 		beq.s	ECha_CreateEms
 		addq.l	#4,sp
 		rts	
-; ===========================================================================
+# ===========================================================================
 
 ECha_CreateEms:
-		move.w	(v_player+obX).w,obX(a0) ; match X position with Sonic
-		move.w	(v_player+obY).w,obY(a0) ; match Y position with Sonic
+		move.w	(v_player+obX).w,obX(a0) /* match X position with Sonic */
+		move.w	(v_player+obY).w,obY(a0) /* match Y position with Sonic */
 		movea.l	a0,a1
 		moveq	#0,d3
 		moveq	#1,d2
 		moveq	#5,d1
 
 	ECha_LoadLoop:
-		move.b	#id_EndChaos,(a1) ; load chaos emerald object
+		move.b	#id_EndChaos,(a1) /* load chaos emerald object */
 		addq.b	#2,obRoutine(a1)
 		move.l	#Map_ECha,obMap(a1)
-		move.w	#$3C5,obGfx(a1)
+		move.w	#0x3C5,obGfx(a1)
 		move.b	#4,obRender(a1)
 		move.b	#1,obPriority(a1)
 		move.w	obX(a0),echa_origX(a1)
@@ -46,11 +46,11 @@ ECha_CreateEms:
 		move.b	d2,obFrame(a1)
 		addq.b	#1,d2
 		move.b	d3,obAngle(a1)
-		addi.b	#$100/6,d3	; angle between each emerald
-		lea	$40(a1),a1
-		dbf	d1,ECha_LoadLoop ; repeat 5 more times
+		addi.b	#0x100/6,d3	/* angle between each emerald */
+		lea	0x40(a1),a1
+		dbf	d1,ECha_LoadLoop /* repeat 5 more times */
 
-ECha_Move:	; Routine 2
+ECha_Move:	/* Routine 2 */
 		move.w	echa_angle(a0),d0
 		add.w	d0,obAngle(a0)
 		move.b	obAngle(a0),d0
@@ -67,19 +67,20 @@ ECha_Move:	; Routine 2
 		move.w	d0,obY(a0)
 
 	ECha_Expand:
-		cmpi.w	#$2000,echa_radius(a0)
+		cmpi.w	#0x2000,echa_radius(a0)
 		beq.s	ECha_Rotate
-		addi.w	#$20,echa_radius(a0) ; expand circle of emeralds
+		addi.w	#0x20,echa_radius(a0) /* expand circle of emeralds */
 
 	ECha_Rotate:
-		cmpi.w	#$2000,echa_angle(a0)
+		cmpi.w	#0x2000,echa_angle(a0)
 		beq.s	ECha_Rise
-		addi.w	#$20,echa_angle(a0) ; move emeralds around the centre
+		addi.w	#0x20,echa_angle(a0) /* move emeralds around the centre */
 
 	ECha_Rise:
-		cmpi.w	#$140,echa_origY(a0)
+		cmpi.w	#0x140,echa_origY(a0)
 		beq.s	ECha_End
-		subq.w	#1,echa_origY(a0) ; make circle rise
+		subq.w	#1,echa_origY(a0) /* make circle rise */
 
 ECha_End:
 		rts	
+

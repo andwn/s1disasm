@@ -1,6 +1,6 @@
-; ---------------------------------------------------------------------------
-; Object 5E - seesaws (SLZ)
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Object 5E - seesaws (SLZ)
+# ---------------------------------------------------------------------------
 
 Seesaw:
 		moveq	#0,d0
@@ -8,16 +8,16 @@ Seesaw:
 		move.w	See_Index(pc,d0.w),d1
 		jsr	See_Index(pc,d1.w)
 		move.w	see_origX(a0),d0
-		andi.w	#$FF80,d0
+		andi.w	#0xFF80,d0
 		move.w	(v_screenposx).w,d1
-		subi.w	#$80,d1
-		andi.w	#$FF80,d1
+		subi.w	#0x80,d1
+		andi.w	#0xFF80,d1
 		sub.w	d1,d0
 		bmi.w	DeleteObject
-		cmpi.w	#$280,d0
+		cmpi.w	#0x280,d0
 		bhi.w	DeleteObject
 		bra.w	DisplaySprite
-; ===========================================================================
+# ===========================================================================
 See_Index:	dc.w See_Main-See_Index
 		dc.w See_Slope-See_Index
 		dc.w See_Slope2-See_Index
@@ -25,125 +25,125 @@ See_Index:	dc.w See_Main-See_Index
 		dc.w See_MoveSpike-See_Index
 		dc.w See_SpikeFall-See_Index
 
-see_origX:	equ $30		; original x-axis position
-see_origY:	equ $34		; original y-axis position
-see_speed:	equ $38		; speed of collision
-see_frame:	equ $3A		; 
-see_parent:	equ $3C		; RAM address of parent object
-; ===========================================================================
+.equ see_origX, 0x30		/* original x-axis position */
+.equ see_origY, 0x34		/* original y-axis position */
+.equ see_speed, 0x38		/* speed of collision */
+.equ see_frame, 0x3A		/*  */
+.equ see_parent, 0x3C		/* RAM address of parent object */
+# ===========================================================================
 
-See_Main:	; Routine 0
+See_Main:	/* Routine 0 */
 		addq.b	#2,obRoutine(a0)
 		move.l	#Map_Seesaw,obMap(a0)
-		move.w	#$374,obGfx(a0)
+		move.w	#0x374,obGfx(a0)
 		ori.b	#4,obRender(a0)
 		move.b	#4,obPriority(a0)
-		move.b	#$30,obActWid(a0)
+		move.b	#0x30,obActWid(a0)
 		move.w	obX(a0),see_origX(a0)
-		tst.b	obSubtype(a0)	; is object type 00 ?
-		bne.s	@noball		; if not, branch
+		tst.b	obSubtype(a0)	/* is object type 00 ? */
+		bne.s	1f		/* if not, branch */
 
 		bsr.w	FindNextFreeObj
-		bne.s	@noball
-		move.b	#id_Seesaw,0(a1) ; load spikeball object
-		addq.b	#6,obRoutine(a1) ; use See_Spikeball routine
+		bne.s	1f
+		move.b	#id_Seesaw,0(a1) /* load spikeball object */
+		addq.b	#6,obRoutine(a1) /* use See_Spikeball routine */
 		move.w	obX(a0),obX(a1)
 		move.w	obY(a0),obY(a1)
 		move.b	obStatus(a0),obStatus(a1)
 		move.l	a0,see_parent(a1)
 
-	@noball:
-		btst	#0,obStatus(a0)	; is seesaw flipped?
-		beq.s	@noflip		; if not, branch
-		move.b	#2,obFrame(a0)	; use different frame
+	1:
+		btst	#0,obStatus(a0)	/* is seesaw flipped? */
+		beq.s	2f		/* if not, branch */
+		move.b	#2,obFrame(a0)	/* use different frame */
 
-	@noflip:
+	2:
 		move.b	obFrame(a0),see_frame(a0)
 
-See_Slope:	; Routine 2
+See_Slope:	/* Routine 2 */
 		move.b	see_frame(a0),d1
 		bsr.w	See_ChgFrame
 		lea	(See_DataSlope).l,a2
-		btst	#0,obFrame(a0)	; is seesaw flat?
-		beq.s	@notflat	; if not, branch
+		btst	#0,obFrame(a0)	/* is seesaw flat? */
+		beq.s	1f	/* if not, branch */
 		lea	(See_DataFlat).l,a2
 
-	@notflat:
+	1:
 		lea	(v_player).w,a1
 		move.w	obVelY(a1),see_speed(a0)
-		move.w	#$30,d1
+		move.w	#0x30,d1
 		jsr	(SlopeObject).l
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-See_Slope2:	; Routine 4
+See_Slope2:	/* Routine 4 */
 		bsr.w	See_ChkSide
 		lea	(See_DataSlope).l,a2
-		btst	#0,obFrame(a0)	; is seesaw flat?
-		beq.s	@notflat	; if not, branch
+		btst	#0,obFrame(a0)	/* is seesaw flat? */
+		beq.s	1f	/* if not, branch */
 		lea	(See_DataFlat).l,a2
 
-	@notflat:
-		move.w	#$30,d1
+	1:
+		move.w	#0x30,d1
 		jsr	(ExitPlatform).l
-		move.w	#$30,d1
+		move.w	#0x30,d1
 		move.w	obX(a0),d2
 		jsr	(SlopeObject2).l
 		rts	
-; ===========================================================================
+# ===========================================================================
 
 See_ChkSide:
 		moveq	#2,d1
 		lea	(v_player).w,a1
 		move.w	obX(a0),d0
-		sub.w	obX(a1),d0	; is Sonic on the left side of the seesaw?
-		bcc.s	@leftside	; if yes, branch
+		sub.w	obX(a1),d0	/* is Sonic on the left side of the seesaw? */
+		bcc.s	1f	/* if yes, branch */
 		neg.w	d0
 		moveq	#0,d1
 
-	@leftside:
+	1:
 		cmpi.w	#8,d0
 		bcc.s	See_ChgFrame
 		moveq	#1,d1
 
 See_ChgFrame:
 		move.b	obFrame(a0),d0
-		cmp.b	d1,d0		; does frame need to change?
-		beq.s	@noflip		; if not, branch
-		bcc.s	@loc_11772
+		cmp.b	d1,d0		/* does frame need to change? */
+		beq.s	1f		/* if not, branch */
+		bcc.s	2f
 		addq.b	#2,d0
 
-	@loc_11772:
+	2:
 		subq.b	#1,d0
 		move.b	d0,obFrame(a0)
 		move.b	d1,see_frame(a0)
 		bclr	#0,obRender(a0)
 		btst	#1,obFrame(a0)
-		beq.s	@noflip
+		beq.s	1f
 		bset	#0,obRender(a0)
 
-	@noflip:
+	1:
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-See_Spikeball:	; Routine 6
+See_Spikeball:	/* Routine 6 */
 		addq.b	#2,obRoutine(a0)
 		move.l	#Map_SSawBall,obMap(a0)
-		move.w	#$4F0,obGfx(a0)
+		move.w	#0x4F0,obGfx(a0)
 		ori.b	#4,obRender(a0)
 		move.b	#4,obPriority(a0)
-		move.b	#$8B,obColType(a0)
-		move.b	#$C,obActWid(a0)
+		move.b	#0x8B,obColType(a0)
+		move.b	#0xC,obActWid(a0)
 		move.w	obX(a0),see_origX(a0)
-		addi.w	#$28,obX(a0)
+		addi.w	#0x28,obX(a0)
 		move.w	obY(a0),see_origY(a0)
 		move.b	#1,obFrame(a0)
-		btst	#0,obStatus(a0)	; is seesaw flipped?
-		beq.s	See_MoveSpike	; if not, branch
-		subi.w	#$50,obX(a0)	; move spikeball to the other side
+		btst	#0,obStatus(a0)	/* is seesaw flipped? */
+		beq.s	See_MoveSpike	/* if not, branch */
+		subi.w	#0x50,obX(a0)	/* move spikeball to the other side */
 		move.b	#2,see_frame(a0)
 
-See_MoveSpike:	; Routine 8
+See_MoveSpike:	/* Routine 8 */
 		movea.l	see_parent(a0),a1
 		moveq	#0,d0
 		move.b	see_frame(a0),d0
@@ -153,16 +153,16 @@ See_MoveSpike:	; Routine 8
 		neg.b	d0
 
 loc_117FC:
-		move.w	#-$818,d1
-		move.w	#-$114,d2
+		move.w	#-0x818,d1
+		move.w	#-0x114,d2
 		cmpi.b	#1,d0
 		beq.s	loc_11822
-		move.w	#-$AF0,d1
-		move.w	#-$CC,d2
-		cmpi.w	#$A00,$38(a1)
+		move.w	#-0xAF0,d1
+		move.w	#-0xCC,d2
+		cmpi.w	#0xA00,0x38(a1)
 		blt.s	loc_11822
-		move.w	#-$E00,d1
-		move.w	#-$A0,d2
+		move.w	#-0xE00,d1
+		move.w	#-0xA0,d2
 
 loc_11822:
 		move.w	d1,obVelY(a0)
@@ -175,13 +175,13 @@ loc_11822:
 loc_11838:
 		addq.b	#2,obRoutine(a0)
 		bra.s	See_SpikeFall
-; ===========================================================================
+# ===========================================================================
 
 loc_1183E:
 		lea	(See_Speeds).l,a2
 		moveq	#0,d0
 		move.b	obFrame(a1),d0
-		move.w	#$28,d2
+		move.w	#0x28,d2
 		move.w	obX(a0),d1
 		sub.w	see_origX(a0),d1
 		bcc.s	loc_1185C
@@ -198,21 +198,21 @@ loc_1185C:
 		clr.w	obY+2(a0)
 		clr.w	obX+2(a0)
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-See_SpikeFall:	; Routine $A
-		tst.w	obVelY(a0)	; is spikeball falling down?
-		bpl.s	loc_1189A	; if yes, branch
+See_SpikeFall:	/* Routine $A */
+		tst.w	obVelY(a0)	/* is spikeball falling down? */
+		bpl.s	loc_1189A	/* if yes, branch */
 		bsr.w	ObjectFall
 		move.w	see_origY(a0),d0
-		subi.w	#$2F,d0
+		subi.w	#0x2F,d0
 		cmp.w	obY(a0),d0
 		bgt.s	locret_11898
 		bsr.w	ObjectFall
 
 locret_11898:
 		rts	
-; ===========================================================================
+# ===========================================================================
 
 loc_1189A:
 		bsr.w	ObjectFall
@@ -238,7 +238,7 @@ loc_118BA:
 		moveq	#0,d1
 
 See_Spring:
-		move.b	d1,$3A(a1)
+		move.b	d1,0x3A(a1)
 		move.b	d1,see_frame(a0)
 		cmp.b	obFrame(a1),d1
 		beq.s	loc_1192C
@@ -251,10 +251,10 @@ See_Spring:
 		neg.w	obVelY(a2)
 		bset	#1,obStatus(a2)
 		bclr	#3,obStatus(a2)
-		clr.b	$3C(a2)
-		move.b	#id_Spring,obAnim(a2) ; change Sonic's animation to "spring" ($10)
+		clr.b	0x3C(a2)
+		move.b	#id_Spring,obAnim(a2) /* change Sonic's animation to "spring" ($10) */
 		move.b	#2,obRoutine(a2)
-		sfx	sfx_Spring,0,0,0	; play spring sound
+		sfx	sfx_Spring,0,0,0	/* play spring sound */
 
 loc_1192C:
 		clr.w	obVelX(a0)
@@ -263,10 +263,11 @@ loc_1192C:
 
 locret_11938:
 		rts	
-; ===========================================================================
-See_Speeds:	dc.w -8, -$1C, -$2F, -$1C, -8
+# ===========================================================================
+See_Speeds:	dc.w -8, -0x1C, -0x2F, -0x1C, -8
 
-See_DataSlope:	incbin	"misc\slzssaw1.bin"
-		even
-See_DataFlat:	incbin	"misc\slzssaw2.bin"
-		even
+See_DataSlope:	.incbin	"misc/slzssaw1.bin"
+		.align 2
+See_DataFlat:	.incbin	"misc/slzssaw2.bin"
+		.align 2
+

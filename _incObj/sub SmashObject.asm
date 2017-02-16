@@ -1,8 +1,8 @@
-; ---------------------------------------------------------------------------
-; Subroutine to	smash a	block (GHZ walls and MZ	blocks)
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Subroutine to	smash a	block (GHZ walls and MZ	blocks)
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 SmashObject:
@@ -16,15 +16,15 @@ SmashObject:
 		move.b	0(a0),d4
 		move.b	obRender(a0),d5
 		movea.l	a0,a1
-		bra.s	@loadfrag
-; ===========================================================================
+		bra.s	1f
+# ===========================================================================
 
-	@loop:
+	2:
 		bsr.w	FindFreeObj
-		bne.s	@playsnd
+		bne.s	3f
 		addq.w	#5,a3
 
-@loadfrag:
+1:
 		move.b	#4,obRoutine(a1)
 		move.b	d4,0(a1)
 		move.l	a3,obMap(a1)
@@ -37,7 +37,7 @@ SmashObject:
 		move.w	(a4)+,obVelX(a1)
 		move.w	(a4)+,obVelY(a1)
 		cmpa.l	a0,a1
-		bcc.s	@loc_D268
+		bcc.s	4f
 		move.l	a0,-(sp)
 		movea.l	a1,a0
 		bsr.w	SpeedToPos
@@ -45,10 +45,11 @@ SmashObject:
 		movea.l	(sp)+,a0
 		bsr.w	DisplaySprite1
 
-	@loc_D268:
-		dbf	d1,@loop
+	4:
+		dbf d1,2b
 
-	@playsnd:
-		sfx	sfx_WallSmash,1,0,0 ; play smashing sound
+	3:
+		sfx	sfx_WallSmash,1,0,0 /* play smashing sound */
 
-; End of function SmashObject
+# End of function SmashObject
+

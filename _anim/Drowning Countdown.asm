@@ -1,41 +1,41 @@
-; ---------------------------------------------------------------------------
-; Animation script - countdown numbers and bubbles (LZ)
-; ---------------------------------------------------------------------------
-Ani_Drown:	dc.w @zeroappear-Ani_Drown
-		dc.w @oneappear-Ani_Drown
-		dc.w @twoappear-Ani_Drown
-		dc.w @threeappear-Ani_Drown
-		dc.w @fourappear-Ani_Drown
-		dc.w @fiveappear-Ani_Drown
-		dc.w @smallbubble-Ani_Drown
-		dc.w @zeroflash-Ani_Drown
-		dc.w @oneflash-Ani_Drown
-		dc.w @twoflash-Ani_Drown
-		dc.w @threeflash-Ani_Drown
-		dc.w @fourflash-Ani_Drown
-		dc.w @fiveflash-Ani_Drown
-		dc.w @blank-Ani_Drown
-		dc.w @mediumbubble-Ani_Drown
-@zeroappear:	dc.b 5,	0, 1, 2, 3, 4, 9, $D, afRoutine
-		even
-@oneappear:	dc.b 5,	0, 1, 2, 3, 4, $C, $12,	afRoutine
-		even
-@twoappear:	dc.b 5,	0, 1, 2, 3, 4, $C, $11,	afRoutine
-		even
-@threeappear:	dc.b 5,	0, 1, 2, 3, 4, $B, $10,	afRoutine
-		even
-@fourappear:	dc.b 5,	0, 1, 2, 3, 4, 9, $F, afRoutine
-		even
-@fiveappear:	dc.b 5,	0, 1, 2, 3, 4, $A, $E, afRoutine
-		even
-@smallbubble:	dc.b $E, 0, 1, 2, afRoutine
-		even
-@zeroflash:	dc.b 7,	$16, $D, $16, $D, $16, $D, afRoutine
-@oneflash:	dc.b 7,	$16, $12, $16, $12, $16, $12, afRoutine
-@twoflash:	dc.b 7,	$16, $11, $16, $11, $16, $11, afRoutine
-@threeflash:	dc.b 7,	$16, $10, $16, $10, $16, $10, afRoutine
-@fourflash:	dc.b 7,	$16, $F, $16, $F, $16, $F, afRoutine
-@fiveflash:	dc.b 7,	$16, $E, $16, $E, $16, $E, afRoutine
-@blank:		dc.b $E, afRoutine
-@mediumbubble:	dc.b $E, 1, 2, 3, 4, afRoutine
-		even
+# ---------------------------------------------------------------------------
+# Animation script - countdown numbers and bubbles (LZ)
+# ---------------------------------------------------------------------------
+Ani_Drown:	dc.w AT_46_zeroappear-Ani_Drown
+		dc.w AT_46_oneappear-Ani_Drown
+		dc.w AT_46_twoappear-Ani_Drown
+		dc.w AT_46_threeappear-Ani_Drown
+		dc.w AT_46_fourappear-Ani_Drown
+		dc.w AT_46_fiveappear-Ani_Drown
+		dc.w AT_46_smallbubble-Ani_Drown
+		dc.w AT_46_zeroflash-Ani_Drown
+		dc.w AT_46_oneflash-Ani_Drown
+		dc.w AT_46_twoflash-Ani_Drown
+		dc.w AT_46_threeflash-Ani_Drown
+		dc.w AT_46_fourflash-Ani_Drown
+		dc.w AT_46_fiveflash-Ani_Drown
+		dc.w AT_46_blank-Ani_Drown
+		dc.w AT_46_mediumbubble-Ani_Drown
+AT_46_zeroappear:	dc.b 5,	0, 1, 2, 3, 4, 9, 0xD, afRoutine
+		.align 2
+AT_46_oneappear:	dc.b 5,	0, 1, 2, 3, 4, 0xC, 0x12,	afRoutine
+		.align 2
+AT_46_twoappear:	dc.b 5,	0, 1, 2, 3, 4, 0xC, 0x11,	afRoutine
+		.align 2
+AT_46_threeappear:	dc.b 5,	0, 1, 2, 3, 4, 0xB, 0x10,	afRoutine
+		.align 2
+AT_46_fourappear:	dc.b 5,	0, 1, 2, 3, 4, 9, 0xF, afRoutine
+		.align 2
+AT_46_fiveappear:	dc.b 5,	0, 1, 2, 3, 4, 0xA, 0xE, afRoutine
+		.align 2
+AT_46_smallbubble:	dc.b 0xE, 0, 1, 2, afRoutine
+		.align 2
+AT_46_zeroflash:	dc.b 7,	0x16, 0xD, 0x16, 0xD, 0x16, 0xD, afRoutine
+AT_46_oneflash:	dc.b 7,	0x16, 0x12, 0x16, 0x12, 0x16, 0x12, afRoutine
+AT_46_twoflash:	dc.b 7,	0x16, 0x11, 0x16, 0x11, 0x16, 0x11, afRoutine
+AT_46_threeflash:	dc.b 7,	0x16, 0x10, 0x16, 0x10, 0x16, 0x10, afRoutine
+AT_46_fourflash:	dc.b 7,	0x16, 0xF, 0x16, 0xF, 0x16, 0xF, afRoutine
+AT_46_fiveflash:	dc.b 7,	0x16, 0xE, 0x16, 0xE, 0x16, 0xE, afRoutine
+AT_46_blank:		dc.b 0xE, afRoutine
+AT_46_mediumbubble:	dc.b 0xE, 1, 2, 3, 4, afRoutine
+		.align 2

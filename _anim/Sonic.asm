@@ -1,6 +1,6 @@
-; ---------------------------------------------------------------------------
-; Animation script - Sonic
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Animation script - Sonic
+# ---------------------------------------------------------------------------
 Ani_Sonic:
 
 ptr_Walk:	dc.w SonAni_Walk-Ani_Sonic
@@ -35,99 +35,99 @@ ptr_Null:	dc.w SonAni_Null-Ani_Sonic
 ptr_Float3:	dc.w SonAni_Float3-Ani_Sonic
 ptr_Float4:	dc.w SonAni_Float4-Ani_Sonic
 
-SonAni_Walk:	dc.b $FF, fr_walk13, fr_walk14,	fr_walk15, fr_walk16, fr_walk11, fr_walk12, afEnd
-		even
-SonAni_Run:	dc.b $FF,  fr_run11,  fr_run12,  fr_run13,  fr_run14,     afEnd,     afEnd, afEnd
-		even
-SonAni_Roll:	dc.b $FE,  fr_Roll1,  fr_Roll2,  fr_Roll3,  fr_Roll4,  fr_Roll5,     afEnd, afEnd
-		even
-SonAni_Roll2:	dc.b $FE,  fr_Roll1,  fr_Roll2,  fr_Roll5,  fr_Roll3,  fr_Roll4,  fr_Roll5, afEnd
-		even
-SonAni_Push:	dc.b $FD,  fr_push1,  fr_push2,  fr_push3,  fr_push4,     afEnd,     afEnd, afEnd
-		even
-SonAni_Wait:	dc.b $17, fr_stand, fr_stand, fr_stand, fr_stand, fr_stand, fr_stand, fr_stand, fr_stand, fr_stand
-		dc.b fr_stand, fr_stand, fr_stand, fr_wait2, fr_wait1, fr_wait1, fr_wait1, fr_wait2, fr_wait3, afBack, 2
-		even
-SonAni_Balance:	dc.b $1F, fr_balance1, fr_balance2, afEnd
-		even
-SonAni_LookUp:	dc.b $3F, fr_lookup, afEnd
-		even
-SonAni_Duck:	dc.b $3F, fr_duck, afEnd
-		even
-SonAni_Warp1:	dc.b $3F, fr_warp1, afEnd
-		even
-SonAni_Warp2:	dc.b $3F, fr_warp2, afEnd
-		even
-SonAni_Warp3:	dc.b $3F, fr_warp3, afEnd
-		even
-SonAni_Warp4:	dc.b $3F, fr_warp4, afEnd
-		even
-SonAni_Stop:	dc.b 7,	fr_stop1, fr_stop2, afEnd
-		even
-SonAni_Float1:	dc.b 7,	fr_float1, fr_float4, afEnd
-		even
-SonAni_Float2:	dc.b 7,	fr_float1, fr_float2, fr_float5, fr_float3, fr_float6, afEnd
-		even
-SonAni_Spring:	dc.b $2F, fr_spring, afChange, id_Walk
-		even
-SonAni_Hang:	dc.b 4,	fr_hang1, fr_hang2, afEnd
-		even
-SonAni_Leap1:	dc.b $F, fr_leap1, fr_leap1, fr_leap1,	afBack, 1
-		even
-SonAni_Leap2:	dc.b $F, fr_leap1, fr_leap2, afBack, 1
-		even
-SonAni_Surf:	dc.b $3F, fr_surf, afEnd
-		even
-SonAni_GetAir:	dc.b $B, fr_getair, fr_getair, fr_walk15, fr_walk16, afChange, id_Walk
-		even
-SonAni_Burnt:	dc.b $20, fr_burnt, afEnd
-		even
-SonAni_Drown:	dc.b $2F, fr_drown, afEnd
-		even
-SonAni_Death:	dc.b 3,	fr_death, afEnd
-		even
-SonAni_Shrink:	dc.b 3,	fr_shrink1, fr_shrink2, fr_shrink3, fr_shrink4, fr_shrink5, fr_null, afBack, 1
-		even
-SonAni_Hurt:	dc.b 3,	fr_injury, afEnd
-		even
+SonAni_Walk:	dc.b 0xFF, fr_Walk13, fr_Walk14,	fr_Walk15, fr_Walk16, fr_Walk11, fr_Walk12, afEnd
+		.align 2
+SonAni_Run:	dc.b 0xFF,  fr_Run11,  fr_Run12,  fr_Run13,  fr_Run14,     afEnd,     afEnd, afEnd
+		.align 2
+SonAni_Roll:	dc.b 0xFE,  fr_Roll1,  fr_Roll2,  fr_Roll3,  fr_Roll4,  fr_Roll5,     afEnd, afEnd
+		.align 2
+SonAni_Roll2:	dc.b 0xFE,  fr_Roll1,  fr_Roll2,  fr_Roll5,  fr_Roll3,  fr_Roll4,  fr_Roll5, afEnd
+		.align 2
+SonAni_Push:	dc.b 0xFD,  fr_Push1,  fr_Push2,  fr_Push3,  fr_Push4,     afEnd,     afEnd, afEnd
+		.align 2
+SonAni_Wait:	dc.b 0x17, fr_Stand, fr_Stand, fr_Stand, fr_Stand, fr_Stand, fr_Stand, fr_Stand, fr_Stand, fr_Stand
+		dc.b fr_Stand, fr_Stand, fr_Stand, fr_Wait2, fr_Wait1, fr_Wait1, fr_Wait1, fr_Wait2, fr_Wait3, afBack, 2
+		.align 2
+SonAni_Balance:	dc.b 0x1F, fr_Balance1, fr_Balance2, afEnd
+		.align 2
+SonAni_LookUp:	dc.b 0x3F, fr_LookUp, afEnd
+		.align 2
+SonAni_Duck:	dc.b 0x3F, fr_Duck, afEnd
+		.align 2
+SonAni_Warp1:	dc.b 0x3F, fr_Warp1, afEnd
+		.align 2
+SonAni_Warp2:	dc.b 0x3F, fr_Warp2, afEnd
+		.align 2
+SonAni_Warp3:	dc.b 0x3F, fr_Warp3, afEnd
+		.align 2
+SonAni_Warp4:	dc.b 0x3F, fr_Warp4, afEnd
+		.align 2
+SonAni_Stop:	dc.b 7,	fr_Stop1, fr_Stop2, afEnd
+		.align 2
+SonAni_Float1:	dc.b 7,	fr_Float1, fr_Float4, afEnd
+		.align 2
+SonAni_Float2:	dc.b 7,	fr_Float1, fr_Float2, fr_Float5, fr_Float3, fr_Float6, afEnd
+		.align 2
+SonAni_Spring:	dc.b 0x2F, fr_Spring, afChange, id_Walk
+		.align 2
+SonAni_Hang:	dc.b 4,	fr_Hang1, fr_Hang2, afEnd
+		.align 2
+SonAni_Leap1:	dc.b 0xF, fr_Leap1, fr_Leap1, fr_Leap1,	afBack, 1
+		.align 2
+SonAni_Leap2:	dc.b 0xF, fr_Leap1, fr_Leap2, afBack, 1
+		.align 2
+SonAni_Surf:	dc.b 0x3F, fr_Surf, afEnd
+		.align 2
+SonAni_GetAir:	dc.b 0xB, fr_GetAir, fr_GetAir, fr_Walk15, fr_Walk16, afChange, id_Walk
+		.align 2
+SonAni_Burnt:	dc.b 0x20, fr_Burnt, afEnd
+		.align 2
+SonAni_Drown:	dc.b 0x2F, fr_Drown, afEnd
+		.align 2
+SonAni_Death:	dc.b 3,	fr_Death, afEnd
+		.align 2
+SonAni_Shrink:	dc.b 3,	fr_Shrink1, fr_Shrink2, fr_Shrink3, fr_Shrink4, fr_Shrink5, fr_Null, afBack, 1
+		.align 2
+SonAni_Hurt:	dc.b 3,	fr_Injury, afEnd
+		.align 2
 SonAni_WaterSlide:
-		dc.b 7, fr_injury, fr_waterslide, afEnd
-		even
-SonAni_Null:	dc.b $77, fr_null, afChange, id_Walk
-		even
-SonAni_Float3:	dc.b 3,	fr_float1, fr_float2, fr_float5, fr_float3, fr_float6, afEnd
-		even
-SonAni_Float4:	dc.b 3,	fr_float1, afChange, id_Walk
-		even
+		dc.b 7, fr_Injury, fr_WaterSlide, afEnd
+		.align 2
+SonAni_Null:	dc.b 0x77, fr_Null, afChange, id_Walk
+		.align 2
+SonAni_Float3:	dc.b 3,	fr_Float1, fr_Float2, fr_Float5, fr_Float3, fr_Float6, afEnd
+		.align 2
+SonAni_Float4:	dc.b 3,	fr_Float1, afChange, id_Walk
+		.align 2
 
-id_Walk:	equ (ptr_Walk-Ani_Sonic)/2	; 0
-id_Run:		equ (ptr_Run-Ani_Sonic)/2	; 1
-id_Roll:	equ (ptr_Roll-Ani_Sonic)/2	; 2
-id_Roll2:	equ (ptr_Roll2-Ani_Sonic)/2	; 3
-id_Push:	equ (ptr_Push-Ani_Sonic)/2	; 4
-id_Wait:	equ (ptr_Wait-Ani_Sonic)/2	; 5
-id_Balance:	equ (ptr_Balance-Ani_Sonic)/2	; 6
-id_LookUp:	equ (ptr_LookUp-Ani_Sonic)/2	; 7
-id_Duck:	equ (ptr_Duck-Ani_Sonic)/2	; 8
-id_Warp1:	equ (ptr_Warp1-Ani_Sonic)/2	; 9
-id_Warp2:	equ (ptr_Warp2-Ani_Sonic)/2	; $A
-id_Warp3:	equ (ptr_Warp3-Ani_Sonic)/2	; $B
-id_Warp4:	equ (ptr_Warp4-Ani_Sonic)/2	; $C
-id_Stop:	equ (ptr_Stop-Ani_Sonic)/2	; $D
-id_Float1:	equ (ptr_Float1-Ani_Sonic)/2	; $E
-id_Float2:	equ (ptr_Float2-Ani_Sonic)/2	; $F
-id_Spring:	equ (ptr_Spring-Ani_Sonic)/2	; $10
-id_Hang:	equ (ptr_Hang-Ani_Sonic)/2	; $11
-id_Leap1:	equ (ptr_Leap1-Ani_Sonic)/2	; $12
-id_Leap2:	equ (ptr_Leap2-Ani_Sonic)/2	; $13
-id_Surf:	equ (ptr_Surf-Ani_Sonic)/2	; $14
-id_GetAir:	equ (ptr_GetAir-Ani_Sonic)/2	; $15
-id_Burnt:	equ (ptr_Burnt-Ani_Sonic)/2	; $16
-id_Drown:	equ (ptr_Drown-Ani_Sonic)/2	; $17
-id_Death:	equ (ptr_Death-Ani_Sonic)/2	; $18
-id_Shrink:	equ (ptr_Shrink-Ani_Sonic)/2	; $19
-id_Hurt:	equ (ptr_Hurt-Ani_Sonic)/2	; $1A
-id_WaterSlide:	equ (ptr_WaterSlide-Ani_Sonic)/2 ; $1B
-id_Null:	equ (ptr_Null-Ani_Sonic)/2	; $1C
-id_Float3:	equ (ptr_Float3-Ani_Sonic)/2	; $1D
-id_Float4:	equ (ptr_Float4-Ani_Sonic)/2	; $1E
+.equ id_Walk, (ptr_Walk-Ani_Sonic)/2	/* 0 */
+.equ id_Run, (ptr_Run-Ani_Sonic)/2	/* 1 */
+.equ id_Roll, (ptr_Roll-Ani_Sonic)/2	/* 2 */
+.equ id_Roll2, (ptr_Roll2-Ani_Sonic)/2	/* 3 */
+.equ id_Push, (ptr_Push-Ani_Sonic)/2	/* 4 */
+.equ id_Wait, (ptr_Wait-Ani_Sonic)/2	/* 5 */
+.equ id_Balance, (ptr_Balance-Ani_Sonic)/2	/* 6 */
+.equ id_LookUp, (ptr_LookUp-Ani_Sonic)/2	/* 7 */
+.equ id_Duck, (ptr_Duck-Ani_Sonic)/2	/* 8 */
+.equ id_Warp1, (ptr_Warp1-Ani_Sonic)/2	/* 9 */
+.equ id_Warp2, (ptr_Warp2-Ani_Sonic)/2	/* $A */
+.equ id_Warp3, (ptr_Warp3-Ani_Sonic)/2	/* $B */
+.equ id_Warp4, (ptr_Warp4-Ani_Sonic)/2	/* $C */
+.equ id_Stop, (ptr_Stop-Ani_Sonic)/2	/* $D */
+.equ id_Float1, (ptr_Float1-Ani_Sonic)/2	/* $E */
+.equ id_Float2, (ptr_Float2-Ani_Sonic)/2	/* $F */
+.equ id_Spring, (ptr_Spring-Ani_Sonic)/2	/* $10 */
+.equ id_Hang, (ptr_Hang-Ani_Sonic)/2	/* $11 */
+.equ id_Leap1, (ptr_Leap1-Ani_Sonic)/2	/* $12 */
+.equ id_Leap2, (ptr_Leap2-Ani_Sonic)/2	/* $13 */
+.equ id_Surf, (ptr_Surf-Ani_Sonic)/2	/* $14 */
+.equ id_GetAir, (ptr_GetAir-Ani_Sonic)/2	/* $15 */
+.equ id_Burnt, (ptr_Burnt-Ani_Sonic)/2	/* $16 */
+.equ id_Drown, (ptr_Drown-Ani_Sonic)/2	/* $17 */
+.equ id_Death, (ptr_Death-Ani_Sonic)/2	/* $18 */
+.equ id_Shrink, (ptr_Shrink-Ani_Sonic)/2	/* $19 */
+.equ id_Hurt, (ptr_Hurt-Ani_Sonic)/2	/* $1A */
+.equ id_WaterSlide, (ptr_WaterSlide-Ani_Sonic)/2 /* $1B */
+.equ id_Null, (ptr_Null-Ani_Sonic)/2	/* $1C */
+.equ id_Float3, (ptr_Float3-Ani_Sonic)/2	/* $1D */
+.equ id_Float4, (ptr_Float4-Ani_Sonic)/2	/* $1E */

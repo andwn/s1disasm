@@ -1,36 +1,36 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - stomper and	platforms (SBZ)
-; ---------------------------------------------------------------------------
-Map_Stomp:	dc.w @door-Map_Stomp, @stomper-Map_Stomp
-		dc.w @stomper-Map_Stomp, @stomper-Map_Stomp
-		dc.w @bigdoor-Map_Stomp
-@door:		dc.b 4
-		dc.b $F4, $E, $21, $AF,	$C0 ; horizontal sliding door
-		dc.b $F4, $E, $21, $B2,	$E0
-		dc.b $F4, $E, $21, $B2,	0
-		dc.b $F4, $E, $29, $AF,	$20
-@stomper:	dc.b 8
-		dc.b $E0, $C, 0, $C, $E4 ; stomper block with yellow/black stripes
-		dc.b $E0, 8, 0,	$10, 4
-		dc.b $E8, $E, $20, $13,	$E4
-		dc.b $E8, $A, $20, $1F,	4
-		dc.b 0,	$E, $20, $13, $E4
-		dc.b 0,	$A, $20, $1F, 4
-		dc.b $18, $C, 0, $C, $E4
-		dc.b $18, 8, 0,	$10, 4
-@bigdoor:	dc.b $E
-		dc.b $C0, $F, 0, 0, $80	; huge diagonal sliding door from SBZ3
-		dc.b $C0, $F, 0, $10, $A0
-		dc.b $C0, $F, 0, $20, $C0
-		dc.b $C0, $F, 0, $10, $E0
-		dc.b $C0, $F, 0, $20, 0
-		dc.b $C0, $F, 0, $10, $20
-		dc.b $C0, $F, 0, $30, $40
-		dc.b $C0, $D, 0, $40, $60
-		dc.b $E0, $F, 0, $48, $80
-		dc.b $E0, $F, 0, $48, $C0
-		dc.b $E0, $F, 0, $58, 0
-		dc.b 0,	$F, 0, $48, $80
-		dc.b 0,	$F, 0, $58, $C0
-		dc.b $20, $F, 0, $58, $80
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - stomper and	platforms (SBZ)
+# ---------------------------------------------------------------------------
+Map_Stomp:	dc.w AT_35_door-Map_Stomp, AT_35_stomper-Map_Stomp
+		dc.w AT_35_stomper-Map_Stomp, AT_35_stomper-Map_Stomp
+		dc.w AT_35_bigdoor-Map_Stomp
+AT_35_door:		dc.b 4
+		dc.b 0xF4, 0xE, 0x21, 0xAF,	0xC0 /* horizontal sliding door */
+		dc.b 0xF4, 0xE, 0x21, 0xB2,	0xE0
+		dc.b 0xF4, 0xE, 0x21, 0xB2,	0
+		dc.b 0xF4, 0xE, 0x29, 0xAF,	0x20
+AT_35_stomper:	dc.b 8
+		dc.b 0xE0, 0xC, 0, 0xC, 0xE4 /* stomper block with yellow/black stripes */
+		dc.b 0xE0, 8, 0,	0x10, 4
+		dc.b 0xE8, 0xE, 0x20, 0x13,	0xE4
+		dc.b 0xE8, 0xA, 0x20, 0x1F,	4
+		dc.b 0,	0xE, 0x20, 0x13, 0xE4
+		dc.b 0,	0xA, 0x20, 0x1F, 4
+		dc.b 0x18, 0xC, 0, 0xC, 0xE4
+		dc.b 0x18, 8, 0,	0x10, 4
+AT_35_bigdoor:	dc.b 0xE
+		dc.b 0xC0, 0xF, 0, 0, 0x80	/* huge diagonal sliding door from SBZ3 */
+		dc.b 0xC0, 0xF, 0, 0x10, 0xA0
+		dc.b 0xC0, 0xF, 0, 0x20, 0xC0
+		dc.b 0xC0, 0xF, 0, 0x10, 0xE0
+		dc.b 0xC0, 0xF, 0, 0x20, 0
+		dc.b 0xC0, 0xF, 0, 0x10, 0x20
+		dc.b 0xC0, 0xF, 0, 0x30, 0x40
+		dc.b 0xC0, 0xD, 0, 0x40, 0x60
+		dc.b 0xE0, 0xF, 0, 0x48, 0x80
+		dc.b 0xE0, 0xF, 0, 0x48, 0xC0
+		dc.b 0xE0, 0xF, 0, 0x58, 0
+		dc.b 0,	0xF, 0, 0x48, 0x80
+		dc.b 0,	0xF, 0, 0x58, 0xC0
+		dc.b 0x20, 0xF, 0, 0x58, 0x80
+		.align 2

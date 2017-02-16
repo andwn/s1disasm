@@ -1,15 +1,15 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - blocks (LZ)
-; ---------------------------------------------------------------------------
-Map_LBlock:	dc.w @sinkblock-Map_LBlock, @riseplatform-Map_LBlock
-		dc.w @cork-Map_LBlock, @block-Map_LBlock
-@sinkblock:	dc.b 1
-		dc.b $F0, $F, 0, 0, $F0	; block, sinks when stood on
-@riseplatform:	dc.b 2
-		dc.b $F4, $E, 0, $69, $E0 ; platform, rises when stood on
-		dc.b $F4, $E, 0, $75, 0
-@cork:		dc.b 1
-		dc.b $F0, $F, 1, $1A, $F0 ; cork, floats on water
-@block:		dc.b 1
-		dc.b $F0, $F, $FD, $FA,	$F0 ; block
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - blocks (LZ)
+# ---------------------------------------------------------------------------
+Map_LBlock:	dc.w AT_97_sinkblock-Map_LBlock, AT_97_riseplatform-Map_LBlock
+		dc.w AT_97_cork-Map_LBlock, AT_97_block-Map_LBlock
+AT_97_sinkblock:	dc.b 1
+		dc.b 0xF0, 0xF, 0, 0, 0xF0	/* block, sinks when stood on */
+AT_97_riseplatform:	dc.b 2
+		dc.b 0xF4, 0xE, 0, 0x69, 0xE0 /* platform, rises when stood on */
+		dc.b 0xF4, 0xE, 0, 0x75, 0
+AT_97_cork:		dc.b 1
+		dc.b 0xF0, 0xF, 1, 0x1A, 0xF0 /* cork, floats on water */
+AT_97_block:		dc.b 1
+		dc.b 0xF0, 0xF, 0xFD, 0xFA,	0xF0 /* block */
+		.align 2

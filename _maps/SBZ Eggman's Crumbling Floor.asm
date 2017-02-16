@@ -1,24 +1,24 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - blocks that	disintegrate when Eggman presses a switch
-; ---------------------------------------------------------------------------
-Map_FFloor:	dc.w @wholeblock-Map_FFloor, @topleft-Map_FFloor
-		dc.w @topright-Map_FFloor, @bottomleft-Map_FFloor
-		dc.w @bottomright-Map_FFloor
-@wholeblock:	dc.b 1
-		dc.b $F0, $F, 0, 0, $F0
-@topleft:	dc.b 2
-		dc.b $F8, 1, 0,	0, $F8
-		dc.b $F8, 1, 0,	4, 0
+# ---------------------------------------------------------------------------
+# Sprite mappings - blocks that	disintegrate when Eggman presses a switch
+# ---------------------------------------------------------------------------
+Map_FFloor:	dc.w AT_48_wholeblock-Map_FFloor, AT_48_topleft-Map_FFloor
+		dc.w AT_48_topright-Map_FFloor, AT_48_bottomleft-Map_FFloor
+		dc.w AT_48_bottomright-Map_FFloor
+AT_48_wholeblock:	dc.b 1
+		dc.b 0xF0, 0xF, 0, 0, 0xF0
+AT_48_topleft:	dc.b 2
+		dc.b 0xF8, 1, 0,	0, 0xF8
+		dc.b 0xF8, 1, 0,	4, 0
 		dc.b 0
-@topright:	dc.b 2
-		dc.b $F8, 1, 0,	8, $F8
-		dc.b $F8, 1, 0,	$C, 0
+AT_48_topright:	dc.b 2
+		dc.b 0xF8, 1, 0,	8, 0xF8
+		dc.b 0xF8, 1, 0,	0xC, 0
 		dc.b 0
-@bottomleft:	dc.b 2
-		dc.b $F8, 1, 0,	2, $F8
-		dc.b $F8, 1, 0,	6, 0
+AT_48_bottomleft:	dc.b 2
+		dc.b 0xF8, 1, 0,	2, 0xF8
+		dc.b 0xF8, 1, 0,	6, 0
 		dc.b 0
-@bottomright:	dc.b 2
-		dc.b $F8, 1, 0,	$A, $F8
-		dc.b $F8, 1, 0,	$E, 0
-		even
+AT_48_bottomright:	dc.b 2
+		dc.b 0xF8, 1, 0,	0xA, 0xF8
+		dc.b 0xF8, 1, 0,	0xE, 0
+		.align 2

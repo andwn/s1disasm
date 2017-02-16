@@ -1,12 +1,12 @@
-; ---------------------------------------------------------------------------
-; Animation script - Motobug enemy
-; ---------------------------------------------------------------------------
-Ani_Moto:	dc.w @stand-Ani_Moto
-		dc.w @walk-Ani_Moto
-		dc.w @smoke-Ani_Moto
+# ---------------------------------------------------------------------------
+# Animation script - Motobug enemy
+# ---------------------------------------------------------------------------
+Ani_Moto:	dc.w AT_45_stand-Ani_Moto
+		dc.w AT_45_walk-Ani_Moto
+		dc.w AT_45_smoke-Ani_Moto
 
-@stand:		dc.b $F, 2, afEnd
-		even
-@walk:		dc.b 7,	0, 1, 0, 2, afEnd
-@smoke:		dc.b 1,	3, 6, 3, 6, 4, 6, 4, 6,	4, 6, 5, afRoutine
-		even
+AT_45_stand:		dc.b 0xF, 2, afEnd
+		.align 2
+AT_45_walk:		dc.b 7,	0, 1, 0, 2, afEnd
+AT_45_smoke:		dc.b 1,	3, 6, 3, 6, 4, 6, 4, 6,	4, 6, 5, afRoutine
+		.align 2

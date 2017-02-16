@@ -1,9 +1,9 @@
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Swing_Move:
-		move.b	(v_oscillate+$1A).w,d0
-		move.w	#$80,d1
+		move.b	(v_oscillate+0x1A).w,d0
+		move.w	#0x80,d1
 		btst	#0,obStatus(a0)
 		beq.s	loc_7B78
 		neg.w	d0
@@ -11,46 +11,46 @@ Swing_Move:
 
 loc_7B78:
 		bra.s	Swing_Move2
-; End of function Swing_Move
+# End of function Swing_Move
 
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Obj48_Move:
-		tst.b	$3D(a0)
+		tst.b	0x3D(a0)
 		bne.s	loc_7B9C
-		move.w	$3E(a0),d0
+		move.w	0x3E(a0),d0
 		addq.w	#8,d0
-		move.w	d0,$3E(a0)
+		move.w	d0,0x3E(a0)
 		add.w	d0,obAngle(a0)
-		cmpi.w	#$200,d0
+		cmpi.w	#0x200,d0
 		bne.s	loc_7BB6
-		move.b	#1,$3D(a0)
+		move.b	#1,0x3D(a0)
 		bra.s	loc_7BB6
-; ===========================================================================
+# ===========================================================================
 
 loc_7B9C:
-		move.w	$3E(a0),d0
+		move.w	0x3E(a0),d0
 		subq.w	#8,d0
-		move.w	d0,$3E(a0)
+		move.w	d0,0x3E(a0)
 		add.w	d0,obAngle(a0)
-		cmpi.w	#-$200,d0
+		cmpi.w	#-0x200,d0
 		bne.s	loc_7BB6
-		move.b	#0,$3D(a0)
+		move.b	#0,0x3D(a0)
 
 loc_7BB6:
 		move.b	obAngle(a0),d0
-; End of function Obj48_Move
+# End of function Obj48_Move
 
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Swing_Move2:
 		bsr.w	CalcSine
-		move.w	$38(a0),d2
-		move.w	$3A(a0),d3
+		move.w	0x38(a0),d2
+		move.w	0x3A(a0),d3
 		lea	obSubtype(a0),a2
 		moveq	#0,d6
 		move.b	(a2)+,d6
@@ -59,10 +59,10 @@ loc_7BCE:
 		moveq	#0,d4
 		move.b	(a2)+,d4
 		lsl.w	#6,d4
-		addi.l	#v_objspace&$FFFFFF,d4
+		addi.l	#v_objspace&0xFFFFFF,d4
 		movea.l	d4,a1
 		moveq	#0,d4
-		move.b	$3C(a1),d4
+		move.b	0x3C(a1),d4
 		move.l	d4,d5
 		muls.w	d0,d4
 		asr.l	#8,d4
@@ -74,14 +74,14 @@ loc_7BCE:
 		move.w	d5,obX(a1)
 		dbf	d6,loc_7BCE
 		rts	
-; End of function Swing_Move2
+# End of function Swing_Move2
 
-; ===========================================================================
+# ===========================================================================
 
 Swing_ChkDel:
-		out_of_range	Swing_DelAll,$3A(a0)
+		out_of_range	Swing_DelAll,0x3A(a0)
 		rts	
-; ===========================================================================
+# ===========================================================================
 
 Swing_DelAll:
 		moveq	#0,d2
@@ -92,17 +92,18 @@ Swing_DelLoop:
 		moveq	#0,d0
 		move.b	(a2)+,d0
 		lsl.w	#6,d0
-		addi.l	#v_objspace&$FFFFFF,d0
+		addi.l	#v_objspace&0xFFFFFF,d0
 		movea.l	d0,a1
 		bsr.w	DeleteChild
-		dbf	d2,Swing_DelLoop ; repeat for length of	chain
+		dbf	d2,Swing_DelLoop /* repeat for length of	chain */
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-Swing_Delete:	; Routine 6, 8
+Swing_Delete:	/* Routine 6, 8 */
 		bsr.w	DeleteObject
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-Swing_Display:	; Routine $A
+Swing_Display:	/* Routine $A */
 		bra.w	DisplaySprite
+

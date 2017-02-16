@@ -1,34 +1,34 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - large green	glassy blocks (MZ)
-; ---------------------------------------------------------------------------
-Map_Glass:	dc.w @tall-Map_Glass
-		dc.w @shine-Map_Glass
-		dc.w @short-Map_Glass
-@tall:		dc.b $C
-		dc.b $B8, $C, 0, 0, $E0	; tall block
-		dc.b $B8, $C, 8, 0, 0
-		dc.b $C0, $F, 0, 4, $E0
-		dc.b $C0, $F, 8, 4, 0
-		dc.b $E0, $F, 0, 4, $E0
-		dc.b $E0, $F, 8, 4, 0
-		dc.b 0,	$F, 0, 4, $E0
-		dc.b 0,	$F, 8, 4, 0
-		dc.b $20, $F, 0, 4, $E0
-		dc.b $20, $F, 8, 4, 0
-		dc.b $40, $C, $10, 0, $E0
-		dc.b $40, $C, $18, 0, 0
-@shine:		dc.b 2
-		dc.b 8,	6, 0, $14, $F0	; reflected shine on block
-		dc.b 0,	6, 0, $14, 0
-@short:		dc.b $A
-		dc.b $C8, $C, 0, 0, $E0	; short block
-		dc.b $C8, $C, 8, 0, 0
-		dc.b $D0, $F, 0, 4, $E0
-		dc.b $D0, $F, 8, 4, 0
-		dc.b $F0, $F, 0, 4, $E0
-		dc.b $F0, $F, 8, 4, 0
-		dc.b $10, $F, 0, 4, $E0
-		dc.b $10, $F, 8, 4, 0
-		dc.b $30, $C, $10, 0, $E0
-		dc.b $30, $C, $18, 0, 0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - large green	glassy blocks (MZ)
+# ---------------------------------------------------------------------------
+Map_Glass:	dc.w AT_43_tall-Map_Glass
+		dc.w AT_43_shine-Map_Glass
+		dc.w AT_43_short-Map_Glass
+AT_43_tall:		dc.b 0xC
+		dc.b 0xB8, 0xC, 0, 0, 0xE0	/* tall block */
+		dc.b 0xB8, 0xC, 8, 0, 0
+		dc.b 0xC0, 0xF, 0, 4, 0xE0
+		dc.b 0xC0, 0xF, 8, 4, 0
+		dc.b 0xE0, 0xF, 0, 4, 0xE0
+		dc.b 0xE0, 0xF, 8, 4, 0
+		dc.b 0,	0xF, 0, 4, 0xE0
+		dc.b 0,	0xF, 8, 4, 0
+		dc.b 0x20, 0xF, 0, 4, 0xE0
+		dc.b 0x20, 0xF, 8, 4, 0
+		dc.b 0x40, 0xC, 0x10, 0, 0xE0
+		dc.b 0x40, 0xC, 0x18, 0, 0
+AT_43_shine:		dc.b 2
+		dc.b 8,	6, 0, 0x14, 0xF0	/* reflected shine on block */
+		dc.b 0,	6, 0, 0x14, 0
+AT_43_short:		dc.b 0xA
+		dc.b 0xC8, 0xC, 0, 0, 0xE0	/* short block */
+		dc.b 0xC8, 0xC, 8, 0, 0
+		dc.b 0xD0, 0xF, 0, 4, 0xE0
+		dc.b 0xD0, 0xF, 8, 4, 0
+		dc.b 0xF0, 0xF, 0, 4, 0xE0
+		dc.b 0xF0, 0xF, 8, 4, 0
+		dc.b 0x10, 0xF, 0, 4, 0xE0
+		dc.b 0x10, 0xF, 8, 4, 0
+		dc.b 0x30, 0xC, 0x10, 0, 0xE0
+		dc.b 0x30, 0xC, 0x18, 0, 0
+		.align 2

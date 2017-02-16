@@ -1,32 +1,32 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - ground saws	and pizza cutters (SBZ)
-; ---------------------------------------------------------------------------
-Map_Saw:	dc.w @pizzacutter1-Map_Saw, @pizzacutter2-Map_Saw
-		dc.w @groundsaw1-Map_Saw, @groundsaw2-Map_Saw
-@pizzacutter1:	dc.b 7
-		dc.b $C4, 1, 0,	$20, $FC
-		dc.b $D4, 1, 0,	$20, $FC
-		dc.b $E4, 3, 0,	$20, $FC
-		dc.b $E0, $F, 0, 0, $E0
-		dc.b $E0, $F, 8, 0, 0
-		dc.b 0,	$F, $10, 0, $E0
-		dc.b 0,	$F, $18, 0, 0
-@pizzacutter2:	dc.b 7
-		dc.b $C4, 1, 0,	$20, $FC
-		dc.b $D4, 1, 0,	$20, $FC
-		dc.b $E4, 3, 0,	$20, $FC
-		dc.b $E0, $F, 0, $10, $E0
-		dc.b $E0, $F, 8, $10, 0
-		dc.b 0,	$F, $10, $10, $E0
-		dc.b 0,	$F, $18, $10, 0
-@groundsaw1:	dc.b 4
-		dc.b $E0, $F, 0, 0, $E0
-		dc.b $E0, $F, 8, 0, 0
-		dc.b 0,	$F, $10, 0, $E0
-		dc.b 0,	$F, $18, 0, 0
-@groundsaw2:	dc.b 4
-		dc.b $E0, $F, 0, $10, $E0
-		dc.b $E0, $F, 8, $10, 0
-		dc.b 0,	$F, $10, $10, $E0
-		dc.b 0,	$F, $18, $10, 0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - ground saws	and pizza cutters (SBZ)
+# ---------------------------------------------------------------------------
+Map_Saw:	dc.w AT_96_pizzacutter1-Map_Saw, AT_96_pizzacutter2-Map_Saw
+		dc.w AT_96_groundsaw1-Map_Saw, AT_96_groundsaw2-Map_Saw
+AT_96_pizzacutter1:	dc.b 7
+		dc.b 0xC4, 1, 0,	0x20, 0xFC
+		dc.b 0xD4, 1, 0,	0x20, 0xFC
+		dc.b 0xE4, 3, 0,	0x20, 0xFC
+		dc.b 0xE0, 0xF, 0, 0, 0xE0
+		dc.b 0xE0, 0xF, 8, 0, 0
+		dc.b 0,	0xF, 0x10, 0, 0xE0
+		dc.b 0,	0xF, 0x18, 0, 0
+AT_96_pizzacutter2:	dc.b 7
+		dc.b 0xC4, 1, 0,	0x20, 0xFC
+		dc.b 0xD4, 1, 0,	0x20, 0xFC
+		dc.b 0xE4, 3, 0,	0x20, 0xFC
+		dc.b 0xE0, 0xF, 0, 0x10, 0xE0
+		dc.b 0xE0, 0xF, 8, 0x10, 0
+		dc.b 0,	0xF, 0x10, 0x10, 0xE0
+		dc.b 0,	0xF, 0x18, 0x10, 0
+AT_96_groundsaw1:	dc.b 4
+		dc.b 0xE0, 0xF, 0, 0, 0xE0
+		dc.b 0xE0, 0xF, 8, 0, 0
+		dc.b 0,	0xF, 0x10, 0, 0xE0
+		dc.b 0,	0xF, 0x18, 0, 0
+AT_96_groundsaw2:	dc.b 4
+		dc.b 0xE0, 0xF, 0, 0x10, 0xE0
+		dc.b 0xE0, 0xF, 8, 0x10, 0
+		dc.b 0,	0xF, 0x10, 0x10, 0xE0
+		dc.b 0,	0xF, 0x18, 0x10, 0
+		.align 2

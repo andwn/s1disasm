@@ -1,28 +1,28 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - swinging ball on a chain from GHZ boss
-; ---------------------------------------------------------------------------
-Map_GBall:	dc.w @shiny-Map_GBall, @check1-Map_GBall
-		dc.w @check2-Map_GBall, @check3-Map_GBall
-@shiny:		dc.b 6
-		dc.b $F0, 4, 0,	$24, $F0
-		dc.b $F8, 4, $10, $24, $F0
-		dc.b $E8, $A, 0, 0, $E8
-		dc.b $E8, $A, 8, 0, 0
-		dc.b 0,	$A, $10, 0, $E8
-		dc.b 0,	$A, $18, 0, 0
-@check1:	dc.b 4
-		dc.b $E8, $A, 0, 9, $E8
-		dc.b $E8, $A, 8, 9, 0
-		dc.b 0,	$A, $10, 9, $E8
-		dc.b 0,	$A, $18, 9, 0
-@check2:	dc.b 4
-		dc.b $E8, $A, 0, $12, $E8
-		dc.b $E8, $A, 0, $1B, 0
-		dc.b 0,	$A, $18, $1B, $E8
-		dc.b 0,	$A, $18, $12, 0
-@check3:	dc.b 4
-		dc.b $E8, $A, 8, $1B, $E8
-		dc.b $E8, $A, 8, $12, 0
-		dc.b 0,	$A, $10, $12, $E8
-		dc.b 0,	$A, $10, $1B, 0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - swinging ball on a chain from GHZ boss
+# ---------------------------------------------------------------------------
+Map_GBall:	dc.w AT_45_shiny-Map_GBall, AT_45_check1-Map_GBall
+		dc.w AT_45_check2-Map_GBall, AT_45_check3-Map_GBall
+AT_45_shiny:		dc.b 6
+		dc.b 0xF0, 4, 0,	0x24, 0xF0
+		dc.b 0xF8, 4, 0x10, 0x24, 0xF0
+		dc.b 0xE8, 0xA, 0, 0, 0xE8
+		dc.b 0xE8, 0xA, 8, 0, 0
+		dc.b 0,	0xA, 0x10, 0, 0xE8
+		dc.b 0,	0xA, 0x18, 0, 0
+AT_45_check1:	dc.b 4
+		dc.b 0xE8, 0xA, 0, 9, 0xE8
+		dc.b 0xE8, 0xA, 8, 9, 0
+		dc.b 0,	0xA, 0x10, 9, 0xE8
+		dc.b 0,	0xA, 0x18, 9, 0
+AT_45_check2:	dc.b 4
+		dc.b 0xE8, 0xA, 0, 0x12, 0xE8
+		dc.b 0xE8, 0xA, 0, 0x1B, 0
+		dc.b 0,	0xA, 0x18, 0x1B, 0xE8
+		dc.b 0,	0xA, 0x18, 0x12, 0
+AT_45_check3:	dc.b 4
+		dc.b 0xE8, 0xA, 8, 0x1B, 0xE8
+		dc.b 0xE8, 0xA, 8, 0x12, 0
+		dc.b 0,	0xA, 0x10, 0x12, 0xE8
+		dc.b 0,	0xA, 0x10, 0x1B, 0
+		.align 2

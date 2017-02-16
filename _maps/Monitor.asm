@@ -1,44 +1,46 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - monitors
-; ---------------------------------------------------------------------------
-Map_Monitor:	dc.w @static0-Map_Monitor, @static1-Map_Monitor
-		dc.w @static2-Map_Monitor, @eggman-Map_Monitor
-		dc.w @sonic-Map_Monitor, @shoes-Map_Monitor
-		dc.w @shield-Map_Monitor, @invincible-Map_Monitor
-		dc.w @rings-Map_Monitor, @s-Map_Monitor
-		dc.w @goggles-Map_Monitor, @broken-Map_Monitor
-@static0:	dc.b 1			; static monitor
-		dc.b $EF, $F, 0, 0, $F0
-@static1:	dc.b 2			; static monitor
-		dc.b $F5, 5, 0,	$10, $F8
-		dc.b $EF, $F, 0, 0, $F0
-@static2:	dc.b 2			; static monitor
-		dc.b $F5, 5, 0,	$14, $F8
-		dc.b $EF, $F, 0, 0, $F0
-@eggman:	dc.b 2			; Eggman monitor
-		dc.b $F5, 5, 0,	$18, $F8
-		dc.b $EF, $F, 0, 0, $F0
-@sonic:		dc.b 2			; Sonic	monitor
-		dc.b $F5, 5, 0,	$1C, $F8
-		dc.b $EF, $F, 0, 0, $F0
-@shoes:		dc.b 2			; speed	shoes monitor
-		dc.b $F5, 5, 0,	$24, $F8
-		dc.b $EF, $F, 0, 0, $F0
-@shield:	dc.b 2			; shield monitor
-		dc.b $F5, 5, 0,	$28, $F8
-		dc.b $EF, $F, 0, 0, $F0
-@invincible:	dc.b 2			; invincibility	monitor
-		dc.b $F5, 5, 0,	$2C, $F8
-		dc.b $EF, $F, 0, 0, $F0
-@rings:		dc.b 2			; 10 rings monitor
-		dc.b $F5, 5, 0,	$30, $F8
-		dc.b $EF, $F, 0, 0, $F0
-@s:		dc.b 2			; 'S' monitor
-		dc.b $F5, 5, 0,	$34, $F8
-		dc.b $EF, $F, 0, 0, $F0
-@goggles:	dc.b 2			; goggles monitor
-		dc.b $F5, 5, 0,	$20, $F8
-		dc.b $EF, $F, 0, 0, $F0
-@broken:	dc.b 1			; broken monitor
-		dc.b $FF, $D, 0, $38, $F0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - monitors
+# ---------------------------------------------------------------------------
+Map_Monitor:	dc.w AT_40_static0-Map_Monitor, AT_40_static1-Map_Monitor
+		dc.w AT_40_static2-Map_Monitor, AT_40_eggman-Map_Monitor
+		dc.w AT_40_sonic-Map_Monitor, AT_40_shoes-Map_Monitor
+		dc.w AT_40_shield-Map_Monitor, AT_40_invincible-Map_Monitor
+		dc.w AT_40_rings-Map_Monitor, AT_40_s-Map_Monitor
+		dc.w AT_40_goggles-Map_Monitor, AT_40_broken-Map_Monitor
+AT_40_static0:	dc.b 1			/* static monitor */
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_static1:	dc.b 2			/* static monitor */
+		dc.b 0xF5, 5, 0,	0x10, 0xF8
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_static2:	dc.b 2			/* static monitor */
+		dc.b 0xF5, 5, 0,	0x14, 0xF8
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_eggman:	dc.b 2			/* Eggman monitor */
+		dc.b 0xF5, 5, 0,	0x18, 0xF8
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_sonic:		dc.b 2			/* Sonic	monitor */
+		dc.b 0xF5, 5, 0,	0x1C, 0xF8
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_shoes:		dc.b 2			/* speed	shoes monitor */
+		dc.b 0xF5, 5, 0,	0x24, 0xF8
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_shield:	dc.b 2			/* shield monitor */
+		dc.b 0xF5, 5, 0,	0x28, 0xF8
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_invincible:	dc.b 2			/* invincibility	monitor */
+		dc.b 0xF5, 5, 0,	0x2C, 0xF8
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_rings:		dc.b 2			/* 10 rings monitor */
+		dc.b 0xF5, 5, 0,	0x30, 0xF8
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_s:		dc.b 2			/* 'S' monitor */
+		dc.b 0xF5, 5, 0,	0x34, 0xF8
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_goggles:	dc.b 2			/* goggles monitor */
+		dc.b 0xF5, 5, 0,	0x20, 0xF8
+		dc.b 0xEF, 0xF, 0, 0, 0xF0
+AT_40_broken:	dc.b 1			/* broken monitor */
+		dc.b 0xFF, 0xD, 0, 0x38, 0xF0
+		.align 2
+
+

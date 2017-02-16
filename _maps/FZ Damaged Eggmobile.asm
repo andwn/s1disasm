@@ -1,20 +1,20 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - Eggman in broken eggmobile (FZ)
-; ---------------------------------------------------------------------------
-Map_FZDamaged:	dc.w @damage1-Map_FZDamaged
-		dc.w @damage2-Map_FZDamaged
-@damage1:	dc.b 6
-		dc.b $E4, 8, 0,	$20, $F4
-		dc.b $EC, $D, 0, $23, $E4
-		dc.b $EC, 9, 0,	$2B, 4
-		dc.b $FC, 5, $20, $3A, $E4
-		dc.b $FC, $E, $20, $3E,	4
-		dc.b $14, 4, $20, $4A, 4
-@damage2:	dc.b 6
-		dc.b $E4, $A, 0, $31, $F4
-		dc.b $EC, 5, 0,	$23, $E4
-		dc.b $EC, 9, 0,	$2B, 4
-		dc.b $FC, 5, $20, $3A, $E4
-		dc.b $FC, $E, $20, $3E,	4
-		dc.b $14, 4, $20, $4A, 4
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - Eggman in broken eggmobile (FZ)
+# ---------------------------------------------------------------------------
+Map_FZDamaged:	dc.w AT_9_damage1-Map_FZDamaged
+		dc.w AT_9_damage2-Map_FZDamaged
+AT_9_damage1:	dc.b 6
+		dc.b 0xE4, 8, 0,	0x20, 0xF4
+		dc.b 0xEC, 0xD, 0, 0x23, 0xE4
+		dc.b 0xEC, 9, 0,	0x2B, 4
+		dc.b 0xFC, 5, 0x20, 0x3A, 0xE4
+		dc.b 0xFC, 0xE, 0x20, 0x3E,	4
+		dc.b 0x14, 4, 0x20, 0x4A, 4
+AT_9_damage2:	dc.b 6
+		dc.b 0xE4, 0xA, 0, 0x31, 0xF4
+		dc.b 0xEC, 5, 0,	0x23, 0xE4
+		dc.b 0xEC, 9, 0,	0x2B, 4
+		dc.b 0xFC, 5, 0x20, 0x3A, 0xE4
+		dc.b 0xFC, 0xE, 0x20, 0x3E,	4
+		dc.b 0x14, 4, 0x20, 0x4A, 4
+		.align 2

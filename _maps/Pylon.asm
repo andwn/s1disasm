@@ -1,15 +1,17 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - metal pylons in foreground (SLZ)
-; ---------------------------------------------------------------------------
-Map_Pylon:	dc.w @pylon-Map_Pylon
-@pylon:		dc.b 9
-		dc.b $80, $F, 0, 0, $F0
-		dc.b $A0, $F, $10, 0, $F0
-		dc.b $C0, $F, 0, 0, $F0
-		dc.b $E0, $F, $10, 0, $F0
-		dc.b 0,	$F, 0, 0, $F0
-		dc.b $20, $F, $10, 0, $F0
-		dc.b $40, $F, 0, 0, $F0
-		dc.b $60, $F, $10, 0, $F0
-		dc.b $7F, $F, 0, 0, $F0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - metal pylons in foreground (SLZ)
+# ---------------------------------------------------------------------------
+Map_Pylon:	dc.w AT_23_pylon-Map_Pylon
+AT_23_pylon:		dc.b 9
+		dc.b 0x80, 0xF, 0, 0, 0xF0
+		dc.b 0xA0, 0xF, 0x10, 0, 0xF0
+		dc.b 0xC0, 0xF, 0, 0, 0xF0
+		dc.b 0xE0, 0xF, 0x10, 0, 0xF0
+		dc.b 0,	0xF, 0, 0, 0xF0
+		dc.b 0x20, 0xF, 0x10, 0, 0xF0
+		dc.b 0x40, 0xF, 0, 0, 0xF0
+		dc.b 0x60, 0xF, 0x10, 0, 0xF0
+		dc.b 0x7F, 0xF, 0, 0, 0xF0
+		.align 2
+
+

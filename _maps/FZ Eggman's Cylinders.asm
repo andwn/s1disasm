@@ -1,82 +1,82 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - cylinders Eggman hides in (FZ)
-; ---------------------------------------------------------------------------
-Map_EggCyl:	dc.w @flat-Map_EggCyl, @extending1-Map_EggCyl
-		dc.w @extending2-Map_EggCyl, @extending3-Map_EggCyl
-		dc.w @extending4-Map_EggCyl, @extendedfully-Map_EggCyl
-		dc.w @extendedfully-Map_EggCyl, @extendedfully-Map_EggCyl
-		dc.w @extendedfully-Map_EggCyl, @extendedfully-Map_EggCyl
-		dc.w @extendedfully-Map_EggCyl, @controlpanel-Map_EggCyl
-@flat:		dc.b 6
-		dc.b $A0, $D, $40, 0, $E0
-		dc.b $A0, $D, $48, 0, 0
-		dc.b $B0, $C, $20, 8, $E0
-		dc.b $B0, $C, $20, $C, 0
-		dc.b $B8, $F, $40, $10,	$E0
-		dc.b $B8, $F, $48, $10,	0
-@extending1:	dc.b 8
-		dc.b $A0, $D, $40, 0, $E0
-		dc.b $A0, $D, $48, 0, 0
-		dc.b $B0, $C, $20, 8, $E0
-		dc.b $B0, $C, $20, $C, 0
-		dc.b $B8, $F, $40, $10,	$E0
-		dc.b $B8, $F, $48, $10,	0
-		dc.b $D8, $F, $40, $20,	$E0
-		dc.b $D8, $F, $48, $20,	0
-@extending2:	dc.b $A
-		dc.b $A0, $D, $40, 0, $E0
-		dc.b $A0, $D, $48, 0, 0
-		dc.b $B0, $C, $20, 8, $E0
-		dc.b $B0, $C, $20, $C, 0
-		dc.b $B8, $F, $40, $10,	$E0
-		dc.b $B8, $F, $48, $10,	0
-		dc.b $D8, $F, $40, $20,	$E0
-		dc.b $D8, $F, $48, $20,	0
-		dc.b $F8, $F, $40, $30,	$E0
-		dc.b $F8, $F, $48, $30,	0
-@extending3:	dc.b $C
-		dc.b $A0, $D, $40, 0, $E0
-		dc.b $A0, $D, $48, 0, 0
-		dc.b $B0, $C, $20, 8, $E0
-		dc.b $B0, $C, $20, $C, 0
-		dc.b $B8, $F, $40, $10,	$E0
-		dc.b $B8, $F, $48, $10,	0
-		dc.b $D8, $F, $40, $20,	$E0
-		dc.b $D8, $F, $48, $20,	0
-		dc.b $F8, $F, $40, $30,	$E0
-		dc.b $F8, $F, $48, $30,	0
-		dc.b $18, $F, $40, $40,	$E0
-		dc.b $18, $F, $48, $40,	0
-@extending4:	dc.b $D
-		dc.b $A0, $D, $40, 0, $E0
-		dc.b $A0, $D, $48, 0, 0
-		dc.b $B0, $C, $20, 8, $E0
-		dc.b $B0, $C, $20, $C, 0
-		dc.b $B8, $F, $40, $10,	$E0
-		dc.b $B8, $F, $48, $10,	0
-		dc.b $D8, $F, $40, $20,	$E0
-		dc.b $D8, $F, $48, $20,	0
-		dc.b $F8, $F, $40, $30,	$E0
-		dc.b $F8, $F, $48, $30,	0
-		dc.b $18, $F, $40, $40,	$E0
-		dc.b $18, $F, $48, $40,	0
-		dc.b $38, $F, $40, $50,	$F0
-@extendedfully:	dc.b $E
-		dc.b $A0, $D, $40, 0, $E0
-		dc.b $A0, $D, $48, 0, 0
-		dc.b $B0, $C, $20, 8, $E0
-		dc.b $B0, $C, $20, $C, 0
-		dc.b $B8, $F, $40, $10,	$E0
-		dc.b $B8, $F, $48, $10,	0
-		dc.b $D8, $F, $40, $20,	$E0
-		dc.b $D8, $F, $48, $20,	0
-		dc.b $F8, $F, $40, $30,	$E0
-		dc.b $F8, $F, $48, $30,	0
-		dc.b $18, $F, $40, $40,	$E0
-		dc.b $18, $F, $48, $40,	0
-		dc.b $38, $F, $40, $50,	$F0
-		dc.b $58, $F, $40, $50,	$F0
-@controlpanel:	dc.b 2
-		dc.b $F8, 4, 0,	$68, $F0
-		dc.b 0,	$C, 0, $6A, $F0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - cylinders Eggman hides in (FZ)
+# ---------------------------------------------------------------------------
+Map_EggCyl:	dc.w AT_74_flat-Map_EggCyl, AT_74_extending1-Map_EggCyl
+		dc.w AT_74_extending2-Map_EggCyl, AT_74_extending3-Map_EggCyl
+		dc.w AT_74_extending4-Map_EggCyl, AT_74_extendedfully-Map_EggCyl
+		dc.w AT_74_extendedfully-Map_EggCyl, AT_74_extendedfully-Map_EggCyl
+		dc.w AT_74_extendedfully-Map_EggCyl, AT_74_extendedfully-Map_EggCyl
+		dc.w AT_74_extendedfully-Map_EggCyl, AT_74_controlpanel-Map_EggCyl
+AT_74_flat:		dc.b 6
+		dc.b 0xA0, 0xD, 0x40, 0, 0xE0
+		dc.b 0xA0, 0xD, 0x48, 0, 0
+		dc.b 0xB0, 0xC, 0x20, 8, 0xE0
+		dc.b 0xB0, 0xC, 0x20, 0xC, 0
+		dc.b 0xB8, 0xF, 0x40, 0x10,	0xE0
+		dc.b 0xB8, 0xF, 0x48, 0x10,	0
+AT_74_extending1:	dc.b 8
+		dc.b 0xA0, 0xD, 0x40, 0, 0xE0
+		dc.b 0xA0, 0xD, 0x48, 0, 0
+		dc.b 0xB0, 0xC, 0x20, 8, 0xE0
+		dc.b 0xB0, 0xC, 0x20, 0xC, 0
+		dc.b 0xB8, 0xF, 0x40, 0x10,	0xE0
+		dc.b 0xB8, 0xF, 0x48, 0x10,	0
+		dc.b 0xD8, 0xF, 0x40, 0x20,	0xE0
+		dc.b 0xD8, 0xF, 0x48, 0x20,	0
+AT_74_extending2:	dc.b 0xA
+		dc.b 0xA0, 0xD, 0x40, 0, 0xE0
+		dc.b 0xA0, 0xD, 0x48, 0, 0
+		dc.b 0xB0, 0xC, 0x20, 8, 0xE0
+		dc.b 0xB0, 0xC, 0x20, 0xC, 0
+		dc.b 0xB8, 0xF, 0x40, 0x10,	0xE0
+		dc.b 0xB8, 0xF, 0x48, 0x10,	0
+		dc.b 0xD8, 0xF, 0x40, 0x20,	0xE0
+		dc.b 0xD8, 0xF, 0x48, 0x20,	0
+		dc.b 0xF8, 0xF, 0x40, 0x30,	0xE0
+		dc.b 0xF8, 0xF, 0x48, 0x30,	0
+AT_74_extending3:	dc.b 0xC
+		dc.b 0xA0, 0xD, 0x40, 0, 0xE0
+		dc.b 0xA0, 0xD, 0x48, 0, 0
+		dc.b 0xB0, 0xC, 0x20, 8, 0xE0
+		dc.b 0xB0, 0xC, 0x20, 0xC, 0
+		dc.b 0xB8, 0xF, 0x40, 0x10,	0xE0
+		dc.b 0xB8, 0xF, 0x48, 0x10,	0
+		dc.b 0xD8, 0xF, 0x40, 0x20,	0xE0
+		dc.b 0xD8, 0xF, 0x48, 0x20,	0
+		dc.b 0xF8, 0xF, 0x40, 0x30,	0xE0
+		dc.b 0xF8, 0xF, 0x48, 0x30,	0
+		dc.b 0x18, 0xF, 0x40, 0x40,	0xE0
+		dc.b 0x18, 0xF, 0x48, 0x40,	0
+AT_74_extending4:	dc.b 0xD
+		dc.b 0xA0, 0xD, 0x40, 0, 0xE0
+		dc.b 0xA0, 0xD, 0x48, 0, 0
+		dc.b 0xB0, 0xC, 0x20, 8, 0xE0
+		dc.b 0xB0, 0xC, 0x20, 0xC, 0
+		dc.b 0xB8, 0xF, 0x40, 0x10,	0xE0
+		dc.b 0xB8, 0xF, 0x48, 0x10,	0
+		dc.b 0xD8, 0xF, 0x40, 0x20,	0xE0
+		dc.b 0xD8, 0xF, 0x48, 0x20,	0
+		dc.b 0xF8, 0xF, 0x40, 0x30,	0xE0
+		dc.b 0xF8, 0xF, 0x48, 0x30,	0
+		dc.b 0x18, 0xF, 0x40, 0x40,	0xE0
+		dc.b 0x18, 0xF, 0x48, 0x40,	0
+		dc.b 0x38, 0xF, 0x40, 0x50,	0xF0
+AT_74_extendedfully:	dc.b 0xE
+		dc.b 0xA0, 0xD, 0x40, 0, 0xE0
+		dc.b 0xA0, 0xD, 0x48, 0, 0
+		dc.b 0xB0, 0xC, 0x20, 8, 0xE0
+		dc.b 0xB0, 0xC, 0x20, 0xC, 0
+		dc.b 0xB8, 0xF, 0x40, 0x10,	0xE0
+		dc.b 0xB8, 0xF, 0x48, 0x10,	0
+		dc.b 0xD8, 0xF, 0x40, 0x20,	0xE0
+		dc.b 0xD8, 0xF, 0x48, 0x20,	0
+		dc.b 0xF8, 0xF, 0x40, 0x30,	0xE0
+		dc.b 0xF8, 0xF, 0x48, 0x30,	0
+		dc.b 0x18, 0xF, 0x40, 0x40,	0xE0
+		dc.b 0x18, 0xF, 0x48, 0x40,	0
+		dc.b 0x38, 0xF, 0x40, 0x50,	0xF0
+		dc.b 0x58, 0xF, 0x40, 0x50,	0xF0
+AT_74_controlpanel:	dc.b 2
+		dc.b 0xF8, 4, 0,	0x68, 0xF0
+		dc.b 0,	0xC, 0, 0x6A, 0xF0
+		.align 2

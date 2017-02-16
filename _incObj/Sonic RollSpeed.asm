@@ -1,8 +1,8 @@
-; ---------------------------------------------------------------------------
-; Subroutine to	change Sonic's speed as he rolls
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Subroutine to	change Sonic's speed as he rolls
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Sonic_RollSpeed:
@@ -14,18 +14,18 @@ Sonic_RollSpeed:
 		asr.w	#2,d4
 		tst.b	(f_jumponly).w
 		bne.w	loc_131CC
-		tst.w	$3E(a0)
-		bne.s	@notright
-		btst	#bitL,(v_jpadhold2).w ; is left being pressed?
-		beq.s	@notleft	; if not, branch
+		tst.w	0x3E(a0)
+		bne.s	1f
+		btst	#bitL,(v_jpadhold2).w /* is left being pressed? */
+		beq.s	2f	/* if not, branch */
 		bsr.w	Sonic_RollLeft
 
-	@notleft:
-		btst	#bitR,(v_jpadhold2).w ; is right being pressed?
-		beq.s	@notright	; if not, branch
+	2:
+		btst	#bitR,(v_jpadhold2).w /* is right being pressed? */
+		beq.s	1f	/* if not, branch */
 		bsr.w	Sonic_RollRight
 
-	@notright:
+	1:
 		move.w	obInertia(a0),d0
 		beq.s	loc_131AA
 		bmi.s	loc_1319E
@@ -36,7 +36,7 @@ Sonic_RollSpeed:
 loc_13198:
 		move.w	d0,obInertia(a0)
 		bra.s	loc_131AA
-; ===========================================================================
+# ===========================================================================
 
 loc_1319E:
 		add.w	d5,d0
@@ -47,12 +47,12 @@ loc_131A6:
 		move.w	d0,obInertia(a0)
 
 loc_131AA:
-		tst.w	obInertia(a0)	; is Sonic moving?
-		bne.s	loc_131CC	; if yes, branch
+		tst.w	obInertia(a0)	/* is Sonic moving? */
+		bne.s	loc_131CC	/* if yes, branch */
 		bclr	#2,obStatus(a0)
-		move.b	#$13,obHeight(a0)
+		move.b	#0x13,obHeight(a0)
 		move.b	#9,obWidth(a0)
-		move.b	#id_Wait,obAnim(a0) ; use "standing" animation
+		move.b	#id_Wait,obAnim(a0) /* use "standing" animation */
 		subq.w	#5,obY(a0)
 
 loc_131CC:
@@ -63,22 +63,22 @@ loc_131CC:
 		move.w	d0,obVelY(a0)
 		muls.w	obInertia(a0),d1
 		asr.l	#8,d1
-		cmpi.w	#$1000,d1
+		cmpi.w	#0x1000,d1
 		ble.s	loc_131F0
-		move.w	#$1000,d1
+		move.w	#0x1000,d1
 
 loc_131F0:
-		cmpi.w	#-$1000,d1
+		cmpi.w	#-0x1000,d1
 		bge.s	loc_131FA
-		move.w	#-$1000,d1
+		move.w	#-0x1000,d1
 
 loc_131FA:
 		move.w	d1,obVelX(a0)
 		bra.w	loc_1300C
-; End of function Sonic_RollSpeed
+# End of function Sonic_RollSpeed
 
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Sonic_RollLeft:
@@ -88,38 +88,39 @@ Sonic_RollLeft:
 
 loc_1320A:
 		bset	#0,obStatus(a0)
-		move.b	#id_Roll,obAnim(a0) ; use "rolling" animation
+		move.b	#id_Roll,obAnim(a0) /* use "rolling" animation */
 		rts	
-; ===========================================================================
+# ===========================================================================
 
 loc_13218:
 		sub.w	d4,d0
 		bcc.s	loc_13220
-		move.w	#-$80,d0
+		move.w	#-0x80,d0
 
 loc_13220:
 		move.w	d0,obInertia(a0)
 		rts	
-; End of function Sonic_RollLeft
+# End of function Sonic_RollLeft
 
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Sonic_RollRight:
 		move.w	obInertia(a0),d0
 		bmi.s	loc_1323A
 		bclr	#0,obStatus(a0)
-		move.b	#id_Roll,obAnim(a0) ; use "rolling" animation
+		move.b	#id_Roll,obAnim(a0) /* use "rolling" animation */
 		rts	
-; ===========================================================================
+# ===========================================================================
 
 loc_1323A:
 		add.w	d4,d0
 		bcc.s	loc_13242
-		move.w	#$80,d0
+		move.w	#0x80,d0
 
 loc_13242:
 		move.w	d0,obInertia(a0)
 		rts	
-; End of function Sonic_RollRight
+# End of function Sonic_RollRight
+

@@ -1,170 +1,170 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - lava geyser / lava that falls from the ceiling (MZ)
-; ---------------------------------------------------------------------------
-Map_Geyser:	dc.w @bubble1-Map_Geyser, @bubble2-Map_Geyser
-		dc.w @bubble3-Map_Geyser, @bubble4-Map_Geyser
-		dc.w @bubble5-Map_Geyser, @bubble6-Map_Geyser
-		dc.w @end1-Map_Geyser, @end2-Map_Geyser
-		dc.w @medcolumn1-Map_Geyser, @medcolumn2-Map_Geyser
-		dc.w @medcolumn3-Map_Geyser, @shortcolumn1-Map_Geyser
-		dc.w @shortcolumn2-Map_Geyser, @shortcolumn3-Map_Geyser
-		dc.w @longcolumn1-Map_Geyser, @longcolumn2-Map_Geyser
-		dc.w @longcolumn3-Map_Geyser, @bubble7-Map_Geyser
-		dc.w @bubble8-Map_Geyser, @blank-Map_Geyser
-@bubble1:	dc.b 2
-		dc.b $EC, $B, 0, 0, $E8
-		dc.b $EC, $B, 8, 0, 0
-@bubble2:	dc.b 2
-		dc.b $EC, $B, 0, $18, $E8
-		dc.b $EC, $B, 8, $18, 0
-@bubble3:	dc.b 4
-		dc.b $EC, $B, 0, 0, $C8
-		dc.b $F4, $E, 0, $C, $E0
-		dc.b $F4, $E, 8, $C, 0
-		dc.b $EC, $B, 8, 0, $20
-@bubble4:	dc.b 4
-		dc.b $EC, $B, 0, $18, $C8
-		dc.b $F4, $E, 0, $24, $E0
-		dc.b $F4, $E, 8, $24, 0
-		dc.b $EC, $B, 8, $18, $20
-@bubble5:	dc.b 6
-		dc.b $EC, $B, 0, 0, $C8
-		dc.b $F4, $E, 0, $C, $E0
-		dc.b $F4, $E, 8, $C, 0
-		dc.b $EC, $B, 8, 0, $20
-		dc.b $E8, $E, 0, $90, $E0
-		dc.b $E8, $E, 8, $90, 0
-@bubble6:	dc.b 6
-		dc.b $EC, $B, 0, $18, $C8
-		dc.b $F4, $E, 0, $24, $E0
-		dc.b $F4, $E, 8, $24, 0
-		dc.b $EC, $B, 8, $18, $20
-		dc.b $E8, $E, 8, $90, $E0
-		dc.b $E8, $E, 0, $90, 0
-@end1:		dc.b 2
-		dc.b $E0, $F, 0, $30, $E0
-		dc.b $E0, $F, 8, $30, 0
-@end2:		dc.b 2
-		dc.b $E0, $F, 8, $30, $E0
-		dc.b $E0, $F, 0, $30, 0
-@medcolumn1:	dc.b $A
-		dc.b $90, $F, 0, $40, $E0
-		dc.b $90, $F, 8, $40, 0
-		dc.b $B0, $F, 0, $40, $E0
-		dc.b $B0, $F, 8, $40, 0
-		dc.b $D0, $F, 0, $40, $E0
-		dc.b $D0, $F, 8, $40, 0
-		dc.b $F0, $F, 0, $40, $E0
-		dc.b $F0, $F, 8, $40, 0
-		dc.b $10, $F, 0, $40, $E0
-		dc.b $10, $F, 8, $40, 0
-@medcolumn2:	dc.b $A
-		dc.b $90, $F, 0, $50, $E0
-		dc.b $90, $F, 8, $50, 0
-		dc.b $B0, $F, 0, $50, $E0
-		dc.b $B0, $F, 8, $50, 0
-		dc.b $D0, $F, 0, $50, $E0
-		dc.b $D0, $F, 8, $50, 0
-		dc.b $F0, $F, 0, $50, $E0
-		dc.b $F0, $F, 8, $50, 0
-		dc.b $10, $F, 0, $50, $E0
-		dc.b $10, $F, 8, $50, 0
-@medcolumn3:	dc.b $A
-		dc.b $90, $F, 0, $60, $E0
-		dc.b $90, $F, 8, $60, 0
-		dc.b $B0, $F, 0, $60, $E0
-		dc.b $B0, $F, 8, $60, 0
-		dc.b $D0, $F, 0, $60, $E0
-		dc.b $D0, $F, 8, $60, 0
-		dc.b $F0, $F, 0, $60, $E0
-		dc.b $F0, $F, 8, $60, 0
-		dc.b $10, $F, 0, $60, $E0
-		dc.b $10, $F, 8, $60, 0
-@shortcolumn1:	dc.b 6
-		dc.b $90, $F, 0, $40, $E0
-		dc.b $90, $F, 8, $40, 0
-		dc.b $B0, $F, 0, $40, $E0
-		dc.b $B0, $F, 8, $40, 0
-		dc.b $D0, $F, 0, $40, $E0
-		dc.b $D0, $F, 8, $40, 0
-@shortcolumn2:	dc.b 6
-		dc.b $90, $F, 0, $50, $E0
-		dc.b $90, $F, 8, $50, 0
-		dc.b $B0, $F, 0, $50, $E0
-		dc.b $B0, $F, 8, $50, 0
-		dc.b $D0, $F, 0, $50, $E0
-		dc.b $D0, $F, 8, $50, 0
-@shortcolumn3:	dc.b 6
-		dc.b $90, $F, 0, $60, $E0
-		dc.b $90, $F, 8, $60, 0
-		dc.b $B0, $F, 0, $60, $E0
-		dc.b $B0, $F, 8, $60, 0
-		dc.b $D0, $F, 0, $60, $E0
-		dc.b $D0, $F, 8, $60, 0
-@longcolumn1:	dc.b $10
-		dc.b $90, $F, 0, $40, $E0
-		dc.b $90, $F, 8, $40, 0
-		dc.b $B0, $F, 0, $40, $E0
-		dc.b $B0, $F, 8, $40, 0
-		dc.b $D0, $F, 0, $40, $E0
-		dc.b $D0, $F, 8, $40, 0
-		dc.b $F0, $F, 0, $40, $E0
-		dc.b $F0, $F, 8, $40, 0
-		dc.b $10, $F, 0, $40, $E0
-		dc.b $10, $F, 8, $40, 0
-		dc.b $30, $F, 0, $40, $E0
-		dc.b $30, $F, 8, $40, 0
-		dc.b $50, $F, 0, $40, $E0
-		dc.b $50, $F, 8, $40, 0
-		dc.b $70, $F, 0, $40, $E0
-		dc.b $70, $F, 8, $40, 0
-@longcolumn2:	dc.b $10
-		dc.b $90, $F, 0, $50, $E0
-		dc.b $90, $F, 8, $50, 0
-		dc.b $B0, $F, 0, $50, $E0
-		dc.b $B0, $F, 8, $50, 0
-		dc.b $D0, $F, 0, $50, $E0
-		dc.b $D0, $F, 8, $50, 0
-		dc.b $F0, $F, 0, $50, $E0
-		dc.b $F0, $F, 8, $50, 0
-		dc.b $10, $F, 0, $50, $E0
-		dc.b $10, $F, 8, $50, 0
-		dc.b $30, $F, 0, $50, $E0
-		dc.b $30, $F, 8, $50, 0
-		dc.b $50, $F, 0, $50, $E0
-		dc.b $50, $F, 8, $50, 0
-		dc.b $70, $F, 0, $50, $E0
-		dc.b $70, $F, 8, $50, 0
-@longcolumn3:	dc.b $10
-		dc.b $90, $F, 0, $60, $E0
-		dc.b $90, $F, 8, $60, 0
-		dc.b $B0, $F, 0, $60, $E0
-		dc.b $B0, $F, 8, $60, 0
-		dc.b $D0, $F, 0, $60, $E0
-		dc.b $D0, $F, 8, $60, 0
-		dc.b $F0, $F, 0, $60, $E0
-		dc.b $F0, $F, 8, $60, 0
-		dc.b $10, $F, 0, $60, $E0
-		dc.b $10, $F, 8, $60, 0
-		dc.b $30, $F, 0, $60, $E0
-		dc.b $30, $F, 8, $60, 0
-		dc.b $50, $F, 0, $60, $E0
-		dc.b $50, $F, 8, $60, 0
-		dc.b $70, $F, 0, $60, $E0
-		dc.b $70, $F, 8, $60, 0
-@bubble7:	dc.b 6
-		dc.b $E0, $B, 0, 0, $C8
-		dc.b $E8, $E, 0, $C, $E0
-		dc.b $E8, $E, 8, $C, 0
-		dc.b $E0, $B, 8, 0, $20
-		dc.b $D8, $E, 0, $90, $E0
-		dc.b $D8, $E, 8, $90, 0
-@bubble8:	dc.b 6
-		dc.b $E0, $B, 0, $18, $C8
-		dc.b $E8, $E, 0, $24, $E0
-		dc.b $E8, $E, 8, $24, 0
-		dc.b $E0, $B, 8, $18, $20
-		dc.b $D8, $E, 8, $90, $E0
-		dc.b $D8, $E, 0, $90, 0
-@blank:	dc.b 0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - lava geyser / lava that falls from the ceiling (MZ)
+# ---------------------------------------------------------------------------
+Map_Geyser:	dc.w AT_11_bubble1-Map_Geyser, AT_11_bubble2-Map_Geyser
+		dc.w AT_11_bubble3-Map_Geyser, AT_11_bubble4-Map_Geyser
+		dc.w AT_11_bubble5-Map_Geyser, AT_11_bubble6-Map_Geyser
+		dc.w AT_11_end1-Map_Geyser, AT_11_end2-Map_Geyser
+		dc.w AT_11_medcolumn1-Map_Geyser, AT_11_medcolumn2-Map_Geyser
+		dc.w AT_11_medcolumn3-Map_Geyser, AT_11_shortcolumn1-Map_Geyser
+		dc.w AT_11_shortcolumn2-Map_Geyser, AT_11_shortcolumn3-Map_Geyser
+		dc.w AT_11_longcolumn1-Map_Geyser, AT_11_longcolumn2-Map_Geyser
+		dc.w AT_11_longcolumn3-Map_Geyser, AT_11_bubble7-Map_Geyser
+		dc.w AT_11_bubble8-Map_Geyser, AT_11_blank-Map_Geyser
+AT_11_bubble1:	dc.b 2
+		dc.b 0xEC, 0xB, 0, 0, 0xE8
+		dc.b 0xEC, 0xB, 8, 0, 0
+AT_11_bubble2:	dc.b 2
+		dc.b 0xEC, 0xB, 0, 0x18, 0xE8
+		dc.b 0xEC, 0xB, 8, 0x18, 0
+AT_11_bubble3:	dc.b 4
+		dc.b 0xEC, 0xB, 0, 0, 0xC8
+		dc.b 0xF4, 0xE, 0, 0xC, 0xE0
+		dc.b 0xF4, 0xE, 8, 0xC, 0
+		dc.b 0xEC, 0xB, 8, 0, 0x20
+AT_11_bubble4:	dc.b 4
+		dc.b 0xEC, 0xB, 0, 0x18, 0xC8
+		dc.b 0xF4, 0xE, 0, 0x24, 0xE0
+		dc.b 0xF4, 0xE, 8, 0x24, 0
+		dc.b 0xEC, 0xB, 8, 0x18, 0x20
+AT_11_bubble5:	dc.b 6
+		dc.b 0xEC, 0xB, 0, 0, 0xC8
+		dc.b 0xF4, 0xE, 0, 0xC, 0xE0
+		dc.b 0xF4, 0xE, 8, 0xC, 0
+		dc.b 0xEC, 0xB, 8, 0, 0x20
+		dc.b 0xE8, 0xE, 0, 0x90, 0xE0
+		dc.b 0xE8, 0xE, 8, 0x90, 0
+AT_11_bubble6:	dc.b 6
+		dc.b 0xEC, 0xB, 0, 0x18, 0xC8
+		dc.b 0xF4, 0xE, 0, 0x24, 0xE0
+		dc.b 0xF4, 0xE, 8, 0x24, 0
+		dc.b 0xEC, 0xB, 8, 0x18, 0x20
+		dc.b 0xE8, 0xE, 8, 0x90, 0xE0
+		dc.b 0xE8, 0xE, 0, 0x90, 0
+AT_11_end1:		dc.b 2
+		dc.b 0xE0, 0xF, 0, 0x30, 0xE0
+		dc.b 0xE0, 0xF, 8, 0x30, 0
+AT_11_end2:		dc.b 2
+		dc.b 0xE0, 0xF, 8, 0x30, 0xE0
+		dc.b 0xE0, 0xF, 0, 0x30, 0
+AT_11_medcolumn1:	dc.b 0xA
+		dc.b 0x90, 0xF, 0, 0x40, 0xE0
+		dc.b 0x90, 0xF, 8, 0x40, 0
+		dc.b 0xB0, 0xF, 0, 0x40, 0xE0
+		dc.b 0xB0, 0xF, 8, 0x40, 0
+		dc.b 0xD0, 0xF, 0, 0x40, 0xE0
+		dc.b 0xD0, 0xF, 8, 0x40, 0
+		dc.b 0xF0, 0xF, 0, 0x40, 0xE0
+		dc.b 0xF0, 0xF, 8, 0x40, 0
+		dc.b 0x10, 0xF, 0, 0x40, 0xE0
+		dc.b 0x10, 0xF, 8, 0x40, 0
+AT_11_medcolumn2:	dc.b 0xA
+		dc.b 0x90, 0xF, 0, 0x50, 0xE0
+		dc.b 0x90, 0xF, 8, 0x50, 0
+		dc.b 0xB0, 0xF, 0, 0x50, 0xE0
+		dc.b 0xB0, 0xF, 8, 0x50, 0
+		dc.b 0xD0, 0xF, 0, 0x50, 0xE0
+		dc.b 0xD0, 0xF, 8, 0x50, 0
+		dc.b 0xF0, 0xF, 0, 0x50, 0xE0
+		dc.b 0xF0, 0xF, 8, 0x50, 0
+		dc.b 0x10, 0xF, 0, 0x50, 0xE0
+		dc.b 0x10, 0xF, 8, 0x50, 0
+AT_11_medcolumn3:	dc.b 0xA
+		dc.b 0x90, 0xF, 0, 0x60, 0xE0
+		dc.b 0x90, 0xF, 8, 0x60, 0
+		dc.b 0xB0, 0xF, 0, 0x60, 0xE0
+		dc.b 0xB0, 0xF, 8, 0x60, 0
+		dc.b 0xD0, 0xF, 0, 0x60, 0xE0
+		dc.b 0xD0, 0xF, 8, 0x60, 0
+		dc.b 0xF0, 0xF, 0, 0x60, 0xE0
+		dc.b 0xF0, 0xF, 8, 0x60, 0
+		dc.b 0x10, 0xF, 0, 0x60, 0xE0
+		dc.b 0x10, 0xF, 8, 0x60, 0
+AT_11_shortcolumn1:	dc.b 6
+		dc.b 0x90, 0xF, 0, 0x40, 0xE0
+		dc.b 0x90, 0xF, 8, 0x40, 0
+		dc.b 0xB0, 0xF, 0, 0x40, 0xE0
+		dc.b 0xB0, 0xF, 8, 0x40, 0
+		dc.b 0xD0, 0xF, 0, 0x40, 0xE0
+		dc.b 0xD0, 0xF, 8, 0x40, 0
+AT_11_shortcolumn2:	dc.b 6
+		dc.b 0x90, 0xF, 0, 0x50, 0xE0
+		dc.b 0x90, 0xF, 8, 0x50, 0
+		dc.b 0xB0, 0xF, 0, 0x50, 0xE0
+		dc.b 0xB0, 0xF, 8, 0x50, 0
+		dc.b 0xD0, 0xF, 0, 0x50, 0xE0
+		dc.b 0xD0, 0xF, 8, 0x50, 0
+AT_11_shortcolumn3:	dc.b 6
+		dc.b 0x90, 0xF, 0, 0x60, 0xE0
+		dc.b 0x90, 0xF, 8, 0x60, 0
+		dc.b 0xB0, 0xF, 0, 0x60, 0xE0
+		dc.b 0xB0, 0xF, 8, 0x60, 0
+		dc.b 0xD0, 0xF, 0, 0x60, 0xE0
+		dc.b 0xD0, 0xF, 8, 0x60, 0
+AT_11_longcolumn1:	dc.b 0x10
+		dc.b 0x90, 0xF, 0, 0x40, 0xE0
+		dc.b 0x90, 0xF, 8, 0x40, 0
+		dc.b 0xB0, 0xF, 0, 0x40, 0xE0
+		dc.b 0xB0, 0xF, 8, 0x40, 0
+		dc.b 0xD0, 0xF, 0, 0x40, 0xE0
+		dc.b 0xD0, 0xF, 8, 0x40, 0
+		dc.b 0xF0, 0xF, 0, 0x40, 0xE0
+		dc.b 0xF0, 0xF, 8, 0x40, 0
+		dc.b 0x10, 0xF, 0, 0x40, 0xE0
+		dc.b 0x10, 0xF, 8, 0x40, 0
+		dc.b 0x30, 0xF, 0, 0x40, 0xE0
+		dc.b 0x30, 0xF, 8, 0x40, 0
+		dc.b 0x50, 0xF, 0, 0x40, 0xE0
+		dc.b 0x50, 0xF, 8, 0x40, 0
+		dc.b 0x70, 0xF, 0, 0x40, 0xE0
+		dc.b 0x70, 0xF, 8, 0x40, 0
+AT_11_longcolumn2:	dc.b 0x10
+		dc.b 0x90, 0xF, 0, 0x50, 0xE0
+		dc.b 0x90, 0xF, 8, 0x50, 0
+		dc.b 0xB0, 0xF, 0, 0x50, 0xE0
+		dc.b 0xB0, 0xF, 8, 0x50, 0
+		dc.b 0xD0, 0xF, 0, 0x50, 0xE0
+		dc.b 0xD0, 0xF, 8, 0x50, 0
+		dc.b 0xF0, 0xF, 0, 0x50, 0xE0
+		dc.b 0xF0, 0xF, 8, 0x50, 0
+		dc.b 0x10, 0xF, 0, 0x50, 0xE0
+		dc.b 0x10, 0xF, 8, 0x50, 0
+		dc.b 0x30, 0xF, 0, 0x50, 0xE0
+		dc.b 0x30, 0xF, 8, 0x50, 0
+		dc.b 0x50, 0xF, 0, 0x50, 0xE0
+		dc.b 0x50, 0xF, 8, 0x50, 0
+		dc.b 0x70, 0xF, 0, 0x50, 0xE0
+		dc.b 0x70, 0xF, 8, 0x50, 0
+AT_11_longcolumn3:	dc.b 0x10
+		dc.b 0x90, 0xF, 0, 0x60, 0xE0
+		dc.b 0x90, 0xF, 8, 0x60, 0
+		dc.b 0xB0, 0xF, 0, 0x60, 0xE0
+		dc.b 0xB0, 0xF, 8, 0x60, 0
+		dc.b 0xD0, 0xF, 0, 0x60, 0xE0
+		dc.b 0xD0, 0xF, 8, 0x60, 0
+		dc.b 0xF0, 0xF, 0, 0x60, 0xE0
+		dc.b 0xF0, 0xF, 8, 0x60, 0
+		dc.b 0x10, 0xF, 0, 0x60, 0xE0
+		dc.b 0x10, 0xF, 8, 0x60, 0
+		dc.b 0x30, 0xF, 0, 0x60, 0xE0
+		dc.b 0x30, 0xF, 8, 0x60, 0
+		dc.b 0x50, 0xF, 0, 0x60, 0xE0
+		dc.b 0x50, 0xF, 8, 0x60, 0
+		dc.b 0x70, 0xF, 0, 0x60, 0xE0
+		dc.b 0x70, 0xF, 8, 0x60, 0
+AT_11_bubble7:	dc.b 6
+		dc.b 0xE0, 0xB, 0, 0, 0xC8
+		dc.b 0xE8, 0xE, 0, 0xC, 0xE0
+		dc.b 0xE8, 0xE, 8, 0xC, 0
+		dc.b 0xE0, 0xB, 8, 0, 0x20
+		dc.b 0xD8, 0xE, 0, 0x90, 0xE0
+		dc.b 0xD8, 0xE, 8, 0x90, 0
+AT_11_bubble8:	dc.b 6
+		dc.b 0xE0, 0xB, 0, 0x18, 0xC8
+		dc.b 0xE8, 0xE, 0, 0x24, 0xE0
+		dc.b 0xE8, 0xE, 8, 0x24, 0
+		dc.b 0xE0, 0xB, 8, 0x18, 0x20
+		dc.b 0xD8, 0xE, 8, 0x90, 0xE0
+		dc.b 0xD8, 0xE, 0, 0x90, 0
+AT_11_blank:	dc.b 0
+		.align 2

@@ -1,20 +1,20 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - unused
-; ---------------------------------------------------------------------------
-Map_Plat_Unused:dc.w @small-Map_Plat_Unused
-		dc.w @large-Map_Plat_Unused
-@small:		dc.b 2
-		dc.b $F4, $B, 0, $3C, $E8
-		dc.b $F4, $B, 0, $48, 0
-@large:		dc.b $A
-		dc.b $F4, $F, 0, $CA, $E0
-		dc.b 4,	$F, 0, $DA, $E0
-		dc.b $24, $F, 0, $DA, $E0
-		dc.b $44, $F, 0, $DA, $E0
-		dc.b $64, $F, 0, $DA, $E0
-		dc.b $F4, $F, 8, $CA, 0
-		dc.b 4,	$F, 8, $DA, 0
-		dc.b $24, $F, 8, $DA, 0
-		dc.b $44, $F, 8, $DA, 0
-		dc.b $64, $F, 8, $DA, 0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - unused
+# ---------------------------------------------------------------------------
+Map_Plat_Unused:dc.w AT_28_small-Map_Plat_Unused
+		dc.w AT_28_large-Map_Plat_Unused
+AT_28_small:		dc.b 2
+		dc.b 0xF4, 0xB, 0, 0x3C, 0xE8
+		dc.b 0xF4, 0xB, 0, 0x48, 0
+AT_28_large:		dc.b 0xA
+		dc.b 0xF4, 0xF, 0, 0xCA, 0xE0
+		dc.b 4,	0xF, 0, 0xDA, 0xE0
+		dc.b 0x24, 0xF, 0, 0xDA, 0xE0
+		dc.b 0x44, 0xF, 0, 0xDA, 0xE0
+		dc.b 0x64, 0xF, 0, 0xDA, 0xE0
+		dc.b 0xF4, 0xF, 8, 0xCA, 0
+		dc.b 4,	0xF, 8, 0xDA, 0
+		dc.b 0x24, 0xF, 8, 0xDA, 0
+		dc.b 0x44, 0xF, 8, 0xDA, 0
+		dc.b 0x64, 0xF, 8, 0xDA, 0
+		.align 2

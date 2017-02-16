@@ -1,14 +1,14 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - missile that Buzz Bomber throws
-; ---------------------------------------------------------------------------
-Map_Missile:	dc.w @Flare1-Map_Missile, @Flare2-Map_Missile
-		dc.w @Ball1-Map_Missile, @Ball2-Map_Missile
-@Flare1:	dc.b 1
-		dc.b $F8, 5, 0,	$24, $F8 ; buzz bomber firing flare
-@Flare2:	dc.b 1
-		dc.b $F8, 5, 0,	$28, $F8
-@Ball1:		dc.b 1
-		dc.b $F8, 5, 0,	$2C, $F8 ; missile itself
-@Ball2:		dc.b 1
-		dc.b $F8, 5, 0,	$33, $F8
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - missile that Buzz Bomber throws
+# ---------------------------------------------------------------------------
+Map_Missile:	dc.w AT_37_Flare1-Map_Missile, AT_37_Flare2-Map_Missile
+		dc.w AT_37_Ball1-Map_Missile, AT_37_Ball2-Map_Missile
+AT_37_Flare1:	dc.b 1
+		dc.b 0xF8, 5, 0,	0x24, 0xF8 /* buzz bomber firing flare */
+AT_37_Flare2:	dc.b 1
+		dc.b 0xF8, 5, 0,	0x28, 0xF8
+AT_37_Ball1:		dc.b 1
+		dc.b 0xF8, 5, 0,	0x2C, 0xF8 /* missile itself */
+AT_37_Ball2:		dc.b 1
+		dc.b 0xF8, 5, 0,	0x33, 0xF8
+		.align 2

@@ -1,14 +1,14 @@
 
-Bri_Platform:	; Routine 4
+Bri_Platform:	/* Routine 4 */
 		bsr.s	Bri_WalkOff
 		bsr.w	DisplaySprite
 		bra.w	Bri_ChkDel
 
-; ---------------------------------------------------------------------------
-; Subroutine allowing Sonic to walk off a bridge
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Subroutine allowing Sonic to walk off a bridge
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Bri_WalkOff:
@@ -20,11 +20,11 @@ Bri_WalkOff:
 		bsr.s	ExitPlatform2
 		bcc.s	locret_75BE
 		lsr.w	#4,d0
-		move.b	d0,$3F(a0)
-		move.b	$3E(a0),d0
-		cmpi.b	#$40,d0
+		move.b	d0,0x3F(a0)
+		move.b	0x3E(a0),d0
+		cmpi.b	#0x40,d0
 		beq.s	loc_75B6
-		addq.b	#4,$3E(a0)
+		addq.b	#4,0x3E(a0)
 
 loc_75B6:
 		bsr.w	Bri_Bend
@@ -32,4 +32,5 @@ loc_75B6:
 
 locret_75BE:
 		rts	
-; End of function Bri_WalkOff
+# End of function Bri_WalkOff
+

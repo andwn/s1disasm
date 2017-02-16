@@ -1,138 +1,138 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - rotating disc that grabs Sonic (SBZ)
-; ---------------------------------------------------------------------------
-Map_Jun:	dc.w @gap0-Map_Jun, @gap1-Map_Jun
-		dc.w @gap2-Map_Jun, @gap3-Map_Jun
-		dc.w @gap4-Map_Jun, @gap5-Map_Jun
-		dc.w @gap6-Map_Jun, @gap7-Map_Jun
-		dc.w @gap8-Map_Jun, @gap9-Map_Jun
-		dc.w @gapA-Map_Jun, @gapB-Map_Jun
-		dc.w @gapC-Map_Jun, @gapD-Map_Jun
-		dc.w @gapE-Map_Jun, @gapF-Map_Jun
-		dc.w @circle-Map_Jun
-@gap0:		dc.b 6
-		dc.b $E8, 5, 0,	$22, $D0
-		dc.b 8,	5, $10,	$22, $D0
-		dc.b $E8, $A, 0, 0, $C8
-		dc.b $E8, $A, 8, 0, $E0
-		dc.b 0,	$A, $10, 0, $C8
-		dc.b 0,	$A, $18, 0, $E0
-@gap1:		dc.b 6
-		dc.b $F8, 3, 0,	$26, $D0
-		dc.b $18, 5, 0,	$2A, $D8
-		dc.b $F6, $A, 0, 0, $CA
-		dc.b $F6, $A, 8, 0, $E2
-		dc.b $E, $A, $10, 0, $CA
-		dc.b $E, $A, $18, 0, $E2
-@gap2:		dc.b 6
-		dc.b 0,	6, 0, $2E, $D0
-		dc.b $20, 9, 0,	$34, $E8
-		dc.b 0,	$A, 0, 0, $D0
-		dc.b 0,	$A, 8, 0, $E8
-		dc.b $18, $A, $10, 0, $D0
-		dc.b $18, $A, $18, 0, $E8
-@gap3:		dc.b 6
-		dc.b 8,	7, 0, $3A, $D8
-		dc.b $28, 8, 0,	$42, $F0
-		dc.b 6,	$A, 0, 0, $DA
-		dc.b 6,	$A, 8, 0, $F2
-		dc.b $1E, $A, $10, 0, $DA
-		dc.b $1E, $A, $18, 0, $F2
-@gap4:		dc.b 6
-		dc.b $20, 5, 0,	$45, $E8
-		dc.b $20, 5, 8,	$45, 8
-		dc.b 8,	$A, 0, 0, $E8
-		dc.b 8,	$A, 8, 0, 0
-		dc.b $20, $A, $10, 0, $E8
-		dc.b $20, $A, $18, 0, 0
-@gap5:		dc.b 6
-		dc.b $28, 8, 8,	$42, $F8
-		dc.b 8,	7, 8, $3A, $18
-		dc.b 6,	$A, 0, 0, $F6
-		dc.b 6,	$A, 8, 0, $E
-		dc.b $1E, $A, $10, 0, $F6
-		dc.b $1E, $A, $18, 0, $E
-@gap6:		dc.b 6
-		dc.b $20, 9, 8,	$34, 0
-		dc.b 0,	6, 8, $2E, $20
-		dc.b 0,	$A, 0, 0, 0
-		dc.b 0,	$A, 8, 0, $18
-		dc.b $18, $A, $10, 0, 0
-		dc.b $18, $A, $18, 0, $18
-@gap7:		dc.b 6
-		dc.b $18, 5, 8,	$2A, $18
-		dc.b $F8, 3, 8,	$26, $28
-		dc.b $F6, $A, 0, 0, 6
-		dc.b $F6, $A, 8, 0, $1E
-		dc.b $E, $A, $10, 0, 6
-		dc.b $E, $A, $18, 0, $1E
-@gap8:		dc.b 6
-		dc.b $E8, 5, 8,	$22, $20
-		dc.b 8,	5, $18,	$22, $20
-		dc.b $E8, $A, 0, 0, 8
-		dc.b $E8, $A, 8, 0, $20
-		dc.b 0,	$A, $10, 0, 8
-		dc.b 0,	$A, $18, 0, $20
-@gap9:		dc.b 6
-		dc.b $D8, 5, $18, $2A, $18
-		dc.b $E8, 3, $18, $26, $28
-		dc.b $DA, $A, 0, 0, 6
-		dc.b $DA, $A, 8, 0, $1E
-		dc.b $F2, $A, $10, 0, 6
-		dc.b $F2, $A, $18, 0, $1E
-@gapA:		dc.b 6
-		dc.b $D0, 9, $18, $34, 0
-		dc.b $E8, 6, $18, $2E, $20
-		dc.b $D0, $A, 0, 0, 0
-		dc.b $D0, $A, 8, 0, $18
-		dc.b $E8, $A, $10, 0, 0
-		dc.b $E8, $A, $18, 0, $18
-@gapB:		dc.b 6
-		dc.b $D0, 8, $18, $42, $F8
-		dc.b $D8, 7, $18, $3A, $18
-		dc.b $CA, $A, 0, 0, $F6
-		dc.b $CA, $A, 8, 0, $E
-		dc.b $E2, $A, $10, 0, $F6
-		dc.b $E2, $A, $18, 0, $E
-@gapC:		dc.b 6
-		dc.b $D0, 5, $10, $45, $E8
-		dc.b $D0, 5, $18, $45, 8
-		dc.b $C8, $A, 0, 0, $E8
-		dc.b $C8, $A, 8, 0, 0
-		dc.b $E0, $A, $10, 0, $E8
-		dc.b $E0, $A, $18, 0, 0
-@gapD:		dc.b 6
-		dc.b $D8, 7, $10, $3A, $D8
-		dc.b $D0, 8, $10, $42, $F0
-		dc.b $CA, $A, 0, 0, $DA
-		dc.b $CA, $A, 8, 0, $F2
-		dc.b $E2, $A, $10, 0, $DA
-		dc.b $E2, $A, $18, 0, $F2
-@gapE:		dc.b 6
-		dc.b $E8, 6, $10, $2E, $D0
-		dc.b $D0, 9, $10, $34, $E8
-		dc.b $D0, $A, 0, 0, $D0
-		dc.b $D0, $A, 8, 0, $E8
-		dc.b $E8, $A, $10, 0, $D0
-		dc.b $E8, $A, $18, 0, $E8
-@gapF:		dc.b 6
-		dc.b $E8, 3, $10, $26, $D0
-		dc.b $D8, 5, $10, $2A, $D8
-		dc.b $DA, $A, 0, 0, $CA
-		dc.b $DA, $A, 8, 0, $E2
-		dc.b $F2, $A, $10, 0, $CA
-		dc.b $F2, $A, $18, 0, $E2
-@circle:	dc.b $C
-		dc.b $C8, $D, 0, 9, $E0
-		dc.b $D0, $A, 0, $11, $D0
-		dc.b $E0, 7, 0,	$1A, $C8
-		dc.b $C8, $D, 8, 9, 0
-		dc.b $D0, $A, 8, $11, $18
-		dc.b $E0, 7, 8,	$1A, $28
-		dc.b 0,	7, $10,	$1A, $C8
-		dc.b $18, $A, $10, $11,	$D0
-		dc.b $28, $D, $10, 9, $E0
-		dc.b $28, $D, $18, 9, 0
-		dc.b $18, $A, $18, $11,	$18
-		dc.b 0,	7, $18,	$1A, $28
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - rotating disc that grabs Sonic (SBZ)
+# ---------------------------------------------------------------------------
+Map_Jun:	dc.w AT_104_gap0-Map_Jun, AT_104_gap1-Map_Jun
+		dc.w AT_104_gap2-Map_Jun, AT_104_gap3-Map_Jun
+		dc.w AT_104_gap4-Map_Jun, AT_104_gap5-Map_Jun
+		dc.w AT_104_gap6-Map_Jun, AT_104_gap7-Map_Jun
+		dc.w AT_104_gap8-Map_Jun, AT_104_gap9-Map_Jun
+		dc.w AT_104_gapA-Map_Jun, AT_104_gapB-Map_Jun
+		dc.w AT_104_gapC-Map_Jun, AT_104_gapD-Map_Jun
+		dc.w AT_104_gapE-Map_Jun, AT_104_gapF-Map_Jun
+		dc.w AT_104_circle-Map_Jun
+AT_104_gap0:		dc.b 6
+		dc.b 0xE8, 5, 0,	0x22, 0xD0
+		dc.b 8,	5, 0x10,	0x22, 0xD0
+		dc.b 0xE8, 0xA, 0, 0, 0xC8
+		dc.b 0xE8, 0xA, 8, 0, 0xE0
+		dc.b 0,	0xA, 0x10, 0, 0xC8
+		dc.b 0,	0xA, 0x18, 0, 0xE0
+AT_104_gap1:		dc.b 6
+		dc.b 0xF8, 3, 0,	0x26, 0xD0
+		dc.b 0x18, 5, 0,	0x2A, 0xD8
+		dc.b 0xF6, 0xA, 0, 0, 0xCA
+		dc.b 0xF6, 0xA, 8, 0, 0xE2
+		dc.b 0xE, 0xA, 0x10, 0, 0xCA
+		dc.b 0xE, 0xA, 0x18, 0, 0xE2
+AT_104_gap2:		dc.b 6
+		dc.b 0,	6, 0, 0x2E, 0xD0
+		dc.b 0x20, 9, 0,	0x34, 0xE8
+		dc.b 0,	0xA, 0, 0, 0xD0
+		dc.b 0,	0xA, 8, 0, 0xE8
+		dc.b 0x18, 0xA, 0x10, 0, 0xD0
+		dc.b 0x18, 0xA, 0x18, 0, 0xE8
+AT_104_gap3:		dc.b 6
+		dc.b 8,	7, 0, 0x3A, 0xD8
+		dc.b 0x28, 8, 0,	0x42, 0xF0
+		dc.b 6,	0xA, 0, 0, 0xDA
+		dc.b 6,	0xA, 8, 0, 0xF2
+		dc.b 0x1E, 0xA, 0x10, 0, 0xDA
+		dc.b 0x1E, 0xA, 0x18, 0, 0xF2
+AT_104_gap4:		dc.b 6
+		dc.b 0x20, 5, 0,	0x45, 0xE8
+		dc.b 0x20, 5, 8,	0x45, 8
+		dc.b 8,	0xA, 0, 0, 0xE8
+		dc.b 8,	0xA, 8, 0, 0
+		dc.b 0x20, 0xA, 0x10, 0, 0xE8
+		dc.b 0x20, 0xA, 0x18, 0, 0
+AT_104_gap5:		dc.b 6
+		dc.b 0x28, 8, 8,	0x42, 0xF8
+		dc.b 8,	7, 8, 0x3A, 0x18
+		dc.b 6,	0xA, 0, 0, 0xF6
+		dc.b 6,	0xA, 8, 0, 0xE
+		dc.b 0x1E, 0xA, 0x10, 0, 0xF6
+		dc.b 0x1E, 0xA, 0x18, 0, 0xE
+AT_104_gap6:		dc.b 6
+		dc.b 0x20, 9, 8,	0x34, 0
+		dc.b 0,	6, 8, 0x2E, 0x20
+		dc.b 0,	0xA, 0, 0, 0
+		dc.b 0,	0xA, 8, 0, 0x18
+		dc.b 0x18, 0xA, 0x10, 0, 0
+		dc.b 0x18, 0xA, 0x18, 0, 0x18
+AT_104_gap7:		dc.b 6
+		dc.b 0x18, 5, 8,	0x2A, 0x18
+		dc.b 0xF8, 3, 8,	0x26, 0x28
+		dc.b 0xF6, 0xA, 0, 0, 6
+		dc.b 0xF6, 0xA, 8, 0, 0x1E
+		dc.b 0xE, 0xA, 0x10, 0, 6
+		dc.b 0xE, 0xA, 0x18, 0, 0x1E
+AT_104_gap8:		dc.b 6
+		dc.b 0xE8, 5, 8,	0x22, 0x20
+		dc.b 8,	5, 0x18,	0x22, 0x20
+		dc.b 0xE8, 0xA, 0, 0, 8
+		dc.b 0xE8, 0xA, 8, 0, 0x20
+		dc.b 0,	0xA, 0x10, 0, 8
+		dc.b 0,	0xA, 0x18, 0, 0x20
+AT_104_gap9:		dc.b 6
+		dc.b 0xD8, 5, 0x18, 0x2A, 0x18
+		dc.b 0xE8, 3, 0x18, 0x26, 0x28
+		dc.b 0xDA, 0xA, 0, 0, 6
+		dc.b 0xDA, 0xA, 8, 0, 0x1E
+		dc.b 0xF2, 0xA, 0x10, 0, 6
+		dc.b 0xF2, 0xA, 0x18, 0, 0x1E
+AT_104_gapA:		dc.b 6
+		dc.b 0xD0, 9, 0x18, 0x34, 0
+		dc.b 0xE8, 6, 0x18, 0x2E, 0x20
+		dc.b 0xD0, 0xA, 0, 0, 0
+		dc.b 0xD0, 0xA, 8, 0, 0x18
+		dc.b 0xE8, 0xA, 0x10, 0, 0
+		dc.b 0xE8, 0xA, 0x18, 0, 0x18
+AT_104_gapB:		dc.b 6
+		dc.b 0xD0, 8, 0x18, 0x42, 0xF8
+		dc.b 0xD8, 7, 0x18, 0x3A, 0x18
+		dc.b 0xCA, 0xA, 0, 0, 0xF6
+		dc.b 0xCA, 0xA, 8, 0, 0xE
+		dc.b 0xE2, 0xA, 0x10, 0, 0xF6
+		dc.b 0xE2, 0xA, 0x18, 0, 0xE
+AT_104_gapC:		dc.b 6
+		dc.b 0xD0, 5, 0x10, 0x45, 0xE8
+		dc.b 0xD0, 5, 0x18, 0x45, 8
+		dc.b 0xC8, 0xA, 0, 0, 0xE8
+		dc.b 0xC8, 0xA, 8, 0, 0
+		dc.b 0xE0, 0xA, 0x10, 0, 0xE8
+		dc.b 0xE0, 0xA, 0x18, 0, 0
+AT_104_gapD:		dc.b 6
+		dc.b 0xD8, 7, 0x10, 0x3A, 0xD8
+		dc.b 0xD0, 8, 0x10, 0x42, 0xF0
+		dc.b 0xCA, 0xA, 0, 0, 0xDA
+		dc.b 0xCA, 0xA, 8, 0, 0xF2
+		dc.b 0xE2, 0xA, 0x10, 0, 0xDA
+		dc.b 0xE2, 0xA, 0x18, 0, 0xF2
+AT_104_gapE:		dc.b 6
+		dc.b 0xE8, 6, 0x10, 0x2E, 0xD0
+		dc.b 0xD0, 9, 0x10, 0x34, 0xE8
+		dc.b 0xD0, 0xA, 0, 0, 0xD0
+		dc.b 0xD0, 0xA, 8, 0, 0xE8
+		dc.b 0xE8, 0xA, 0x10, 0, 0xD0
+		dc.b 0xE8, 0xA, 0x18, 0, 0xE8
+AT_104_gapF:		dc.b 6
+		dc.b 0xE8, 3, 0x10, 0x26, 0xD0
+		dc.b 0xD8, 5, 0x10, 0x2A, 0xD8
+		dc.b 0xDA, 0xA, 0, 0, 0xCA
+		dc.b 0xDA, 0xA, 8, 0, 0xE2
+		dc.b 0xF2, 0xA, 0x10, 0, 0xCA
+		dc.b 0xF2, 0xA, 0x18, 0, 0xE2
+AT_104_circle:	dc.b 0xC
+		dc.b 0xC8, 0xD, 0, 9, 0xE0
+		dc.b 0xD0, 0xA, 0, 0x11, 0xD0
+		dc.b 0xE0, 7, 0,	0x1A, 0xC8
+		dc.b 0xC8, 0xD, 8, 9, 0
+		dc.b 0xD0, 0xA, 8, 0x11, 0x18
+		dc.b 0xE0, 7, 8,	0x1A, 0x28
+		dc.b 0,	7, 0x10,	0x1A, 0xC8
+		dc.b 0x18, 0xA, 0x10, 0x11,	0xD0
+		dc.b 0x28, 0xD, 0x10, 9, 0xE0
+		dc.b 0x28, 0xD, 0x18, 9, 0
+		dc.b 0x18, 0xA, 0x18, 0x11,	0x18
+		dc.b 0,	7, 0x18,	0x1A, 0x28
+		.align 2

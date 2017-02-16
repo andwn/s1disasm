@@ -1,39 +1,39 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - energy balls (FZ)
-; ---------------------------------------------------------------------------
-Map_Plasma:	dc.w @fuzzy1-Map_Plasma, @fuzzy2-Map_Plasma
-		dc.w @white1-Map_Plasma, @white2-Map_Plasma
-		dc.w @white3-Map_Plasma, @white4-Map_Plasma
-		dc.w @fuzzy3-Map_Plasma, @fuzzy4-Map_Plasma
-		dc.w @fuzzy5-Map_Plasma, @fuzzy6-Map_Plasma
-		dc.w @blank-Map_Plasma
-@fuzzy1:	dc.b 2
-		dc.b $F0, $D, 0, $7A, $F0
-		dc.b 0,	$D, $18, $7A, $F0
-@fuzzy2:	dc.b 2
-		dc.b $F4, 6, 0,	$82, $F4
-		dc.b $F4, 2, $18, $82, 4
-@white1:	dc.b 2
-		dc.b $F8, 4, 0,	$88, $F8
-		dc.b 0,	4, $10,	$88, $F8
-@white2:	dc.b 2
-		dc.b $F8, 4, 0,	$8A, $F8
-		dc.b 0,	4, $10,	$8A, $F8
-@white3:	dc.b 2
-		dc.b $F8, 4, 0,	$8C, $F8
-		dc.b 0,	4, $10,	$8C, $F8
-@white4:	dc.b 2
-		dc.b $F4, 6, 0,	$8E, $F4
-		dc.b $F4, 2, $18, $8E, 4
-@fuzzy3:	dc.b 1
-		dc.b $F8, 5, 0,	$94, $F8
-@fuzzy4:	dc.b 1
-		dc.b $F8, 5, 0,	$98, $F8
-@fuzzy5:	dc.b 2
-		dc.b $F0, $D, 8, $7A, $F0
-		dc.b 0,	$D, $10, $7A, $F0
-@fuzzy6:	dc.b 2
-		dc.b $F4, 6, $10, $82, $F4
-		dc.b $F4, 2, 8,	$82, 4
-@blank:		dc.b 0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - energy balls (FZ)
+# ---------------------------------------------------------------------------
+Map_Plasma:	dc.w AT_115_fuzzy1-Map_Plasma, AT_115_fuzzy2-Map_Plasma
+		dc.w AT_115_white1-Map_Plasma, AT_115_white2-Map_Plasma
+		dc.w AT_115_white3-Map_Plasma, AT_115_white4-Map_Plasma
+		dc.w AT_115_fuzzy3-Map_Plasma, AT_115_fuzzy4-Map_Plasma
+		dc.w AT_115_fuzzy5-Map_Plasma, AT_115_fuzzy6-Map_Plasma
+		dc.w AT_115_blank-Map_Plasma
+AT_115_fuzzy1:	dc.b 2
+		dc.b 0xF0, 0xD, 0, 0x7A, 0xF0
+		dc.b 0,	0xD, 0x18, 0x7A, 0xF0
+AT_115_fuzzy2:	dc.b 2
+		dc.b 0xF4, 6, 0,	0x82, 0xF4
+		dc.b 0xF4, 2, 0x18, 0x82, 4
+AT_115_white1:	dc.b 2
+		dc.b 0xF8, 4, 0,	0x88, 0xF8
+		dc.b 0,	4, 0x10,	0x88, 0xF8
+AT_115_white2:	dc.b 2
+		dc.b 0xF8, 4, 0,	0x8A, 0xF8
+		dc.b 0,	4, 0x10,	0x8A, 0xF8
+AT_115_white3:	dc.b 2
+		dc.b 0xF8, 4, 0,	0x8C, 0xF8
+		dc.b 0,	4, 0x10,	0x8C, 0xF8
+AT_115_white4:	dc.b 2
+		dc.b 0xF4, 6, 0,	0x8E, 0xF4
+		dc.b 0xF4, 2, 0x18, 0x8E, 4
+AT_115_fuzzy3:	dc.b 1
+		dc.b 0xF8, 5, 0,	0x94, 0xF8
+AT_115_fuzzy4:	dc.b 1
+		dc.b 0xF8, 5, 0,	0x98, 0xF8
+AT_115_fuzzy5:	dc.b 2
+		dc.b 0xF0, 0xD, 8, 0x7A, 0xF0
+		dc.b 0,	0xD, 0x10, 0x7A, 0xF0
+AT_115_fuzzy6:	dc.b 2
+		dc.b 0xF4, 6, 0x10, 0x82, 0xF4
+		dc.b 0xF4, 2, 8,	0x82, 4
+AT_115_blank:		dc.b 0
+		.align 2

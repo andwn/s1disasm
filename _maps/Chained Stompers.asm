@@ -1,72 +1,73 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - metal stomping blocks on chains (MZ)
-; ---------------------------------------------------------------------------
-Map_CStom:	dc.w @wideblock-Map_CStom
-		dc.w @spikes-Map_CStom
-		dc.w @ceiling-Map_CStom
-		dc.w @chain1-Map_CStom
-		dc.w @chain2-Map_CStom
-		dc.w @chain3-Map_CStom
-		dc.w @chain4-Map_CStom
-		dc.w @chain5-Map_CStom
-		dc.w @chain5-Map_CStom
-		dc.w @mediumblock-Map_CStom
-		dc.w @smallblock-Map_CStom
-@wideblock:	dc.b 5
-		dc.b $F4, 6, 0,	0, $C8
-		dc.b $F4, $A, 0, 6, $D8
-		dc.b $EC, $F, 0, $F, $F0
-		dc.b $F4, $A, 8, 6, $10
-		dc.b $F4, 6, 8,	0, $28
-@spikes:	dc.b 5
-		dc.b $F0, 3, $12, $1F, $D4
-		dc.b $F0, 3, $12, $1F, $E8
-		dc.b $F0, 3, $12, $1F, $FC
-		dc.b $F0, 3, $12, $1F, $10
-		dc.b $F0, 3, $12, $1F, $24
-@ceiling:	dc.b 1
-		dc.b $DC, $F, $10, $F, $F0
-@chain1:	dc.b 2
-		dc.b 0,	1, 0, $3F, $FC
-		dc.b $10, 1, 0,	$3F, $FC
-@chain2:	dc.b 4
-		dc.b $E0, 1, 0,	$3F, $FC
-		dc.b $F0, 1, 0,	$3F, $FC
-		dc.b 0,	1, 0, $3F, $FC
-		dc.b $10, 1, 0,	$3F, $FC
-@chain3:	dc.b 6
-		dc.b $C0, 1, 0,	$3F, $FC
-		dc.b $D0, 1, 0,	$3F, $FC
-		dc.b $E0, 1, 0,	$3F, $FC
-		dc.b $F0, 1, 0,	$3F, $FC
-		dc.b 0,	1, 0, $3F, $FC
-		dc.b $10, 1, 0,	$3F, $FC
-@chain4:	dc.b 8
-		dc.b $A0, 1, 0,	$3F, $FC
-		dc.b $B0, 1, 0,	$3F, $FC
-		dc.b $C0, 1, 0,	$3F, $FC
-		dc.b $D0, 1, 0,	$3F, $FC
-		dc.b $E0, 1, 0,	$3F, $FC
-		dc.b $F0, 1, 0,	$3F, $FC
-		dc.b 0,	1, 0, $3F, $FC
-		dc.b $10, 1, 0,	$3F, $FC
-@chain5:	dc.b $A
-		dc.b $80, 1, 0,	$3F, $FC
-		dc.b $90, 1, 0,	$3F, $FC
-		dc.b $A0, 1, 0,	$3F, $FC
-		dc.b $B0, 1, 0,	$3F, $FC
-		dc.b $C0, 1, 0,	$3F, $FC
-		dc.b $D0, 1, 0,	$3F, $FC
-		dc.b $E0, 1, 0,	$3F, $FC
-		dc.b $F0, 1, 0,	$3F, $FC
-		dc.b 0,	1, 0, $3F, $FC
-		dc.b $10, 1, 0,	$3F, $FC
-@mediumblock:	dc.b 5
-		dc.b $F4, 6, 0,	0, $D0
-		dc.b $F4, $A, 0, 6, $E0
-		dc.b $F4, $A, 8, 6, 8
-		dc.b $F4, 6, 8,	0, $20
-		dc.b $EC, $F, 0, $F, $F0
-@smallblock:	dc.b 1
-		dc.b $EC, $F, 0, $2F, $F0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - metal stomping blocks on chains (MZ)
+# ---------------------------------------------------------------------------
+Map_CStom:	dc.w AT_44_wideblock-Map_CStom
+		dc.w AT_44_spikes-Map_CStom
+		dc.w AT_44_ceiling-Map_CStom
+		dc.w AT_44_chain1-Map_CStom
+		dc.w AT_44_chain2-Map_CStom
+		dc.w AT_44_chain3-Map_CStom
+		dc.w AT_44_chain4-Map_CStom
+		dc.w AT_44_chain5-Map_CStom
+		dc.w AT_44_chain5-Map_CStom
+		dc.w AT_44_mediumblock-Map_CStom
+		dc.w AT_44_smallblock-Map_CStom
+AT_44_wideblock:	dc.b 5
+		dc.b 0xF4, 6, 0,	0, 0xC8
+		dc.b 0xF4, 0xA, 0, 6, 0xD8
+		dc.b 0xEC, 0xF, 0, 0xF, 0xF0
+		dc.b 0xF4, 0xA, 8, 6, 0x10
+		dc.b 0xF4, 6, 8,	0, 0x28
+AT_44_spikes:	dc.b 5
+		dc.b 0xF0, 3, 0x12, 0x1F, 0xD4
+		dc.b 0xF0, 3, 0x12, 0x1F, 0xE8
+		dc.b 0xF0, 3, 0x12, 0x1F, 0xFC
+		dc.b 0xF0, 3, 0x12, 0x1F, 0x10
+		dc.b 0xF0, 3, 0x12, 0x1F, 0x24
+AT_44_ceiling:	dc.b 1
+		dc.b 0xDC, 0xF, 0x10, 0xF, 0xF0
+AT_44_chain1:	dc.b 2
+		dc.b 0,	1, 0, 0x3F, 0xFC
+		dc.b 0x10, 1, 0,	0x3F, 0xFC
+AT_44_chain2:	dc.b 4
+		dc.b 0xE0, 1, 0,	0x3F, 0xFC
+		dc.b 0xF0, 1, 0,	0x3F, 0xFC
+		dc.b 0,	1, 0, 0x3F, 0xFC
+		dc.b 0x10, 1, 0,	0x3F, 0xFC
+AT_44_chain3:	dc.b 6
+		dc.b 0xC0, 1, 0,	0x3F, 0xFC
+		dc.b 0xD0, 1, 0,	0x3F, 0xFC
+		dc.b 0xE0, 1, 0,	0x3F, 0xFC
+		dc.b 0xF0, 1, 0,	0x3F, 0xFC
+		dc.b 0,	1, 0, 0x3F, 0xFC
+		dc.b 0x10, 1, 0,	0x3F, 0xFC
+AT_44_chain4:	dc.b 8
+		dc.b 0xA0, 1, 0,	0x3F, 0xFC
+		dc.b 0xB0, 1, 0,	0x3F, 0xFC
+		dc.b 0xC0, 1, 0,	0x3F, 0xFC
+		dc.b 0xD0, 1, 0,	0x3F, 0xFC
+		dc.b 0xE0, 1, 0,	0x3F, 0xFC
+		dc.b 0xF0, 1, 0,	0x3F, 0xFC
+		dc.b 0,	1, 0, 0x3F, 0xFC
+		dc.b 0x10, 1, 0,	0x3F, 0xFC
+AT_44_chain5:	dc.b 0xA
+		dc.b 0x80, 1, 0,	0x3F, 0xFC
+		dc.b 0x90, 1, 0,	0x3F, 0xFC
+		dc.b 0xA0, 1, 0,	0x3F, 0xFC
+		dc.b 0xB0, 1, 0,	0x3F, 0xFC
+		dc.b 0xC0, 1, 0,	0x3F, 0xFC
+		dc.b 0xD0, 1, 0,	0x3F, 0xFC
+		dc.b 0xE0, 1, 0,	0x3F, 0xFC
+		dc.b 0xF0, 1, 0,	0x3F, 0xFC
+		dc.b 0,	1, 0, 0x3F, 0xFC
+		dc.b 0x10, 1, 0,	0x3F, 0xFC
+AT_44_mediumblock:	dc.b 5
+		dc.b 0xF4, 6, 0,	0, 0xD0
+		dc.b 0xF4, 0xA, 0, 6, 0xE0
+		dc.b 0xF4, 0xA, 8, 6, 8
+		dc.b 0xF4, 6, 8,	0, 0x20
+		dc.b 0xEC, 0xF, 0, 0xF, 0xF0
+AT_44_smallblock:	dc.b 1
+		dc.b 0xEC, 0xF, 0, 0x2F, 0xF0
+		.align 2
+

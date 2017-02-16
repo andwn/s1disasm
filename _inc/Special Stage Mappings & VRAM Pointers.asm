@@ -1,159 +1,159 @@
-; ---------------------------------------------------------------------------
-; Special stage	mappings and VRAM pointers
-; ---------------------------------------------------------------------------
-	dc.l Map_SSWalls	; address of mappings
-	dc.w $142		; VRAM setting
+# ---------------------------------------------------------------------------
+# Special stage	mappings and VRAM pointers
+# ---------------------------------------------------------------------------
+	dc.l Map_SSWalls	/* address of mappings */
+	dc.w 0x142		/* VRAM setting */
 	dc.l Map_SSWalls
-	dc.w $142
+	dc.w 0x142
 	dc.l Map_SSWalls
-	dc.w $142
+	dc.w 0x142
 	dc.l Map_SSWalls
-	dc.w $142
+	dc.w 0x142
 	dc.l Map_SSWalls
-	dc.w $142
+	dc.w 0x142
 	dc.l Map_SSWalls
-	dc.w $142
+	dc.w 0x142
 	dc.l Map_SSWalls
-	dc.w $142
+	dc.w 0x142
 	dc.l Map_SSWalls
-	dc.w $142
+	dc.w 0x142
 	dc.l Map_SSWalls
-	dc.w $142
+	dc.w 0x142
 	dc.l Map_SSWalls
-	dc.w $2142
+	dc.w 0x2142
 	dc.l Map_SSWalls
-	dc.w $2142
+	dc.w 0x2142
 	dc.l Map_SSWalls
-	dc.w $2142
+	dc.w 0x2142
 	dc.l Map_SSWalls
-	dc.w $2142
+	dc.w 0x2142
 	dc.l Map_SSWalls
-	dc.w $2142
+	dc.w 0x2142
 	dc.l Map_SSWalls
-	dc.w $2142
+	dc.w 0x2142
 	dc.l Map_SSWalls
-	dc.w $2142
+	dc.w 0x2142
 	dc.l Map_SSWalls
-	dc.w $2142
+	dc.w 0x2142
 	dc.l Map_SSWalls
-	dc.w $2142
+	dc.w 0x2142
 	dc.l Map_SSWalls
-	dc.w $4142
+	dc.w 0x4142
 	dc.l Map_SSWalls
-	dc.w $4142
+	dc.w 0x4142
 	dc.l Map_SSWalls
-	dc.w $4142
+	dc.w 0x4142
 	dc.l Map_SSWalls
-	dc.w $4142
+	dc.w 0x4142
 	dc.l Map_SSWalls
-	dc.w $4142
+	dc.w 0x4142
 	dc.l Map_SSWalls
-	dc.w $4142
+	dc.w 0x4142
 	dc.l Map_SSWalls
-	dc.w $4142
+	dc.w 0x4142
 	dc.l Map_SSWalls
-	dc.w $4142
+	dc.w 0x4142
 	dc.l Map_SSWalls
-	dc.w $4142
+	dc.w 0x4142
 	dc.l Map_SSWalls
-	dc.w $6142
+	dc.w 0x6142
 	dc.l Map_SSWalls
-	dc.w $6142
+	dc.w 0x6142
 	dc.l Map_SSWalls
-	dc.w $6142
+	dc.w 0x6142
 	dc.l Map_SSWalls
-	dc.w $6142
+	dc.w 0x6142
 	dc.l Map_SSWalls
-	dc.w $6142
+	dc.w 0x6142
 	dc.l Map_SSWalls
-	dc.w $6142
+	dc.w 0x6142
 	dc.l Map_SSWalls
-	dc.w $6142
+	dc.w 0x6142
 	dc.l Map_SSWalls
-	dc.w $6142
+	dc.w 0x6142
 	dc.l Map_SSWalls
-	dc.w $6142
+	dc.w 0x6142
 	dc.l Map_Bump
-	dc.w $23B
+	dc.w 0x23B
 	dc.l Map_SS_R
-	dc.w $570
+	dc.w 0x570
 	dc.l Map_SS_R
-	dc.w $251
+	dc.w 0x251
 	dc.l Map_SS_R
-	dc.w $370
+	dc.w 0x370
 	dc.l Map_SS_Up
-	dc.w $263
+	dc.w 0x263
 	dc.l Map_SS_Down
-	dc.w $263
+	dc.w 0x263
 	dc.l Map_SS_R
-	dc.w $22F0
+	dc.w 0x22F0
 	dc.l Map_SS_Glass
-	dc.w $470
+	dc.w 0x470
 	dc.l Map_SS_Glass
-	dc.w $5F0
+	dc.w 0x5F0
 	dc.l Map_SS_Glass
-	dc.w $65F0
+	dc.w 0x65F0
 	dc.l Map_SS_Glass
-	dc.w $25F0
+	dc.w 0x25F0
 	dc.l Map_SS_Glass
-	dc.w $45F0
+	dc.w 0x45F0
 	dc.l Map_SS_R
-	dc.w $2F0
-	dc.l Map_Bump+$1000000	; add frame no.	* $1000000
-	dc.w $23B
-	dc.l Map_Bump+$2000000
-	dc.w $23B
+	dc.w 0x2F0
+	dc.l Map_Bump+0x1000000	/* add frame no.	* $1000000 */
+	dc.w 0x23B
+	dc.l Map_Bump+0x2000000
+	dc.w 0x23B
 	dc.l Map_SS_R
-	dc.w $797
+	dc.w 0x797
 	dc.l Map_SS_R
-	dc.w $7A0
+	dc.w 0x7A0
 	dc.l Map_SS_R
-	dc.w $7A9
+	dc.w 0x7A9
 	dc.l Map_SS_R
-	dc.w $797
+	dc.w 0x797
 	dc.l Map_SS_R
-	dc.w $7A0
+	dc.w 0x7A0
 	dc.l Map_SS_R
-	dc.w $7A9
+	dc.w 0x7A9
 	dc.l Map_Ring
-	dc.w $27B2
+	dc.w 0x27B2
 	dc.l Map_SS_Chaos3
-	dc.w $770
+	dc.w 0x770
 	dc.l Map_SS_Chaos3
-	dc.w $2770
+	dc.w 0x2770
 	dc.l Map_SS_Chaos3
-	dc.w $4770
+	dc.w 0x4770
 	dc.l Map_SS_Chaos3
-	dc.w $6770
+	dc.w 0x6770
 	dc.l Map_SS_Chaos1
-	dc.w $770
+	dc.w 0x770
 	dc.l Map_SS_Chaos2
-	dc.w $770
+	dc.w 0x770
 	dc.l Map_SS_R
-	dc.w $4F0
-	dc.l Map_Ring+$4000000
-	dc.w $27B2
-	dc.l Map_Ring+$5000000
-	dc.w $27B2
-	dc.l Map_Ring+$6000000
-	dc.w $27B2
-	dc.l Map_Ring+$7000000
-	dc.w $27B2
+	dc.w 0x4F0
+	dc.l Map_Ring+0x4000000
+	dc.w 0x27B2
+	dc.l Map_Ring+0x5000000
+	dc.w 0x27B2
+	dc.l Map_Ring+0x6000000
+	dc.w 0x27B2
+	dc.l Map_Ring+0x7000000
+	dc.w 0x27B2
 	dc.l Map_SS_Glass
-	dc.w $23F0
-	dc.l Map_SS_Glass+$1000000
-	dc.w $23F0
-	dc.l Map_SS_Glass+$2000000
-	dc.w $23F0
-	dc.l Map_SS_Glass+$3000000
-	dc.w $23F0
-	dc.l Map_SS_R+$2000000
-	dc.w $4F0
+	dc.w 0x23F0
+	dc.l Map_SS_Glass+0x1000000
+	dc.w 0x23F0
+	dc.l Map_SS_Glass+0x2000000
+	dc.w 0x23F0
+	dc.l Map_SS_Glass+0x3000000
+	dc.w 0x23F0
+	dc.l Map_SS_R+0x2000000
+	dc.w 0x4F0
 	dc.l Map_SS_Glass
-	dc.w $5F0
+	dc.w 0x5F0
 	dc.l Map_SS_Glass
-	dc.w $65F0
+	dc.w 0x65F0
 	dc.l Map_SS_Glass
-	dc.w $25F0
+	dc.w 0x25F0
 	dc.l Map_SS_Glass
-	dc.w $45F0
+	dc.w 0x45F0

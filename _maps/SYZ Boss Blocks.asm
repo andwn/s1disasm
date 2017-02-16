@@ -1,19 +1,19 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - blocks that	Robotnik picks up (SYZ)
-; ---------------------------------------------------------------------------
-Map_BossBlock:	dc.w @wholeblock-Map_BossBlock, @topleft-Map_BossBlock
-		dc.w @topright-Map_BossBlock, @bottomleft-Map_BossBlock
-		dc.w @bottomright-Map_BossBlock
-@wholeblock:	dc.b 2
-		dc.b $F0, $D, 0, $71, $F0
-		dc.b 0,	$D, 0, $79, $F0
+# ---------------------------------------------------------------------------
+# Sprite mappings - blocks that	Robotnik picks up (SYZ)
+# ---------------------------------------------------------------------------
+Map_BossBlock:	dc.w AT_78_wholeblock-Map_BossBlock, AT_78_topleft-Map_BossBlock
+		dc.w AT_78_topright-Map_BossBlock, AT_78_bottomleft-Map_BossBlock
+		dc.w AT_78_bottomright-Map_BossBlock
+AT_78_wholeblock:	dc.b 2
+		dc.b 0xF0, 0xD, 0, 0x71, 0xF0
+		dc.b 0,	0xD, 0, 0x79, 0xF0
 		dc.b 0
-@topleft:	dc.b 1
-		dc.b $F8, 5, 0,	$71, $F8
-@topright:	dc.b 1
-		dc.b $F8, 5, 0,	$75, $F8
-@bottomleft:	dc.b 1
-		dc.b $F8, 5, 0,	$79, $F8
-@bottomright:	dc.b 1
-		dc.b $F8, 5, 0,	$7D, $F8
-		even
+AT_78_topleft:	dc.b 1
+		dc.b 0xF8, 5, 0,	0x71, 0xF8
+AT_78_topright:	dc.b 1
+		dc.b 0xF8, 5, 0,	0x75, 0xF8
+AT_78_bottomleft:	dc.b 1
+		dc.b 0xF8, 5, 0,	0x79, 0xF8
+AT_78_bottomright:	dc.b 1
+		dc.b 0xF8, 5, 0,	0x7D, 0xF8
+		.align 2

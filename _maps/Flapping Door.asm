@@ -1,16 +1,16 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - flapping door (LZ)
-; ---------------------------------------------------------------------------
-Map_Flap:	dc.w @closed-Map_Flap
-		dc.w @halfway-Map_Flap
-		dc.w @open-Map_Flap
-@closed:	dc.b 2
-		dc.b $E0, 7, 0,	0, $F8
-		dc.b 0,	7, $10,	0, $F8
-@halfway:	dc.b 2
-		dc.b $DA, $F, 0, 8, $FB
-		dc.b 6,	$F, $10, 8, $FB
-@open:		dc.b 2
-		dc.b $D8, $D, 0, $18, 0
-		dc.b $18, $D, $10, $18,	0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - flapping door (LZ)
+# ---------------------------------------------------------------------------
+Map_Flap:	dc.w AT_49_closed-Map_Flap
+		dc.w AT_49_halfway-Map_Flap
+		dc.w AT_49_open-Map_Flap
+AT_49_closed:	dc.b 2
+		dc.b 0xE0, 7, 0,	0, 0xF8
+		dc.b 0,	7, 0x10,	0, 0xF8
+AT_49_halfway:	dc.b 2
+		dc.b 0xDA, 0xF, 0, 8, 0xFB
+		dc.b 6,	0xF, 0x10, 8, 0xFB
+AT_49_open:		dc.b 2
+		dc.b 0xD8, 0xD, 0, 0x18, 0
+		dc.b 0x18, 0xD, 0x10, 0x18,	0
+		.align 2

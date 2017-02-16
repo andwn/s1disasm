@@ -1,91 +1,91 @@
-; ---------------------------------------------------------------------------
-; Subroutine to	update the HUD
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Subroutine to	update the HUD
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
-hudVRAM:	macro loc
-		move.l	#($40000000+((loc&$3FFF)<<16)+((loc&$C000)>>14)),d0
-		endm
+.macro hudVRAM loc
+		move.l	#(0x40000000+((\loc&0x3FFF)<<16)+((\loc&0xC000)>>14)),d0
+.endm
 
 
 HUD_Update:
-		tst.w	(f_debugmode).w	; is debug mode	on?
-		bne.w	HudDebug	; if yes, branch
-		tst.b	(f_scorecount).w ; does the score need updating?
-		beq.s	@chkrings	; if not, branch
+		tst.w	(f_debugmode).w	/* is debug mode	on? */
+		bne.w	HudDebug	/* if yes, branch */
+		tst.b	(f_scorecount).w /* does the score need updating? */
+		beq.s	1f	/* if not, branch */
 
 		clr.b	(f_scorecount).w
-		hudVRAM	$DC80		; set VRAM address
-		move.l	(v_score).w,d1	; load score
+		hudVRAM	0xDC80		/* set VRAM address */
+		move.l	(v_score).w,d1	/* load score */
 		bsr.w	Hud_Score
 
-	@chkrings:
-		tst.b	(f_ringcount).w	; does the ring	counter	need updating?
-		beq.s	@chktime	; if not, branch
-		bpl.s	@notzero
-		bsr.w	Hud_LoadZero	; reset rings to 0 if Sonic is hit
+	1:
+		tst.b	(f_ringcount).w	/* does the ring	counter	need updating? */
+		beq.s	2f	/* if not, branch */
+		bpl.s	3f
+		bsr.w	Hud_LoadZero	/* reset rings to 0 if Sonic is hit */
 
-	@notzero:
+	3:
 		clr.b	(f_ringcount).w
-		hudVRAM	$DF40		; set VRAM address
+		hudVRAM	0xDF40		/* set VRAM address */
 		moveq	#0,d1
-		move.w	(v_rings).w,d1	; load number of rings
+		move.w	(v_rings).w,d1	/* load number of rings */
 		bsr.w	Hud_Rings
 
-	@chktime:
-		tst.b	(f_timecount).w	; does the time	need updating?
-		beq.s	@chklives	; if not, branch
-		tst.w	(f_pause).w	; is the game paused?
-		bne.s	@chklives	; if yes, branch
+	2:
+		tst.b	(f_timecount).w	/* does the time	need updating? */
+		beq.s	4f	/* if not, branch */
+		tst.w	(f_pause).w	/* is the game paused? */
+		bne.s	4f	/* if yes, branch */
 		lea	(v_time).w,a1
-		cmpi.l	#(9*$10000)+(59*$100)+59,(a1)+ ; is the time 9:59:59?
-		beq.s	TimeOver	; if yes, branch
+		cmpi.l	#(9*0x10000)+(59*0x100)+59,(a1)+ /* is the time 9:59:59? */
+		beq.s	TimeOver	/* if yes, branch */
 
-		addq.b	#1,-(a1)	; increment 1/60s counter
-		cmpi.b	#60,(a1)	; check if passed 60
-		bcs.s	@chklives
+		addq.b	#1,-(a1)	/* increment 1/60s counter */
+		cmpi.b	#60,(a1)	/* check if passed 60 */
+		bcs.s	4f
 		move.b	#0,(a1)
-		addq.b	#1,-(a1)	; increment second counter
-		cmpi.b	#60,(a1)	; check if passed 60
-		bcs.s	@updatetime
+		addq.b	#1,-(a1)	/* increment second counter */
+		cmpi.b	#60,(a1)	/* check if passed 60 */
+		bcs.s	5f
 		move.b	#0,(a1)
-		addq.b	#1,-(a1)	; increment minute counter
-		cmpi.b	#9,(a1)		; check if passed 9
-		bcs.s	@updatetime
-		move.b	#9,(a1)		; keep as 9
+		addq.b	#1,-(a1)	/* increment minute counter */
+		cmpi.b	#9,(a1)		/* check if passed 9 */
+		bcs.s	5f
+		move.b	#9,(a1)		/* keep as 9 */
 
-	@updatetime:
-		hudVRAM	$DE40
+	5:
+		hudVRAM	0xDE40
 		moveq	#0,d1
-		move.b	(v_timemin).w,d1 ; load	minutes
+		move.b	(v_timemin).w,d1 /* load	minutes */
 		bsr.w	Hud_Mins
-		hudVRAM	$DEC0
+		hudVRAM	0xDEC0
 		moveq	#0,d1
-		move.b	(v_timesec).w,d1 ; load	seconds
+		move.b	(v_timesec).w,d1 /* load	seconds */
 		bsr.w	Hud_Secs
 
-	@chklives:
-		tst.b	(f_lifecount).w ; does the lives counter need updating?
-		beq.s	@chkbonus	; if not, branch
+	4:
+		tst.b	(f_lifecount).w /* does the lives counter need updating? */
+		beq.s	6f	/* if not, branch */
 		clr.b	(f_lifecount).w
 		bsr.w	Hud_Lives
 
-	@chkbonus:
-		tst.b	(f_endactbonus).w ; do time/ring bonus counters need updating?
-		beq.s	@finish		; if not, branch
+	6:
+		tst.b	(f_endactbonus).w /* do time/ring bonus counters need updating? */
+		beq.s	7f		/* if not, branch */
 		clr.b	(f_endactbonus).w
-		locVRAM	$AE00
+		locVRAM	0xAE00
 		moveq	#0,d1
-		move.w	(v_timebonus).w,d1 ; load time bonus
+		move.w	(v_timebonus).w,d1 /* load time bonus */
 		bsr.w	Hud_TimeRingBonus
 		moveq	#0,d1
-		move.w	(v_ringbonus).w,d1 ; load ring bonus
+		move.w	(v_ringbonus).w,d1 /* load ring bonus */
 		bsr.w	Hud_TimeRingBonus
 
-	@finish:
+	7:
 		rts	
-; ===========================================================================
+# ===========================================================================
 
 TimeOver:
 		clr.b	(f_timecount).w
@@ -94,81 +94,81 @@ TimeOver:
 		bsr.w	KillSonic
 		move.b	#1,(f_timeover).w
 		rts	
-; ===========================================================================
+# ===========================================================================
 
 HudDebug:
 		bsr.w	HudDb_XY
-		tst.b	(f_ringcount).w	; does the ring	counter	need updating?
-		beq.s	@objcounter	; if not, branch
-		bpl.s	@notzero
-		bsr.w	Hud_LoadZero	; reset rings to 0 if Sonic is hit
+		tst.b	(f_ringcount).w	/* does the ring	counter	need updating? */
+		beq.s	1f	/* if not, branch */
+		bpl.s	2f
+		bsr.w	Hud_LoadZero	/* reset rings to 0 if Sonic is hit */
 
-	@notzero:
+	2:
 		clr.b	(f_ringcount).w
-		hudVRAM	$DF40		; set VRAM address
+		hudVRAM	0xDF40		/* set VRAM address */
 		moveq	#0,d1
-		move.w	(v_rings).w,d1	; load number of rings
+		move.w	(v_rings).w,d1	/* load number of rings */
 		bsr.w	Hud_Rings
 
-	@objcounter:
-		hudVRAM	$DEC0		; set VRAM address
+	1:
+		hudVRAM	0xDEC0		/* set VRAM address */
 		moveq	#0,d1
-		move.b	(v_spritecount).w,d1 ; load "number of objects" counter
+		move.b	(v_spritecount).w,d1 /* load "number of objects" counter */
 		bsr.w	Hud_Secs
-		tst.b	(f_lifecount).w ; does the lives counter need updating?
-		beq.s	@chkbonus	; if not, branch
+		tst.b	(f_lifecount).w /* does the lives counter need updating? */
+		beq.s	3f	/* if not, branch */
 		clr.b	(f_lifecount).w
 		bsr.w	Hud_Lives
 
-	@chkbonus:
-		tst.b	(f_endactbonus).w ; does the ring/time bonus counter need updating?
-		beq.s	@finish		; if not, branch
+	3:
+		tst.b	(f_endactbonus).w /* does the ring/time bonus counter need updating? */
+		beq.s	4f		/* if not, branch */
 		clr.b	(f_endactbonus).w
-		locVRAM	$AE00		; set VRAM address
+		locVRAM	0xAE00		/* set VRAM address */
 		moveq	#0,d1
-		move.w	(v_timebonus).w,d1 ; load time bonus
+		move.w	(v_timebonus).w,d1 /* load time bonus */
 		bsr.w	Hud_TimeRingBonus
 		moveq	#0,d1
-		move.w	(v_ringbonus).w,d1 ; load ring bonus
+		move.w	(v_ringbonus).w,d1 /* load ring bonus */
 		bsr.w	Hud_TimeRingBonus
 
-	@finish:
+	4:
 		rts	
-; End of function HUD_Update
+# End of function HUD_Update
 
-; ---------------------------------------------------------------------------
-; Subroutine to	load "0" on the	HUD
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Subroutine to	load "0" on the	HUD
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Hud_LoadZero:
-		locVRAM	$DF40
+		locVRAM	0xDF40
 		lea	Hud_TilesZero(pc),a2
 		move.w	#2,d2
 		bra.s	loc_1C83E
-; End of function Hud_LoadZero
+# End of function Hud_LoadZero
 
-; ---------------------------------------------------------------------------
-; Subroutine to	load uncompressed HUD patterns ("E", "0", colon)
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Subroutine to	load uncompressed HUD patterns ("E", "0", colon)
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Hud_Base:
-		lea	($C00000).l,a6
+		lea	(0xC00000).l,a6
 		bsr.w	Hud_Lives
-		locVRAM	$DC40
+		locVRAM	0xDC40
 		lea	Hud_TilesBase(pc),a2
-		move.w	#$E,d2
+		move.w	#0xE,d2
 
 loc_1C83E:
 		lea	Art_Hud(pc),a1
 
 loc_1C842:
-		move.w	#$F,d1
+		move.w	#0xF,d1
 		move.b	(a2)+,d0
 		bmi.s	loc_1C85E
 		ext.w	d0
@@ -183,38 +183,38 @@ loc_1C858:
 		dbf	d2,loc_1C842
 
 		rts	
-; ===========================================================================
+# ===========================================================================
 
 loc_1C85E:
 		move.l	#0,(a6)
 		dbf	d1,loc_1C85E
 
 		bra.s	loc_1C858
-; End of function Hud_Base
+# End of function Hud_Base
 
-; ===========================================================================
-Hud_TilesBase:	dc.b $16, $FF, $FF, $FF, $FF, $FF, $FF,	0, 0, $14, 0, 0
-Hud_TilesZero:	dc.b $FF, $FF, 0, 0
-; ---------------------------------------------------------------------------
-; Subroutine to	load debug mode	numbers	patterns
-; ---------------------------------------------------------------------------
+# ===========================================================================
+Hud_TilesBase:	dc.b 0x16, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,	0, 0, 0x14, 0, 0
+Hud_TilesZero:	dc.b 0xFF, 0xFF, 0, 0
+# ---------------------------------------------------------------------------
+# Subroutine to	load debug mode	numbers	patterns
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 HudDb_XY:
-		locVRAM	$DC40		; set VRAM address
-		move.w	(v_screenposx).w,d1 ; load camera x-position
+		locVRAM	0xDC40		/* set VRAM address */
+		move.w	(v_screenposx).w,d1 /* load camera x-position */
 		swap	d1
-		move.w	(v_player+obX).w,d1 ; load Sonic's x-position
+		move.w	(v_player+obX).w,d1 /* load Sonic's x-position */
 		bsr.s	HudDb_XY2
-		move.w	(v_screenposy).w,d1 ; load camera y-position
+		move.w	(v_screenposy).w,d1 /* load camera y-position */
 		swap	d1
-		move.w	(v_player+obY).w,d1 ; load Sonic's y-position
-; End of function HudDb_XY
+		move.w	(v_player+obY).w,d1 /* load Sonic's y-position */
+# End of function HudDb_XY
 
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 HudDb_XY2:
@@ -224,8 +224,8 @@ HudDb_XY2:
 HudDb_XYLoop:
 		rol.w	#4,d1
 		move.w	d1,d2
-		andi.w	#$F,d2
-		cmpi.w	#$A,d2
+		andi.w	#0xF,d2
+		cmpi.w	#0xA,d2
 		bcs.s	loc_1C8B2
 		addq.w	#7,d2
 
@@ -241,29 +241,29 @@ loc_1C8B2:
 		move.l	(a3)+,(a6)
 		move.l	(a3)+,(a6)
 		swap	d1
-		dbf	d6,HudDb_XYLoop	; repeat 7 more	times
+		dbf	d6,HudDb_XYLoop	/* repeat 7 more	times */
 
 		rts	
-; End of function HudDb_XY2
+# End of function HudDb_XY2
 
-; ---------------------------------------------------------------------------
-; Subroutine to	load rings numbers patterns
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Subroutine to	load rings numbers patterns
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Hud_Rings:
 		lea	(Hud_100).l,a2
 		moveq	#2,d6
 		bra.s	Hud_LoadArt
-; End of function Hud_Rings
+# End of function Hud_Rings
 
-; ---------------------------------------------------------------------------
-; Subroutine to	load score numbers patterns
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Subroutine to	load score numbers patterns
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Hud_Score:
@@ -283,7 +283,7 @@ loc_1C8EC:
 		bcs.s	loc_1C8F4
 		addq.w	#1,d2
 		bra.s	loc_1C8EC
-; ===========================================================================
+# ===========================================================================
 
 loc_1C8F4:
 		add.l	d3,d1
@@ -315,9 +315,9 @@ loc_1C8FE:
 		move.l	(a3)+,(a6)
 
 loc_1C92C:
-		addi.l	#$400000,d0
+		addi.l	#0x400000,d0
 		dbf	d6,Hud_ScoreLoop
 
 		rts	
 
-; End of function Hud_Score
+# End of function Hud_Score

@@ -1,26 +1,28 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - trapdoor (SBZ)
-; ---------------------------------------------------------------------------
-Map_Trap:	dc.w @closed-Map_Trap
-		dc.w @half-Map_Trap
-		dc.w @open-Map_Trap
-@closed:	dc.b 4
-		dc.b $F4, $E, 0, 0, $C0
-		dc.b $F4, $E, 8, 0, $E0
-		dc.b $F4, $E, 0, 0, 0
-		dc.b $F4, $E, 8, 0, $20
-@half:		dc.b 8
-		dc.b $F2, $F, 0, $C, $B6
-		dc.b $1A, $F, $18, $C, $D6
-		dc.b 2,	$A, 0, $1C, $D6
-		dc.b $12, $A, $18, $1C,	$BE
-		dc.b $F2, $F, 8, $C, $2A
-		dc.b $1A, $F, $10, $C, $A
-		dc.b 2,	$A, 8, $1C, $12
-		dc.b $12, $A, $10, $1C,	$2A
-@open:		dc.b 4
-		dc.b 0,	$B, 0, $25, $B4
-		dc.b $20, $B, $10, $25,	$B4
-		dc.b 0,	$B, 0, $25, $34
-		dc.b $20, $B, $10, $25,	$34
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - trapdoor (SBZ)
+# ---------------------------------------------------------------------------
+Map_Trap:	dc.w AT_125_closed-Map_Trap
+		dc.w AT_125_half-Map_Trap
+		dc.w AT_125_open-Map_Trap
+AT_125_closed:	dc.b 4
+		dc.b 0xF4, 0xE, 0, 0, 0xC0
+		dc.b 0xF4, 0xE, 8, 0, 0xE0
+		dc.b 0xF4, 0xE, 0, 0, 0
+		dc.b 0xF4, 0xE, 8, 0, 0x20
+AT_125_half:		dc.b 8
+		dc.b 0xF2, 0xF, 0, 0xC, 0xB6
+		dc.b 0x1A, 0xF, 0x18, 0xC, 0xD6
+		dc.b 2,	0xA, 0, 0x1C, 0xD6
+		dc.b 0x12, 0xA, 0x18, 0x1C,	0xBE
+		dc.b 0xF2, 0xF, 8, 0xC, 0x2A
+		dc.b 0x1A, 0xF, 0x10, 0xC, 0xA
+		dc.b 2,	0xA, 8, 0x1C, 0x12
+		dc.b 0x12, 0xA, 0x10, 0x1C,	0x2A
+AT_125_open:		dc.b 4
+		dc.b 0,	0xB, 0, 0x25, 0xB4
+		dc.b 0x20, 0xB, 0x10, 0x25,	0xB4
+		dc.b 0,	0xB, 0, 0x25, 0x34
+		dc.b 0x20, 0xB, 0x10, 0x25,	0x34
+		.align 2
+
+

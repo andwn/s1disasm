@@ -1,22 +1,22 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - spinning platforms (SBZ)
-; ---------------------------------------------------------------------------
-Map_Spin:	dc.w @flat-Map_Spin, @spin1-Map_Spin
-		dc.w @spin2-Map_Spin, @spin3-Map_Spin
-		dc.w @spin4-Map_Spin
-@flat:		dc.b 2
-		dc.b $F8, 5, 0,	0, $F0
-		dc.b $F8, 5, 8,	0, 0
-@spin1:		dc.b 2
-		dc.b $F0, $D, 0, $14, $F0
-		dc.b 0,	$D, 0, $1C, $F0
-@spin2:		dc.b 2
-		dc.b $F0, 9, 0,	4, $F0
-		dc.b 0,	9, 0, $A, $F8
-@spin3:		dc.b 2
-		dc.b $F0, 9, 0,	$24, $F0
-		dc.b 0,	9, 0, $2A, $F8
-@spin4:		dc.b 2
-		dc.b $F0, 5, 0,	$10, $F8
-		dc.b 0,	5, $10,	$10, $F8
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - spinning platforms (SBZ)
+# ---------------------------------------------------------------------------
+Map_Spin:	dc.w AT_61_flat-Map_Spin, AT_61_spin1-Map_Spin
+		dc.w AT_61_spin2-Map_Spin, AT_61_spin3-Map_Spin
+		dc.w AT_61_spin4-Map_Spin
+AT_61_flat:		dc.b 2
+		dc.b 0xF8, 5, 0,	0, 0xF0
+		dc.b 0xF8, 5, 8,	0, 0
+AT_61_spin1:		dc.b 2
+		dc.b 0xF0, 0xD, 0, 0x14, 0xF0
+		dc.b 0,	0xD, 0, 0x1C, 0xF0
+AT_61_spin2:		dc.b 2
+		dc.b 0xF0, 9, 0,	4, 0xF0
+		dc.b 0,	9, 0, 0xA, 0xF8
+AT_61_spin3:		dc.b 2
+		dc.b 0xF0, 9, 0,	0x24, 0xF0
+		dc.b 0,	9, 0, 0x2A, 0xF8
+AT_61_spin4:		dc.b 2
+		dc.b 0xF0, 5, 0,	0x10, 0xF8
+		dc.b 0,	5, 0x10,	0x10, 0xF8
+		.align 2

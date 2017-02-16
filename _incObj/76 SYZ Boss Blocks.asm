@@ -1,25 +1,25 @@
-; ---------------------------------------------------------------------------
-; Object 76 - blocks that Eggman picks up (SYZ)
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Object 76 - blocks that Eggman picks up (SYZ)
+# ---------------------------------------------------------------------------
 
 BossBlock:
 		moveq	#0,d0
 		move.b	obRoutine(a0),d0
 		move.w	Obj76_Index(pc,d0.w),d1
 		jmp	Obj76_Index(pc,d1.w)
-; ===========================================================================
+# ===========================================================================
 Obj76_Index:	dc.w Obj76_Main-Obj76_Index
 		dc.w Obj76_Action-Obj76_Index
 		dc.w loc_19762-Obj76_Index
-; ===========================================================================
+# ===========================================================================
 
-Obj76_Main:	; Routine 0
+Obj76_Main:	/* Routine 0 */
 		moveq	#0,d4
-		move.w	#$2C10,d5
+		move.w	#0x2C10,d5
 		moveq	#9,d6
 		lea	(a0),a1
 		bra.s	Obj76_MakeBlock
-; ===========================================================================
+# ===========================================================================
 
 Obj76_Loop:
 		jsr	(FindFreeObj).l
@@ -28,25 +28,25 @@ Obj76_Loop:
 Obj76_MakeBlock:
 		move.b	#id_BossBlock,(a1)
 		move.l	#Map_BossBlock,obMap(a1)
-		move.w	#$4000,obGfx(a1)
+		move.w	#0x4000,obGfx(a1)
 		move.b	#4,obRender(a1)
-		move.b	#$10,obActWid(a1)
-		move.b	#$10,obHeight(a1)
+		move.b	#0x10,obActWid(a1)
+		move.b	#0x10,obHeight(a1)
 		move.b	#3,obPriority(a1)
-		move.w	d5,obX(a1)	; set x-position
-		move.w	#$582,obY(a1)
+		move.w	d5,obX(a1)	/* set x-position */
+		move.w	#0x582,obY(a1)
 		move.w	d4,obSubtype(a1)
-		addi.w	#$101,d4
-		addi.w	#$20,d5		; add $20 to next x-position
+		addi.w	#0x101,d4
+		addi.w	#0x20,d5		/* add $20 to next x-position */
 		addq.b	#2,obRoutine(a1)
-		dbf	d6,Obj76_Loop	; repeat sequence 9 more times
+		dbf	d6,Obj76_Loop	/* repeat sequence 9 more times */
 
 Obj76_ExitLoop:
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-Obj76_Action:	; Routine 2
-		move.b	$29(a0),d0
+Obj76_Action:	/* Routine 2 */
+		move.b	0x29(a0),d0
 		cmp.b	obSubtype(a0),d0
 		beq.s	Obj76_Solid
 		tst.b	d0
@@ -55,15 +55,15 @@ Obj76_Action:	; Routine 2
 loc_19712:
 		bsr.w	Obj76_Break
 		bra.s	Obj76_Display
-; ===========================================================================
+# ===========================================================================
 
 loc_19718:
-		movea.l	$34(a0),a1
+		movea.l	0x34(a0),a1
 		tst.b	obColProp(a1)
 		beq.s	loc_19712
 		move.w	obX(a1),obX(a0)
 		move.w	obY(a1),obY(a0)
-		addi.w	#$2C,obY(a0)
+		addi.w	#0x2C,obY(a0)
 		cmpa.w	a0,a1
 		bcs.s	Obj76_Display
 		move.w	obVelY(a1),d0
@@ -71,30 +71,30 @@ loc_19718:
 		asr.l	#8,d0
 		add.w	d0,obY(a0)
 		bra.s	Obj76_Display
-; ===========================================================================
+# ===========================================================================
 
 Obj76_Solid:
-		move.w	#$1B,d1
-		move.w	#$10,d2
-		move.w	#$11,d3
+		move.w	#0x1B,d1
+		move.w	#0x10,d2
+		move.w	#0x11,d3
 		move.w	obX(a0),d4
 		jsr	(SolidObject).l
 
 Obj76_Display:
 		jmp	(DisplaySprite).l
-; ===========================================================================
+# ===========================================================================
 
-loc_19762:	; Routine 4
+loc_19762:	/* Routine 4 */
 		tst.b	obRender(a0)
 		bpl.s	Obj76_Delete
 		jsr	(ObjectFall).l
 		jmp	(DisplaySprite).l
-; ===========================================================================
+# ===========================================================================
 
 Obj76_Delete:
 		jmp	(DeleteObject).l
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 Obj76_Break:
@@ -102,13 +102,13 @@ Obj76_Break:
 		lea	Obj76_FragPos(pc),a5
 		moveq	#1,d4
 		moveq	#3,d1
-		moveq	#$38,d2
+		moveq	#0x38,d2
 		addq.b	#2,obRoutine(a0)
 		move.b	#8,obActWid(a0)
 		move.b	#8,obHeight(a0)
 		lea	(a0),a1
 		bra.s	Obj76_MakeFrag
-; ===========================================================================
+# ===========================================================================
 
 Obj76_LoopFrag:
 		jsr	(FindNextFreeObj).l
@@ -134,18 +134,19 @@ loc_197AA:
 		add.w	d3,obY(a1)
 		move.b	d4,obFrame(a1)
 		addq.w	#1,d4
-		dbf	d1,Obj76_LoopFrag ; repeat sequence 3 more times
+		dbf	d1,Obj76_LoopFrag /* repeat sequence 3 more times */
 
 loc_197D4:
-		sfx	sfx_WallSmash,1,0,0	; play smashing sound
-; End of function Obj76_Break
+		sfx	sfx_WallSmash,1,0,0	/* play smashing sound */
+# End of function Obj76_Break
 
-; ===========================================================================
-Obj76_FragSpeed:dc.w -$180, -$200
-		dc.w $180, -$200
-		dc.w -$100, -$100
-		dc.w $100, -$100
+# ===========================================================================
+Obj76_FragSpeed:dc.w -0x180, -0x200
+		dc.w 0x180, -0x200
+		dc.w -0x100, -0x100
+		dc.w 0x100, -0x100
 Obj76_FragPos:	dc.w -8, -8
-		dc.w $10, 0
-		dc.w 0,	$10
-		dc.w $10, $10
+		dc.w 0x10, 0
+		dc.w 0,	0x10
+		dc.w 0x10, 0x10
+

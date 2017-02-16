@@ -1,23 +1,23 @@
-; ---------------------------------------------------------------------------
-; Palette cycling routine loading subroutine
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Palette cycling routine loading subroutine
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 PaletteCycle:
 		moveq	#0,d2
 		moveq	#0,d0
-		move.b	(v_zone).w,d0	; get level number
+		move.b	(v_zone).w,d0	/* get level number */
 		add.w	d0,d0
 		move.w	PCycle_Index(pc,d0.w),d0
-		jmp	PCycle_Index(pc,d0.w) ; jump to relevant palette routine
-; End of function PaletteCycle
+		jmp	PCycle_Index(pc,d0.w) /* jump to relevant palette routine */
+# End of function PaletteCycle
 
-; ===========================================================================
-; ---------------------------------------------------------------------------
-; Palette cycling routines
-; ---------------------------------------------------------------------------
+# ===========================================================================
+# ---------------------------------------------------------------------------
+# Palette cycling routines
+# ---------------------------------------------------------------------------
 PCycle_Index:	dc.w PCycle_GHZ-PCycle_Index
 		dc.w PCycle_LZ-PCycle_Index
 		dc.w PCycle_MZ-PCycle_Index
@@ -26,72 +26,72 @@ PCycle_Index:	dc.w PCycle_GHZ-PCycle_Index
 		dc.w PalCycle_SBZ-PCycle_Index
 		dc.w PCycle_GHZ-PCycle_Index
 
-		zonewarning PCycle_Index,2
+#		zonewarning PCycle_Index,2
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 PCycle_Title:
 		lea	(Pal_TitleCyc).l,a0
 		bra.s	PCycGHZ_Go
-; ===========================================================================
+# ===========================================================================
 
 PCycle_GHZ:
 		lea	(Pal_GHZCyc).l,a0
 
 PCycGHZ_Go:
-		subq.w	#1,(v_pcyc_time).w ; decrement timer
-		bpl.s	PCycGHZ_Skip	; if time remains, branch
+		subq.w	#1,(v_pcyc_time).w /* decrement timer */
+		bpl.s	PCycGHZ_Skip	/* if time remains, branch */
 
-		move.w	#5,(v_pcyc_time).w ; reset timer to 5 frames
-		move.w	(v_pcyc_num).w,d0 ; get cycle number
-		addq.w	#1,(v_pcyc_num).w ; increment cycle number
-		andi.w	#3,d0		; if cycle > 3, reset to 0
+		move.w	#5,(v_pcyc_time).w /* reset timer to 5 frames */
+		move.w	(v_pcyc_num).w,d0 /* get cycle number */
+		addq.w	#1,(v_pcyc_num).w /* increment cycle number */
+		andi.w	#3,d0		/* if cycle > 3, reset to 0 */
 		lsl.w	#3,d0
-		lea	(v_pal_dry+$50).w,a1
+		lea	(v_pal_dry+0x50).w,a1
 		move.l	(a0,d0.w),(a1)+
-		move.l	4(a0,d0.w),(a1)	; copy palette data to RAM
+		move.l	4(a0,d0.w),(a1)	/* copy palette data to RAM */
 
 PCycGHZ_Skip:
 		rts	
-; End of function PCycle_GHZ
+# End of function PCycle_GHZ
 
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 PCycle_LZ:
-; Waterfalls
-		subq.w	#1,(v_pcyc_time).w ; decrement timer
-		bpl.s	PCycLZ_Skip1	; if time remains, branch
+# Waterfalls
+		subq.w	#1,(v_pcyc_time).w /* decrement timer */
+		bpl.s	PCycLZ_Skip1	/* if time remains, branch */
 
-		move.w	#2,(v_pcyc_time).w ; reset timer to 2 frames
+		move.w	#2,(v_pcyc_time).w /* reset timer to 2 frames */
 		move.w	(v_pcyc_num).w,d0
-		addq.w	#1,(v_pcyc_num).w ; increment cycle number
-		andi.w	#3,d0		; if cycle > 3, reset to 0
+		addq.w	#1,(v_pcyc_num).w /* increment cycle number */
+		andi.w	#3,d0		/* if cycle > 3, reset to 0 */
 		lsl.w	#3,d0
 		lea	(Pal_LZCyc1).l,a0
-		cmpi.b	#3,(v_act).w	; check if level is SBZ3
+		cmpi.b	#3,(v_act).w	/* check if level is SBZ3 */
 		bne.s	PCycLZ_NotSBZ3
-		lea	(Pal_SBZ3Cyc1).l,a0 ; load SBZ3	palette instead
+		lea	(Pal_SBZ3Cyc1).l,a0 /* load SBZ3	palette instead */
 
 	PCycLZ_NotSBZ3:
-		lea	(v_pal_dry+$56).w,a1
+		lea	(v_pal_dry+0x56).w,a1
 		move.l	(a0,d0.w),(a1)+
 		move.l	4(a0,d0.w),(a1)
-		lea	(v_pal_water+$56).w,a1
+		lea	(v_pal_water+0x56).w,a1
 		move.l	(a0,d0.w),(a1)+
 		move.l	4(a0,d0.w),(a1)
 
 PCycLZ_Skip1:
-; Conveyor belts
+# Conveyor belts
 		move.w	(v_framecount).w,d0
 		andi.w	#7,d0
-		move.b	PCycLZ_Seq(pc,d0.w),d0 ; get byte from palette sequence
-		beq.s	PCycLZ_Skip2	; if byte is 0, branch
+		move.b	PCycLZ_Seq(pc,d0.w),d0 /* get byte from palette sequence */
+		beq.s	PCycLZ_Skip2	/* if byte is 0, branch */
 		moveq	#1,d1
-		tst.b	(f_conveyrev).w	; have conveyor belts been reversed?
-		beq.s	PCycLZ_NoRev	; if not, branch
+		tst.b	(f_conveyrev).w	/* have conveyor belts been reversed? */
+		beq.s	PCycLZ_NoRev	/* if not, branch */
 		neg.w	d1
 
 	PCycLZ_NoRev:
@@ -113,26 +113,26 @@ loc_1A0A:
 		add.w	d0,d0
 		add.w	d1,d0
 		lea	(Pal_LZCyc2).l,a0
-		lea	(v_pal_dry+$76).w,a1
+		lea	(v_pal_dry+0x76).w,a1
 		move.l	(a0,d0.w),(a1)+
 		move.w	4(a0,d0.w),(a1)
 		lea	(Pal_LZCyc3).l,a0
-		lea	(v_pal_water+$76).w,a1
+		lea	(v_pal_water+0x76).w,a1
 		move.l	(a0,d0.w),(a1)+
 		move.w	4(a0,d0.w),(a1)
 
 PCycLZ_Skip2:
 		rts	
-; End of function PCycle_LZ
+# End of function PCycle_LZ
 
-; ===========================================================================
+# ===========================================================================
 PCycLZ_Seq:	dc.b 1,	0, 0, 1, 0, 0, 1, 0
-; ===========================================================================
+# ===========================================================================
 
 PCycle_MZ:
 		rts	
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 PalCycle_SLZ:
@@ -152,16 +152,16 @@ loc_1A60:
 		add.w	d1,d0
 		add.w	d0,d0
 		lea	(Pal_SLZCyc).l,a0
-		lea	(v_pal_dry+$56).w,a1
+		lea	(v_pal_dry+0x56).w,a1
 		move.w	(a0,d0.w),(a1)
 		move.l	2(a0,d0.w),4(a1)
 
 locret_1A80:
 		rts	
-; End of function PalCycle_SLZ
+# End of function PalCycle_SLZ
 
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 PalCycle_SYZ:
@@ -175,20 +175,20 @@ PalCycle_SYZ:
 		move.w	d0,d1
 		add.w	d0,d0
 		lea	(Pal_SYZCyc1).l,a0
-		lea	(v_pal_dry+$6E).w,a1
+		lea	(v_pal_dry+0x6E).w,a1
 		move.l	(a0,d0.w),(a1)+
 		move.l	4(a0,d0.w),(a1)
 		lea	(Pal_SYZCyc2).l,a0
-		lea	(v_pal_dry+$76).w,a1
+		lea	(v_pal_dry+0x76).w,a1
 		move.w	(a0,d1.w),(a1)
 		move.w	2(a0,d1.w),4(a1)
 
 locret_1AC6:
 		rts	
-; End of function PalCycle_SYZ
+# End of function PalCycle_SYZ
 
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 PalCycle_SBZ:
@@ -207,7 +207,7 @@ loc_1AE0:
 		addq.l	#2,a1
 		addq.l	#6,a2
 		bra.s	loc_1B06
-; ===========================================================================
+# ===========================================================================
 
 loc_1AEA:
 		move.b	(a2)+,(a1)+
@@ -219,7 +219,7 @@ loc_1AEA:
 
 loc_1AF6:
 		move.b	d0,(a1)+
-		andi.w	#$F,d0
+		andi.w	#0xF,d0
 		add.w	d0,d0
 		movea.w	(a2)+,a0
 		movea.w	(a2)+,a3
@@ -257,10 +257,11 @@ loc_1B38:
 loc_1B52:
 		move.w	d0,(v_pcyc_num).w
 		add.w	d0,d0
-		lea	(v_pal_dry+$58).w,a1
+		lea	(v_pal_dry+0x58).w,a1
 		move.l	(a0,d0.w),(a1)+
 		move.w	4(a0,d0.w),(a1)
 
 locret_1B64:
 		rts	
-; End of function PalCycle_SBZ
+# End of function PalCycle_SBZ
+

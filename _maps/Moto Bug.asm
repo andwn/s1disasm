@@ -1,31 +1,31 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - Moto Bug enemy (GHZ)
-; ---------------------------------------------------------------------------
-Map_Moto:	dc.w @moto1-Map_Moto, @moto2-Map_Moto
-		dc.w @moto3-Map_Moto, @smoke1-Map_Moto
-		dc.w @smoke2-Map_Moto, @smoke3-Map_Moto
-		dc.w @blank-Map_Moto
-@moto1:		dc.b 4
-		dc.b $F0, $D, 0, 0, $EC
-		dc.b 0,	$C, 0, 8, $EC
-		dc.b $F8, 1, 0,	$C, $C
-		dc.b 8,	8, 0, $E, $F4
-@moto2:		dc.b 4
-		dc.b $F1, $D, 0, 0, $EC
-		dc.b 1,	$C, 0, 8, $EC
-		dc.b $F9, 1, 0,	$C, $C
-		dc.b 9,	8, 0, $11, $F4
-@moto3:		dc.b 5
-		dc.b $F0, $D, 0, 0, $EC
-		dc.b 0,	$C, 0, $14, $EC
-		dc.b $F8, 1, 0,	$C, $C
-		dc.b 8,	4, 0, $18, $EC
-		dc.b 8,	4, 0, $12, $FC
-@smoke1:	dc.b 1
-		dc.b $FA, 0, 0,	$1A, $10
-@smoke2:	dc.b 1
-		dc.b $FA, 0, 0,	$1B, $10
-@smoke3:	dc.b 1
-		dc.b $FA, 0, 0,	$1C, $10
-@blank:		dc.b 0
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - Moto Bug enemy (GHZ)
+# ---------------------------------------------------------------------------
+Map_Moto:	dc.w AT_120_moto1-Map_Moto, AT_120_moto2-Map_Moto
+		dc.w AT_120_moto3-Map_Moto, AT_120_smoke1-Map_Moto
+		dc.w AT_120_smoke2-Map_Moto, AT_120_smoke3-Map_Moto
+		dc.w AT_120_blank-Map_Moto
+AT_120_moto1:		dc.b 4
+		dc.b 0xF0, 0xD, 0, 0, 0xEC
+		dc.b 0,	0xC, 0, 8, 0xEC
+		dc.b 0xF8, 1, 0,	0xC, 0xC
+		dc.b 8,	8, 0, 0xE, 0xF4
+AT_120_moto2:		dc.b 4
+		dc.b 0xF1, 0xD, 0, 0, 0xEC
+		dc.b 1,	0xC, 0, 8, 0xEC
+		dc.b 0xF9, 1, 0,	0xC, 0xC
+		dc.b 9,	8, 0, 0x11, 0xF4
+AT_120_moto3:		dc.b 5
+		dc.b 0xF0, 0xD, 0, 0, 0xEC
+		dc.b 0,	0xC, 0, 0x14, 0xEC
+		dc.b 0xF8, 1, 0,	0xC, 0xC
+		dc.b 8,	4, 0, 0x18, 0xEC
+		dc.b 8,	4, 0, 0x12, 0xFC
+AT_120_smoke1:	dc.b 1
+		dc.b 0xFA, 0, 0,	0x1A, 0x10
+AT_120_smoke2:	dc.b 1
+		dc.b 0xFA, 0, 0,	0x1B, 0x10
+AT_120_smoke3:	dc.b 1
+		dc.b 0xFA, 0, 0,	0x1C, 0x10
+AT_120_blank:		dc.b 0
+		.align 2

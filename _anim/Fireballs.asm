@@ -1,13 +1,13 @@
-; ---------------------------------------------------------------------------
-; Animation script - lava balls
-; ---------------------------------------------------------------------------
-Ani_Fire:	dc.w @vertical-Ani_Fire
-		dc.w @vertcollide-Ani_Fire
-		dc.w @horizontal-Ani_Fire
-		dc.w @horicollide-Ani_Fire
-@vertical:	dc.b 5,	0, $20,	1, $21,	afEnd
-@vertcollide:	dc.b 5,	2, afRoutine
-		even
-@horizontal:	dc.b 5,	3, $43,	4, $44,	afEnd
-@horicollide:	dc.b 5,	5, afRoutine
-		even
+# ---------------------------------------------------------------------------
+# Animation script - lava balls
+# ---------------------------------------------------------------------------
+Ani_Fire:	dc.w AT_22_vertical-Ani_Fire
+		dc.w AT_22_vertcollide-Ani_Fire
+		dc.w AT_22_horizontal-Ani_Fire
+		dc.w AT_22_horicollide-Ani_Fire
+AT_22_vertical:	dc.b 5,	0, 0x20,	1, 0x21,	afEnd
+AT_22_vertcollide:	dc.b 5,	2, afRoutine
+		.align 2
+AT_22_horizontal:	dc.b 5,	3, 0x43,	4, 0x44,	afEnd
+AT_22_horicollide:	dc.b 5,	5, afRoutine
+		.align 2

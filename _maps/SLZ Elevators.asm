@@ -1,9 +1,9 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - platforms that move	when you stand on them (SLZ)
-; ---------------------------------------------------------------------------
-Map_Elev:	dc.w @elevator-Map_Elev
-@elevator:	dc.b 3
-		dc.b $F8, $F, 0, $41, $D8
-		dc.b $F8, $F, 0, $41, $F8
-		dc.b $F8, 7, 0,	$41, $18
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - platforms that move	when you stand on them (SLZ)
+# ---------------------------------------------------------------------------
+Map_Elev:	dc.w AT_70_elevator-Map_Elev
+AT_70_elevator:	dc.b 3
+		dc.b 0xF8, 0xF, 0, 0x41, 0xD8
+		dc.b 0xF8, 0xF, 0, 0x41, 0xF8
+		dc.b 0xF8, 7, 0,	0x41, 0x18
+		.align 2

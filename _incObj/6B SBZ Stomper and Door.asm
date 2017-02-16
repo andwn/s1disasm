@@ -1,327 +1,328 @@
-; ---------------------------------------------------------------------------
-; Object 6B - stomper and sliding door (SBZ)
-; ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Object 6B - stomper and sliding door (SBZ)
+# ---------------------------------------------------------------------------
 
 ScrapStomp:
 		moveq	#0,d0
 		move.b	obRoutine(a0),d0
 		move.w	Sto_Index(pc,d0.w),d1
 		jmp	Sto_Index(pc,d1.w)
-; ===========================================================================
+# ===========================================================================
 Sto_Index:	dc.w Sto_Main-Sto_Index
 		dc.w Sto_Action-Sto_Index
 
-sto_height:	equ $16
-sto_origX:	equ $34		; original x-axis position
-sto_origY:	equ $30		; original y-axis position
-sto_active:	equ $38		; flag set when a switch is pressed
+.equ sto_height, 0x16
+.equ sto_origX, 0x34		/* original x-axis position */
+.equ sto_origY, 0x30		/* original y-axis position */
+.equ sto_active, 0x38		/* flag set when a switch is pressed */
 
-Sto_Var:	dc.b  $40,  $C,	$80,   1 ; width, height, ????,	type number
-		dc.b  $1C, $20,	$38,   3
-		dc.b  $1C, $20,	$40,   4
-		dc.b  $1C, $20,	$60,   4
-		dc.b  $80, $40,	  0,   5
-; ===========================================================================
+Sto_Var:	dc.b  0x40,  0xC,	0x80,   1 /* width, height, ????,	type number */
+		dc.b  0x1C, 0x20,	0x38,   3
+		dc.b  0x1C, 0x20,	0x40,   4
+		dc.b  0x1C, 0x20,	0x60,   4
+		dc.b  0x80, 0x40,	  0,   5
+# ===========================================================================
 
-Sto_Main:	; Routine 0
+Sto_Main:	/* Routine 0 */
 		addq.b	#2,obRoutine(a0)
 		moveq	#0,d0
 		move.b	obSubtype(a0),d0
 		lsr.w	#2,d0
-		andi.w	#$1C,d0
+		andi.w	#0x1C,d0
 		lea	Sto_Var(pc,d0.w),a3
 		move.b	(a3)+,obActWid(a0)
 		move.b	(a3)+,sto_height(a0)
 		lsr.w	#2,d0
 		move.b	d0,obFrame(a0)
 		move.l	#Map_Stomp,obMap(a0)
-		move.w	#$22C0,obGfx(a0)
-		cmpi.b	#id_LZ,(v_zone).w ; check if level is LZ/SBZ3
-		bne.s	@isSBZ12	; if not, branch
+		move.w	#0x22C0,obGfx(a0)
+		cmpi.b	#id_LZ,(v_zone).w /* check if level is LZ/SBZ3 */
+		bne.s	1f	/* if not, branch */
 		bset	#0,(v_obj6B).w
-		beq.s	@isSBZ3
+		beq.s	2f
 
-@chkdel:
+3:
 		lea	(v_objstate).w,a2
 		moveq	#0,d0
 		move.b	obRespawnNo(a0),d0
-		beq.s	@delete
+		beq.s	4f
 		bclr	#7,2(a2,d0.w)
 
-	@delete:
+	4:
 		jmp	(DeleteObject).l
-; ===========================================================================
+# ===========================================================================
 
-@isSBZ3:
-		move.w	#$41F0,obGfx(a0)
-		cmpi.w	#$A80,obX(a0)
-		bne.s	@isSBZ12
+2:
+		move.w	#0x41F0,obGfx(a0)
+		cmpi.w	#0xA80,obX(a0)
+		bne.s	1f
 		lea	(v_objstate).w,a2
 		moveq	#0,d0
 		move.b	obRespawnNo(a0),d0
-		beq.s	@isSBZ12
+		beq.s	1f
 		btst	#0,2(a2,d0.w)
-		beq.s	@isSBZ12
+		beq.s	1f
 		clr.b	(v_obj6B).w
-		bra.s	@chkdel
-; ===========================================================================
+		bra.s	3b
+# ===========================================================================
 
-@isSBZ12:
+1:
 		ori.b	#4,obRender(a0)
 		move.b	#4,obPriority(a0)
 		move.w	obX(a0),sto_origX(a0)
 		move.w	obY(a0),sto_origY(a0)
 		moveq	#0,d0
 		move.b	(a3)+,d0
-		move.w	d0,$3C(a0)
+		move.w	d0,0x3C(a0)
 		moveq	#0,d0
 		move.b	obSubtype(a0),d0
 		bpl.s	Sto_Action
-		andi.b	#$F,d0
-		move.b	d0,$3E(a0)
+		andi.b	#0xF,d0
+		move.b	d0,0x3E(a0)
 		move.b	(a3),obSubtype(a0)
 		cmpi.b	#5,(a3)
-		bne.s	@chkgone
+		bne.s	5f
 		bset	#4,obRender(a0)
 
-	@chkgone:
+	5:
 		lea	(v_objstate).w,a2
 		moveq	#0,d0
 		move.b	obRespawnNo(a0),d0
 		beq.s	Sto_Action
 		bclr	#7,2(a2,d0.w)
 
-Sto_Action:	; Routine 2
+Sto_Action:	/* Routine 2 */
 		move.w	obX(a0),-(sp)
 		moveq	#0,d0
 		move.b	obSubtype(a0),d0
-		andi.w	#$F,d0
+		andi.w	#0xF,d0
 		add.w	d0,d0
-		move.w	@index(pc,d0.w),d1
-		jsr	@index(pc,d1.w)
+		move.w	stoIndex(pc,d0.w),d1
+		jsr	stoIndex(pc,d1.w)
 		move.w	(sp)+,d4
 		tst.b	obRender(a0)
-		bpl.s	@chkdel
+		bpl.s	2f
 		moveq	#0,d1
 		move.b	obActWid(a0),d1
-		addi.w	#$B,d1
+		addi.w	#0xB,d1
 		moveq	#0,d2
 		move.b	sto_height(a0),d2
 		move.w	d2,d3
 		addq.w	#1,d3
 		bsr.w	SolidObject
 
-	@chkdel:
-		out_of_range.s	@chkgone,sto_origX(a0)
+	2:
+		out_of_range_s	3f,sto_origX(a0)
 		jmp	(DisplaySprite).l
 
-	@chkgone:
+	3:
 		cmpi.b	#id_LZ,(v_zone).w
-		bne.s	@delete
+		bne.s	4f
 		clr.b	(v_obj6B).w
 		lea	(v_objstate).w,a2
 		moveq	#0,d0
 		move.b	obRespawnNo(a0),d0
-		beq.s	@delete
+		beq.s	4f
 		bclr	#7,2(a2,d0.w)
 
-	@delete:
+	4:
 		jmp	(DeleteObject).l
-; ===========================================================================
-@index:		dc.w @type00-@index, @type01-@index
-		dc.w @type02-@index, @type03-@index
-		dc.w @type04-@index, @type05-@index
-; ===========================================================================
+# ===========================================================================
+stoIndex:		dc.w 7f-stoIndex, 8f-stoIndex
+		dc.w 5f-stoIndex, 17f-stoIndex
+		dc.w 6f-stoIndex, 27f-stoIndex
+# ===========================================================================
 
-@type00:
+7:
 		rts
-; ===========================================================================
+# ===========================================================================
 
-@type01:
+8:
 		tst.b	sto_active(a0)
-		bne.s	@isactive01
+		bne.s	9f
 		lea	(f_switch).w,a2
 		moveq	#0,d0
-		move.b	$3E(a0),d0
+		move.b	0x3E(a0),d0
 		btst	#0,(a2,d0.w)
-		beq.s	@loc_15DC2
+		beq.s	10f
 		move.b	#1,sto_active(a0)
 
-	@isactive01:
-		move.w	$3C(a0),d0
-		cmp.w	$3A(a0),d0
-		beq.s	@loc_15DE0
-		addq.w	#2,$3A(a0)
+	9:
+		move.w	0x3C(a0),d0
+		cmp.w	0x3A(a0),d0
+		beq.s	11f
+		addq.w	#2,0x3A(a0)
 
-	@loc_15DC2:
-		move.w	$3A(a0),d0
+	10:
+		move.w	0x3A(a0),d0
 		btst	#0,obStatus(a0)
-		beq.s	@noflip01
+		beq.s	12f
 		neg.w	d0
-		addi.w	#$80,d0
+		addi.w	#0x80,d0
 
-	@noflip01:
+	12:
 		move.w	sto_origX(a0),d1
 		sub.w	d0,d1
 		move.w	d1,obX(a0)
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-@loc_15DE0:
+11:
 		addq.b	#1,obSubtype(a0)
-		move.w	#$B4,$36(a0)
+		move.w	#0xB4,0x36(a0)
 		clr.b	sto_active(a0)
 		lea	(v_objstate).w,a2
 		moveq	#0,d0
 		move.b	obRespawnNo(a0),d0
-		beq.s	@loc_15DC2
+		beq.s	10b
 		bset	#0,2(a2,d0.w)
-		bra.s	@loc_15DC2
-; ===========================================================================
+		bra.s	10b
+# ===========================================================================
 
-@type02:
+5:
 		tst.b	sto_active(a0)
-		bne.s	@isactive02
-		subq.w	#1,$36(a0)
-		bne.s	@loc_15E1E
+		bne.s	13f
+		subq.w	#1,0x36(a0)
+		bne.s	14f
 		move.b	#1,sto_active(a0)
 
-	@isactive02:
-		tst.w	$3A(a0)
-		beq.s	@loc_15E3C
-		subq.w	#2,$3A(a0)
+	13:
+		tst.w	0x3A(a0)
+		beq.s	15f
+		subq.w	#2,0x3A(a0)
 
-	@loc_15E1E:
-		move.w	$3A(a0),d0
+	14:
+		move.w	0x3A(a0),d0
 		btst	#0,obStatus(a0)
-		beq.s	@noflip02
+		beq.s	16f
 		neg.w	d0
-		addi.w	#$80,d0
+		addi.w	#0x80,d0
 
-	@noflip02:
+	16:
 		move.w	sto_origX(a0),d1
 		sub.w	d0,d1
 		move.w	d1,obX(a0)
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-@loc_15E3C:
+15:
 		subq.b	#1,obSubtype(a0)
 		clr.b	sto_active(a0)
 		lea	(v_objstate).w,a2
 		moveq	#0,d0
 		move.b	obRespawnNo(a0),d0
-		beq.s	@loc_15E1E
+		beq.s	14b
 		bclr	#0,2(a2,d0.w)
-		bra.s	@loc_15E1E
-; ===========================================================================
+		bra.s	14b
+# ===========================================================================
 
-@type03:
+17:
 		tst.b	sto_active(a0)
-		bne.s	@isactive03
-		tst.w	$3A(a0)
-		beq.s	@loc_15E6A
-		subq.w	#1,$3A(a0)
-		bra.s	@loc_15E8E
-; ===========================================================================
+		bne.s	18f
+		tst.w	0x3A(a0)
+		beq.s	19f
+		subq.w	#1,0x3A(a0)
+		bra.s	20f
+# ===========================================================================
 
-@loc_15E6A:
-		subq.w	#1,$36(a0)
-		bpl.s	@loc_15E8E
-		move.w	#$3C,$36(a0)
+19:
+		subq.w	#1,0x36(a0)
+		bpl.s	20f
+		move.w	#0x3C,0x36(a0)
 		move.b	#1,sto_active(a0)
 
-@isactive03:
-		addq.w	#8,$3A(a0)
-		move.w	$3A(a0),d0
-		cmp.w	$3C(a0),d0
-		bne.s	@loc_15E8E
+18:
+		addq.w	#8,0x3A(a0)
+		move.w	0x3A(a0),d0
+		cmp.w	0x3C(a0),d0
+		bne.s	20f
 		clr.b	sto_active(a0)
 
-@loc_15E8E:
-		move.w	$3A(a0),d0
+20:
+		move.w	0x3A(a0),d0
 		btst	#0,obStatus(a0)
-		beq.s	@noflip03
+		beq.s	21f
 		neg.w	d0
-		addi.w	#$38,d0
+		addi.w	#0x38,d0
 
-	@noflip03:
+	21:
 		move.w	sto_origY(a0),d1
 		add.w	d0,d1
 		move.w	d1,obY(a0)
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-@type04:
+6:
 		tst.b	sto_active(a0)
-		bne.s	@isactive04
-		tst.w	$3A(a0)
-		beq.s	@loc_15EBE
-		subq.w	#8,$3A(a0)
-		bra.s	@loc_15EF0
-; ===========================================================================
+		bne.s	22f
+		tst.w	0x3A(a0)
+		beq.s	23f
+		subq.w	#8,0x3A(a0)
+		bra.s	24f
+# ===========================================================================
 
-@loc_15EBE:
-		subq.w	#1,$36(a0)
-		bpl.s	@loc_15EF0
-		move.w	#$3C,$36(a0)
+23:
+		subq.w	#1,0x36(a0)
+		bpl.s	24f
+		move.w	#0x3C,0x36(a0)
 		move.b	#1,sto_active(a0)
 
-@isactive04:
-		move.w	$3A(a0),d0
-		cmp.w	$3C(a0),d0
-		beq.s	@loc_15EE0
-		addq.w	#8,$3A(a0)
-		bra.s	@loc_15EF0
-; ===========================================================================
+22:
+		move.w	0x3A(a0),d0
+		cmp.w	0x3C(a0),d0
+		beq.s	25f
+		addq.w	#8,0x3A(a0)
+		bra.s	24f
+# ===========================================================================
 
-@loc_15EE0:
-		subq.w	#1,$36(a0)
-		bpl.s	@loc_15EF0
-		move.w	#$3C,$36(a0)
+25:
+		subq.w	#1,0x36(a0)
+		bpl.s	24f
+		move.w	#0x3C,0x36(a0)
 		clr.b	sto_active(a0)
 
-@loc_15EF0:
-		move.w	$3A(a0),d0
+24:
+		move.w	0x3A(a0),d0
 		btst	#0,obStatus(a0)
-		beq.s	@noflip04
+		beq.s	26f
 		neg.w	d0
-		addi.w	#$38,d0
+		addi.w	#0x38,d0
 
-	@noflip04:
+	26:
 		move.w	sto_origY(a0),d1
 		add.w	d0,d1
 		move.w	d1,obY(a0)
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-@type05:
+27:
 		tst.b	sto_active(a0)
-		bne.s	@loc_15F3E
+		bne.s	28f
 		lea	(f_switch).w,a2
 		moveq	#0,d0
-		move.b	$3E(a0),d0
+		move.b	0x3E(a0),d0
 		btst	#0,(a2,d0.w)
-		beq.s	@locret_15F5C
+		beq.s	29f
 		move.b	#1,sto_active(a0)
 		lea	(v_objstate).w,a2
 		moveq	#0,d0
 		move.b	obRespawnNo(a0),d0
-		beq.s	@loc_15F3E
+		beq.s	28f
 		bset	#0,2(a2,d0.w)
 
-@loc_15F3E:
-		subi.l	#$10000,obX(a0)
-		addi.l	#$8000,obY(a0)
+28:
+		subi.l	#0x10000,obX(a0)
+		addi.l	#0x8000,obY(a0)
 		move.w	obX(a0),sto_origX(a0)
-		cmpi.w	#$980,obX(a0)
-		beq.s	@loc_15F5E
+		cmpi.w	#0x980,obX(a0)
+		beq.s	30f
 
-@locret_15F5C:
+29:
 		rts	
-; ===========================================================================
+# ===========================================================================
 
-@loc_15F5E:
+30:
 		clr.b	obSubtype(a0)
 		clr.b	sto_active(a0)
 		rts	
+

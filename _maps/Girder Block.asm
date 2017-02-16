@@ -1,18 +1,18 @@
-; ---------------------------------------------------------------------------
-; Sprite mappings - large girder block (SBZ)
-; ---------------------------------------------------------------------------
-Map_Gird:	dc.w @girder-Map_Gird
-@girder:	dc.b $C
-		dc.b $E8, $E, 0, 0, $A0
-		dc.b 0,	$E, $10, 0, $A0
-		dc.b $E8, $E, 0, 6, $C0
-		dc.b 0,	$E, $10, 6, $C0
-		dc.b $E8, $E, 0, 6, $E0
-		dc.b 0,	$E, $10, 6, $E0
-		dc.b $E8, $E, 0, 6, 0
-		dc.b 0,	$E, $10, 6, 0
-		dc.b $E8, $E, 0, 6, $20
-		dc.b 0,	$E, $10, 6, $20
-		dc.b $E8, $E, 0, 6, $40
-		dc.b 0,	$E, $10, 6, $40
-		even
+# ---------------------------------------------------------------------------
+# Sprite mappings - large girder block (SBZ)
+# ---------------------------------------------------------------------------
+Map_Gird:	dc.w AT_73_girder-Map_Gird
+AT_73_girder:	dc.b 0xC
+		dc.b 0xE8, 0xE, 0, 0, 0xA0
+		dc.b 0,	0xE, 0x10, 0, 0xA0
+		dc.b 0xE8, 0xE, 0, 6, 0xC0
+		dc.b 0,	0xE, 0x10, 6, 0xC0
+		dc.b 0xE8, 0xE, 0, 6, 0xE0
+		dc.b 0,	0xE, 0x10, 6, 0xE0
+		dc.b 0xE8, 0xE, 0, 6, 0
+		dc.b 0,	0xE, 0x10, 6, 0
+		dc.b 0xE8, 0xE, 0, 6, 0x20
+		dc.b 0,	0xE, 0x10, 6, 0x20
+		dc.b 0xE8, 0xE, 0, 6, 0x40
+		dc.b 0,	0xE, 0x10, 6, 0x40
+		.align 2

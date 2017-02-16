@@ -1,36 +1,36 @@
-; ---------------------------------------------------------------------------
-; Subroutine calculate a sine
+# ---------------------------------------------------------------------------
+# Subroutine calculate a sine
 
-; input:
-;	d0 = angle
+# input:
+#	d0 = angle
 
-; output:
-;	d0 = sine
-;	d1 = cosine
-; ---------------------------------------------------------------------------
+# output:
+#	d0 = sine
+#	d1 = cosine
+# ---------------------------------------------------------------------------
 
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
+# ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
 
 
 CalcSine:
-		andi.w	#$FF,d0
+		andi.w	#0xFF,d0
 		add.w	d0,d0
-		addi.w	#$80,d0
+		addi.w	#0x80,d0
 		move.w	Sine_Data(pc,d0.w),d1
-		subi.w	#$80,d0
+		subi.w	#0x80,d0
 		move.w	Sine_Data(pc,d0.w),d0
 		rts	
-; End of function CalcSine
+# End of function CalcSine
 
-; ===========================================================================
+# ===========================================================================
 
-Sine_Data:	incbin	"misc\sinewave.bin"	; values for a 360º sine wave
+Sine_Data:	.incbin	"misc/sinewave.bin"	/* values for a 360? sine wave */
 
-; ===========================================================================
+# ===========================================================================
 
-; The following code is unused garbage.
+# The following code is unused garbage.
 
-		if Revision=0
+		.if Revision==0
 		movem.l	d1-d2,-(sp)
 		move.w	d0,d1
 		swap	d1
@@ -50,7 +50,7 @@ Sine_Data:	incbin	"misc\sinewave.bin"	; values for a 360º sine wave
 		lsr.w	#1,d0
 		movem.l	(sp)+,d1-d2
 		rts	
-; ===========================================================================
+# ===========================================================================
 
 	loc_2C9A:
 		addq.w	#1,d0
@@ -58,5 +58,5 @@ Sine_Data:	incbin	"misc\sinewave.bin"	; values for a 360º sine wave
 		lsr.w	#1,d0
 		movem.l	(sp)+,d1-d2
 		rts	
-		else
-		endc
+		.else
+		.endc
