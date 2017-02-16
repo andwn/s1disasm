@@ -1,6 +1,9 @@
-s1disasm_git
+s1disasm_gnu
 ============
+This was a bad idea.
 
+Upstream readme
+---------------
 The very latest Sonic 1 Disassembly.
 
 See: http://info.sonicretro.org/Disassemblies
