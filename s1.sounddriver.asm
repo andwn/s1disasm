@@ -2475,23 +2475,23 @@ cfOpF9:
 		bra.w	WriteFMI
 # ===========================================================================
 
-# GAS hates me. Below the 4 commented lines in my "replacement"
+# GAS does not like the arithmetic going on with the SegaPCM lables here.
+# I think the reason is because it tries to do this stuff in the preprocessor phase,
+# which is before the label addresses are a known value.
+# The replacement values are a guesstimate. Assuming the address is ~0x78000
 
 Kos_Z80:
 		.incbin	"sound/z80_1.bin"		/* z80 Start-up code */
-#		.if (((SegaPCM&0xFF8000)/0x8000)&1)==1						/* Least bit of bank ID (bit 15 of address), being loaded into register a */
-#		dc.b 1
-#		.else
-		dc.b 0
-#		.endc
+#		dc.b ((SegaPCM&0xFF8000)/0x8000)&1		/* Least bit of bank ID (bit 15 of address), being loaded into register a */
+		dc.b 0x01
 		dc.b 0x32,0x00,0x60			/* ld	(zBankRegister),a		; Latch it to bank register, initializing bank switch */
 		dc.b 0x06,0x08				/* ld	b,8				; Number of bits remaining to complete bank switch */
 		dc.b 0x3E				/* ld	a,X				; Load into register a... */
 #		dc.b ((SegaPCM&0xFF8000)/0x8000)>>1						/* ... the remaining bits of bank ID (bits 16-23) */
-		dc.b 0x00
+		dc.b 0x07
 		.incbin	"sound/z80_2.bin"							/* Finishes bank switch, Jman2050 table, DAC sample loop */
 #		dc.w ((SegaPCM&0xFF)<<8)+((SegaPCM&0x7F00)>>8)|0x80				/* Pointer to Sega PCM, relative to start of ROM bank (i.e., little_endian($8000 + SegaPCM&$7FFF), loaded into de */
-		dc.w 0x1000
+		dc.w 0x0096
 		dc.b 0x21				/* ld	hl,XX				; Load into register hl... */
 #		dc.w (((SegaPCM_End-SegaPCM)&0xFF)<<8)+(((SegaPCM_End-SegaPCM)&0xFF00)>>8)	/* ... the size of the Sega PCM (little endian) */
 		dc.w 0x7869
