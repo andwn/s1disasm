@@ -219,12 +219,12 @@ SetupValues:	dc.w 0x8000		/* VDP register start number */
 # ===========================================================================
 
 GameProgram:
-		tst.w	(vdp_control_port).l
-		btst	#6,(0xA1000D).l
-		beq.s	CheckSumCheck
-		cmpi.l	#0x696e6974,(v_init).w /* has checksum routine already run? */
-		beq.w	GameInit	/* if yes, branch */
-#		bra.w	GameInit
+#		tst.w	(vdp_control_port).l
+#		btst	#6,(0xA1000D).l
+#		beq.s	CheckSumCheck
+#		cmpi.l	#0x696e6974,(v_init).w /* has checksum routine already run? */
+#		beq.w	GameInit	/* if yes, branch */
+		bra.w	GameInit
 
 CheckSumCheck:
 		movea.l	#ErrorTrap,a0	/* start	checking bytes after the header	($200) */
