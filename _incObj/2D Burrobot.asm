@@ -36,13 +36,14 @@ Burro_Action:	/* Routine 2 */
 		bsr.w	AnimateSprite
 		bra.w	RememberState
 # ===========================================================================
-burroData:		dc.w burroData-1
-		dc.w Burro_Move-1
-		dc.w Burro_Jump-1
-		dc.w Burro_ChkSonic-1
+burroData:
+		dc.w Burro_ChangeDir-burroData
+		dc.w Burro_Move-burroData
+		dc.w Burro_Jump-burroData
+		dc.w Burro_ChkSonic-burroData
 # ===========================================================================
 
-2:
+Burro_ChangeDir:
 		subq.w	#1,burro_timedelay(a0)
 		bpl.s	3f
 		addq.b	#2,ob2ndRout(a0)
