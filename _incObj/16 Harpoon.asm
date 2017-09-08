@@ -30,10 +30,10 @@ Harp_Move:	/* Routine 2 */
 		bsr.w	AnimateSprite
 		moveq	#0,d0
 		move.b	obFrame(a0),d0	/* get frame number */
-		move.b	1(pc,d0.w),obColType(a0) /* get collision type */
+		move.b	Harp_ColData(pc,d0.w),obColType(a0) /* get collision type */
 		bra.w	RememberState
 
-	1:
+	Harp_ColData:
 		dc.b 0x9B, 0x9C, 0x9D, 0x9E, 0x9F, 0xA0
 		.align 2
 
